@@ -1,0 +1,12 @@
+{
+  "uid": "github.com/fireconsole/widget.console/server",
+  "name": "fireconsole.widget.console.server",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./server.js",
+  "dependencies": {
+    "send": "^0.7.3",
+    "express": "^4.7.2",
+    "pinf-for-nodejs": "git://github.com/pinf/pinf-for-nodejs.git#3c0946265dee0876d0d7ed2a221db18419f789ae"
+  }
+}

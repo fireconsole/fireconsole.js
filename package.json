@@ -1,0 +1,10 @@
+{
+  "uid": "github.com/fireconsole/widget.console",
+  "name": "fireconsole.widget.console",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "install": "cd client ; npm install ; cd .. ; cd server ; npm install ; cd ..",
+    "start": "rm -Rf client/.rt ; cd server ; node server.js"
+  }
+}

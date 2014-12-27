@@ -1,0 +1,16 @@
+{
+  "uid": "github.com/fireconsole/widget.console/client",
+  "main": "./client.js",
+  "dependencies": {
+    "q": "~1.1.2"
+  },
+  "mappings": {
+    "q": "./node_modules/q",
+    "widget": "../widget"
+  },
+  "exports": {
+    "bundles": {
+      "client.js": "./client.js"
+    }
+  }
+}

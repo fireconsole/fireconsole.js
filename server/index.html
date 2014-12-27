@@ -1,0 +1,14 @@
+<script src="/lib/pinf-loader-js/loader.js"></script>
+<script>
+	PINF.sandbox("/client.js", function (sandbox) {
+		sandbox.main();
+	}, function (err) {
+		console.error("Error while loading bundle '/client.js':", err.stack);
+	});
+</script>
+
+<body>
+
+Hello World from index.html
+
+</body>

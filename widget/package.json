@@ -1,0 +1,7 @@
+{
+  "uid": "github.com/fireconsole/widget.console/widget",
+  "main": "./widget.js",
+  "mappings": {
+    "q": "../client/node_modules/q"
+  }
+}
