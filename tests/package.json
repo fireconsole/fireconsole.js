@@ -1,0 +1,12 @@
+{
+  "uid": "github.com/fireconsole/widget.console/tests",
+  "main": "./tests.js",
+  "mappings": {
+    "q": "../client/node_modules/q"
+  },
+  "exports": {
+    "bundles": {
+      "tests.js": "./tests.js"
+    }
+  }
+}

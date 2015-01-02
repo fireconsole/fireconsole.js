@@ -1,0 +1,4 @@
+{
+  "uid": "github.com/fireconsole/widget.console/renderers",
+  "main": "./loader.js"
+}

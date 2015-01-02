@@ -1,0 +1,57 @@
+
+
+DIV.__CSS_PREFIX__-sandbox {
+	box-sizing: border-box;
+	border: 0px;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+	margin-bottom: 2px;
+	position: relative;
+}
+
+DIV.__CSS_PREFIX__-menu {
+	box-sizing: border-box;
+	border: 0px;
+	padding: 1px;
+	margin: 0px;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	height: 20px;
+}
+
+DIV.__CSS_PREFIX__-menu > BUTTON {
+	height: 100%;
+	border: 1px solid black;
+	border-collapse: collapse;
+	padding: 3px;
+	padding-left: 5px;
+	padding-right: 5px;
+	margin: 0px;
+	margin-right: 1px;
+}
+
+DIV.__CSS_PREFIX__-graph {
+	box-sizing: border-box;
+	border: 2px solid red;
+	margin: 0px;
+	padding: 20px;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+}
+
+DIV.__CSS_PREFIX__-console {
+	box-sizing: border-box;
+	border: 3px solid blue;
+	margin: 0px;
+	padding: 20px;
+	width: 100%;
+	position: absolute;
+	left: 0px;
+	top: 21px;
+}
+

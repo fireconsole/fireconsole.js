@@ -1,0 +1,27 @@
+<html>
+
+<head>
+	<link rel="stylesheet" href="/widget/widget.css">
+	<link rel="stylesheet" href="/style.css">
+	<script src="/jquery-2.1.3.js"></script>
+	<script src="/lib/pinf-loader-js/loader.js"></script>
+	<script>
+		PINF.sandbox("/client.js", function (sandbox) {
+			sandbox.main();
+		}, function (err) {
+			console.error("Error while loading bundle '/client.js':", err.stack);
+		});
+	</script>
+</head>
+
+<body>
+
+	<div id="console1">		
+	</div>
+
+	<div id="console2">
+	</div>
+
+</body>
+
+</html>

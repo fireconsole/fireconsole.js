@@ -2,6 +2,11 @@
   "uid": "github.com/fireconsole/widget.console/widget",
   "main": "./widget.js",
   "mappings": {
-    "q": "../client/node_modules/q"
+    "q": "../client/node_modules/q",
+    "domplate": "./node_modules/domplate",
+    "renderers": "../renderers"
+  },
+  "dependencies": {
+    "domplate": "~0.2.0"
   }
 }

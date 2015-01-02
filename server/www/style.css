@@ -1,0 +1,27 @@
+
+HTML,
+BODY {
+	width: 100%;
+	height: 100%;
+	padding: 0px;
+	margin: 0px;
+	position: relative;
+}
+
+#console1 {
+	position: absolute;
+	top: 5%;
+	left: 2%;
+	width: 47%;
+	height: 89%;
+	border: 1px solid black;
+}
+
+#console2 {
+	position: absolute;
+	top: 5%;
+	left: 51%;
+	width: 47%;
+	height: 89%;
+	border: 1px solid black;
+}
