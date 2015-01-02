@@ -14,7 +14,15 @@ exports.main = function () {
 		var console2 = new CONSOLE_WIDGET.Widget();
 
 		// TODO: Load jQuery via PINF bundler.
-		console2.attach($("#console2"));
+		console2.attach($("#console2")).then(function (context) {
+
+			return context.callApi("menu.close").then(function () {
+
+				return context.callApi("view.show", {
+					name: "graph"
+				});
+			});
+		});
 
 	} catch (err) {
 

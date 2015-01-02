@@ -49,6 +49,8 @@ Widget.prototype.attach = function (domNode) {
 
 	var self = this;
 
+	var deferred = Q.defer();
+
 	$(window).ready(function () {
 
 		var node = self.domNode = $('<div id="' + self.widgetId + '" class="fc-widget-console"></div>').appendTo(domNode);
@@ -58,26 +60,12 @@ Widget.prototype.attach = function (domNode) {
 			throw new Error("TODO: Inject CSS into DOM by taking source from WIDGET_CSS");
 		}
 
-		var html = [];
-
-		html.push('<div class="fc-widget-console-viewport">');
-			html.push('<div class="fc-widget-console-panel">');
-			html.push('</div>');
-		html.push('</div>');
-
-		node.html(html.join("\n"));
-
-
-		var menuNode = $(".fc-widget-console-menu", node);
-		var viewportNode = $(".fc-widget-console-viewport", node);
-		var panelNode = $(".fc-widget-console-panel", node);
-
 		return RENDERERS.bootIntoNode({
 			API: {
 				Q: Q
 			},
 			widgetIndex: self.widgetIndex,
-			domNode: panelNode
+			domNode: node
 		}).then(function (loader) {
 
 			self.loader = loader;
@@ -104,19 +92,16 @@ Widget.prototype.attach = function (domNode) {
 						console.error("Error loading tests", err.stack);
 					});
 				}
-			}).then(function () {
-
-				function redraw() {
-					viewportNode.height(domNode.height() - menuNode.height() - 4);
-				}
-				$(window).resize(function() {
-					return redraw();
-				});
-				return redraw();
 			});
+
+		}).then(function () {
+			return deferred.resolve(self.loader);
 		}).fail(function (err) {
 			console.error(err.stack);
+			return deferred.reject(err);
 		});
 	});
+
+	return deferred.promise;
 }
 

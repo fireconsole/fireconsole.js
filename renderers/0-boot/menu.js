@@ -14,6 +14,43 @@ exports.init = function (context) {
 		});
 
 		return Q.resolve();
+
+	}).then(function () {
+
+		return context.registerApi("menu.close", function (args) {
+			menuNode.hide();
+			return Q.resolve();
+		});
+
+	}).then(function () {
+
+		return context.callApi("menu.add.button", {
+			lid: "close-menu",
+			label: "Close Menu",
+			command: function () {
+				context.callApi("menu.close");
+			}
+		});
+	}).then(function () {
+
+		// Triple-click to open menu.
+
+		var timer,          // timer required to reset
+		    timeout = 200;  // timer reset in ms
+
+		context.domNode.on("dblclick", function (evt) {
+		    timer = setTimeout(function () {
+		        timer = null;
+		    }, timeout);
+		});
+		context.domNode.on("click", function (evt) {
+		    if (timer) {
+		        clearTimeout(timer);
+		        timer = null;
+
+		        menuNode.show();
+		    }
+		});
 	});
 }
 

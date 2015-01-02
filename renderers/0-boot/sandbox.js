@@ -50,9 +50,15 @@ exports.init = function (context) {
 	});
 	return Q.when(done, function () {
 
-		return addView("console", require("./console")).then(function () {
+		return addView("graph", require("./graph")).then(function () {
 
-			return addView("graph", require("./graph"));
+			return addView("console", require("./console"));
+
+		}).then(function () {
+
+			return context.registerApi("view.show", function (args) {
+				return showView(args.name);
+			});
 
 		}).then(function () {
 
