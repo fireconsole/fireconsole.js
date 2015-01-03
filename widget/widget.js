@@ -1,6 +1,10 @@
 
 var Q = require("q");
 var RENDERERS = require("renderers");
+var RECEIVERS = require("receivers");
+
+console.log("RECEIVERS", RECEIVERS);
+
 
 // TODO: Load via PINF bundler.
 var $ = window.$;
@@ -91,6 +95,13 @@ Widget.prototype.attach = function (domNode) {
 					}, function (err) {
 						console.error("Error loading tests", err.stack);
 					});
+				}
+			});
+		}).then(function () {
+
+			return RECEIVERS.init({
+				API: {
+					Q: Q
 				}
 			});
 

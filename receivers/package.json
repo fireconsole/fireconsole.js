@@ -1,0 +1,8 @@
+{
+  "uid": "github.com/fireconsole/widget.console/receivers",
+  "main": "./wildfire.js",
+  "mappings": {
+      "wildfire": "../../wildfire-for-js",
+      "modules": "../../pinf-bridgelib-js"
+  }
+}

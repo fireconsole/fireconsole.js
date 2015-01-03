@@ -1,4 +1,11 @@
 {
-  "uid": "github.com/fireconsole/widget.console/renderers",
-  "main": "./loader.js"
+	"uid": "github.com/fireconsole/widget.console/renderers",
+	"main": "./loader.js",
+	"mappings": {
+		"q": "../widget/node_modules/q",
+		"insight.renderers.default": "../../insight.renderers.default",
+        "modules": "../../pinf-bridgelib-js",
+        "insight": "../../insight-for-js",
+		"domplate": "../../domplate"
+	}
 }

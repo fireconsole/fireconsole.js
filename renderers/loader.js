@@ -1,4 +1,10 @@
 
+var INSIGHT_RENDERERS_DEFAULT = require("insight.renderers.default");
+var RENDERER = require("./renderer");
+
+console.log("INSIGHT_RENDERERS_DEFAULT", INSIGHT_RENDERERS_DEFAULT);
+console.log("RENDERER", RENDERER);
+
 
 // @see http://stackoverflow.com/a/19525797
 (function ($) {
