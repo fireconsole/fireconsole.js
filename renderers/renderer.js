@@ -26,15 +26,6 @@ var modules = {};
 
 var renderWrappers = {};
 
-var externalBravoJS = null;
-exports.setBravoJS = function(inst) {
-	externalBravoJS = inst;
-}
-function getBravoJS() {
-	if (externalBravoJS !== null)
-		return externalBravoJS;
-	return bravojs;
-}
 
 // TODO: Keep this on a supervisor level in the future
 var injectedCss = {};
@@ -275,7 +266,11 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
     },
     getResourceBaseUrl: function(module)
     {
-        return require.sandbox.id + "/" + module.id.replace(/\/[^\/]+\.js$/, "/");
+
+//console.log("module.id", module.id);
+//console.log("MATCH",  module.id.replace(/^lib\/insight\//, "resources"));
+
+        return require.sandbox.id + "/" + module.id.split("/")[0] + "/resources/";
 /*
     	var bravojs = getBravoJS();
     	if (/^memory:\/\//.test(bravojs.url))
@@ -375,7 +370,7 @@ function renderMessage(domNode, message, options, mode)
     if (typeof message.meta == "string")
         message.meta = JSON.decode(message.meta);
 
-    if (typeof message == "string")
+    if (typeof message === "string")
     {
         if (mode == "append")
         {

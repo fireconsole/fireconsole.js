@@ -65,3 +65,10 @@ DIV.__CSS_PREFIX__-console-panel {
 	overflow: none;
 }
 
+DIV.__CSS_PREFIX__-console-panel > DIV.message {
+	border: 0px;
+    background-color: #ffffff;
+    font-family: Lucida Grande, Tahoma, sans-serif;
+    font-size: 11px;
+}
+
