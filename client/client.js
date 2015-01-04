@@ -8,7 +8,11 @@ exports.main = function () {
 		var console1 = new CONSOLE_WIDGET.Widget();
 
 		// TODO: Load jQuery via PINF bundler.
-		console1.attach($("#console1"));
+		console1.attach($("#console1")).then(function (context) {
+			return context.callApi("tests.load").then(function () {
+
+			});
+		});
 
 /*
 		var console2 = new CONSOLE_WIDGET.Widget();

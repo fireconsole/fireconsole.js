@@ -8,6 +8,10 @@ var UTIL = require("modules/util"),
     Q = require("modules/q"),
     RESOURCE = require("modules/resource");
 
+
+var INSIGHT_RENDERERS_DEFAULT = require("insight.renderers.default");
+
+
 var RELOADING = false;
 
 var LOADER = null;
@@ -165,14 +169,14 @@ function ensureTemplatePacks()
 {
     var PACK;
 
-    PACK = require("templates/php/pack");
+    PACK = require("insight.renderers.default/php/pack");
     if (!templatePacks.byid["php"])
     {
     	templatePacks.byid["php"] = PACK;
         templatePacks.list.push(PACK);
     }
 
-    PACK = require("templates/insight/pack");
+    PACK = require("insight.renderers.default/insight/pack");
     if (!templatePacks.byid["insight"])
     {
     	templatePacks.byid["insight"] = PACK;
@@ -196,6 +200,7 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
     },
     getTemplateModuleForNode: function(node)
     {
+//console.log("getTemplateModuleForNode", node);        
     	try {
 	        ensureTemplatePacks();
 	        var found;
@@ -253,8 +258,8 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
 	            return false;
 	        }
 	        return found;
-    	} catch(e) {
-    		console.error("Error getting template for node", e, node);
+    	} catch (err) {
+    		console.error("Error getting template for node", err.stack, node);
     	}
     },
     getTemplateForNode: function(node)
@@ -270,6 +275,8 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
     },
     getResourceBaseUrl: function(module)
     {
+        return require.sandbox.id + "/" + module.id.replace(/\/[^\/]+\.js$/, "/");
+/*
     	var bravojs = getBravoJS();
     	if (/^memory:\/\//.test(bravojs.url))
     	{
@@ -293,6 +300,7 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
     	{
             return RESOURCE.forPackage(module).getResourceBaseUrl();//bravojs.url.match(/^(\w*:\/)\//)[1] + pkgId + "@/resources/";
     	}
+*/
     },
     logger: {
         log: function()
@@ -350,6 +358,8 @@ function renderMessage(domNode, message, options, mode)
     options = options || {};
     options.view = options.view || ["summary"];
     options.on = options.on || {};
+
+//console.log("renderMessage", domNode, message, options, mode);
 
     var helpers = UTIL.copy(commonHelpers);
     helpers.helpers = helpers;
@@ -442,10 +452,10 @@ function renderMessage(domNode, message, options, mode)
 
     if (typeof message.template != "undefined")
     {
-        // ASSUMPTION: module.mappings["templates"] resolves to 'github.com/pinf/insight-renderer-templates/' package
+        // ASSUMPTION: module.mappings["templates"] resolves to 'github.com/insight/insight.renderers.default/' package
         // TODO: Arbitrary template loading via authorization callback
-        if (typeof message.template.id != "undefined" && message.template.id != "github.com/pinf/insight-renderer-templates/")
-            throw new Error("Only templates from 'github.com/pinf/insight-renderer-templates/' are supported at this time!");
+        if (typeof message.template.id != "undefined" && message.template.id != "github.com/insight/insight.renderers.default/")
+            throw new Error("Only templates from 'github.com/insight/insight.renderers.default/' are supported at this time!");
 
         function render(template)
         {
@@ -506,44 +516,53 @@ function renderMessage(domNode, message, options, mode)
             
             if (typeof options.wrapper != "undefined")
             {
-                if (options.wrapper.id != "github.com/pinf/insight-renderer-templates/")
-                    throw new Error("Only wrappers from 'github.com/pinf/insight-renderer-templates/' are supported at this time!");
+                if (options.wrapper.id != "github.com/insight/insight.renderers.default/")
+                    throw new Error("Only wrappers from 'github.com/insight/insight.renderers.default/' are supported at this time!");
 
                 function doRenderWrapped(id)
                 {
                 	message.render = renderWrapped;
                 	try {
                 		message.template = template.getTemplate(helpers);
-                	} catch(e) {
-                		console.warn("Error getting template", e);
+                	} catch (err) {
+                		console.warn("Error getting template", err.stack);
                 	}
                 	message.meta = message.meta || {};
-
+//console.log("ID", id);
                 	try {
-                		require(id).renderMessage(message, div, options, helpers);
-                	} catch(e) {
-                		console.warn("Error rendering message", e);
+                		require("insight.renderers.default/lib/" + id).renderMessage(message, div, options, helpers);
+                	} catch (err) {
+                		console.warn("Error rendering message", err.stack);
                 	}
 
                 	if (typeof options.callback === "function")
                     	options.callback(div);
                 }
 
-                var wrapperId = require.id("templates/" + options.wrapper.module, true);
+//console.log("load WRAPPER 1", "insight.renderers.default/lib/" + options.wrapper.module);
+//console.log("require", require);
 
-                if (renderWrappers[wrapperId] && Q.isPromise(renderWrappers[wrapperId]))
-                {
+                doRenderWrapped(options.wrapper.module);
+/*
+                var wrapperId = require.id("insight.renderers.default/lib/" + options.wrapper.module);
+
+console.log("wrapperId", wrapperId);
+
+                if (renderWrappers[wrapperId] && Q.isPromise(renderWrappers[wrapperId])) {
 					Q.when(renderWrappers[wrapperId], doRenderWrapped);
                 }
-                else
-                if (renderWrappers[wrapperId] || require.isMemoized(wrapperId))
-            	{
+                else {
+//                else if (renderWrappers[wrapperId] || require.isMemoized(wrapperId)) {
                 	doRenderWrapped(wrapperId);
             	}
-                else
-                {
-                	var result = Q.defer();                	
-                    module.load("templates/" + options.wrapper.module, function(id)
+*/
+/*                
+                else {
+throw new Error("TODO: Implement dynamic loading of templates.");                    
+                	var result = Q.defer();           
+
+console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper.module);
+                    module.load("insight.renderers.default/lib/" + options.wrapper.module, function(id)
                     {
                     	doRenderWrapped(id);
                     	renderWrappers[wrapperId] = true;
@@ -551,6 +570,7 @@ function renderMessage(domNode, message, options, mode)
                     });
                     renderWrappers[wrapperId] = result.promise;
                 }
+*/
             }
             else
                 renderWrapped(div);
@@ -570,17 +590,26 @@ function renderMessage(domNode, message, options, mode)
             // remove all modules for this template from previous loads
             modules[tplId][0].forEach(function(id)
             {
-                delete getBravoJS().pendingModuleDeclarations[id];
-                delete getBravoJS().requireMemo[id];
+//                delete getBravoJS().pendingModuleDeclarations[id];
+//                delete getBravoJS().requireMemo[id];
             });
             delete modules[tplId];
         }
 
         if (!modules[tplId])
         {
-            modules[tplId] = [Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo))];
+//            modules[tplId] = [Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo))];
+//console.log("lod module dynamiclly!", message.template.module);
 
-            module.load("templates/" + message.template.module, function(id)
+//console.log("INSIGHT_RENDERERS_DEFAULT", INSIGHT_RENDERERS_DEFAULT);
+
+//console.log("LOAD MODULE ASYNC", "insight.renderers.default/" + message.template.module);
+
+            // TODO: Use `require.async` to load templates dynamically. For now they are already memoized by the pack helper by including them statically.
+            var template = require("insight.renderers.default/lib/" + message.template.module);
+//console.log("template", template);
+/*
+            moduleload("templates/" + message.template.module, function(id)
             {
             	var template = modules[tplId][1] = require(id);
 
@@ -599,6 +628,16 @@ function renderMessage(domNode, message, options, mode)
                     return (modules[tplId][0].indexOf(id) === -1);
                 });
             });
+*/            
+
+            if (typeof template.getTemplatePack == "function") {
+                var templatePack = template.getTemplatePack();
+                if (templatePacks.list.indexOf(templatePack) === -1) {
+                    templatePacks.list.push(templatePack);
+                }
+            }
+
+            render(template);
         }
         else
             render(modules[tplId][1]);

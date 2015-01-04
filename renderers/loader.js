@@ -1,10 +1,4 @@
 
-var INSIGHT_RENDERERS_DEFAULT = require("insight.renderers.default");
-var RENDERER = require("./renderer");
-
-console.log("INSIGHT_RENDERERS_DEFAULT", INSIGHT_RENDERERS_DEFAULT);
-console.log("RENDERER", RENDERER);
-
 
 // @see http://stackoverflow.com/a/19525797
 (function ($) {
@@ -55,6 +49,15 @@ Loader.prototype.callApi = function (id, args) {
 	}
 }
 
+Loader.prototype.registerApi = function (id, handler) {
+	var self = this;
+	if (self.api[id]) {
+		return self.API.Q.reject(new Error("API for id '" + id + "' already registered!"));
+	}
+	self.api[id] = handler;
+	return self.API.Q.resolve();
+}
+
 Loader.prototype.load = function (id) {
 	var self = this;
 
@@ -75,11 +78,7 @@ Loader.prototype.load = function (id) {
 				domNode: self.domNode,
 				cssPrefix: "_fcw_" + id.split("/")[0].replace(/\//g, "_"),
 				registerApi: function (id, handler) {
-					if (self.api[id]) {
-						return self.API.Q.reject(new Error("API for id '" + id + "' already registered!"));
-					}
-					self.api[id] = handler;
-					return self.API.Q.resolve();
+					return self.registerApi(id, handler);
 				},
 				callApi: function (id, args) {
 					return self.callApi(id, args);

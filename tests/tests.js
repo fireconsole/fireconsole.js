@@ -7,8 +7,11 @@ function runTest (API, name) {
 	var deferred = Q.defer();
 
 	function loadModule (callback) {
-		if (name === "01-HelloWorld") {
-			return callback(null, require("./01-HelloWorld"));
+		if (name === "01-Wildfire-FireConsole-Init") {
+			return callback(null, require("./01-Wildfire-FireConsole-Init"));
+		} else
+		if (name === "02-Wildfire-Insight-Console-Random") {
+			return callback(null, require("./02-Wildfire-Insight-Console-Random"));
 		} else {
 			return callback(new Error("Action: You need to add 'require(\"./" + name + "\")' to this module!"));
 		}
@@ -45,7 +48,8 @@ exports.main = function (API, callback) {
 	console.log("Running tests ...");
 
 	[
-		"01-HelloWorld"
+		"01-Wildfire-FireConsole-Init",
+		"02-Wildfire-Insight-Console-Random"
 	].forEach(function (name) {
 		return done = Q.when(done, function () {
 			return runTest(API, name);

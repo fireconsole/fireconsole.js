@@ -4,7 +4,8 @@
   "mappings": {
     "q": "./node_modules/q",
     "renderers": "../renderers",
-    "receivers": "../receivers"
+    "receivers": "../receivers",
+    "insight": "../../insight-for-js"
   },
   "dependencies": {
     "q": "~1.1.2"

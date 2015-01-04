@@ -2,8 +2,7 @@
 var Q = require("q");
 var RENDERERS = require("renderers");
 var RECEIVERS = require("receivers");
-
-console.log("RECEIVERS", RECEIVERS);
+var INSIGHT_ENCODER = require("insight/encoder/default");
 
 
 // TODO: Load via PINF bundler.
@@ -20,16 +19,35 @@ var Widget = exports.Widget = function () {
 
 	self.domNode = null;
 
-	console.log("init fireconsole console widget");
+
+    var insightEncoder = INSIGHT_ENCODER.Encoder();
+
 
 	self.API = {
-		fireconsole: {
+		Q: Q,
+		console: {
 			log: function () {
 				var args = Array.prototype.slice.call(arguments);
 				return self.logLine(new Error().stack, {}, args);
 			}
+		},
+		// Is set below.
+		wildfire: null,
+		fireconsole: {
+			callApi: function (name, args) {
+				return self.API.wildfire.fireconsole.send({
+			    	method: "callApi",
+			    	args: [
+			    		name,
+			    		args || undefined
+			    	]
+			    });
+		    }
+		},
+		insight: {
+			encode: insightEncoder.encode.bind(insightEncoder)
 		}
-	};
+    };
 
 	self.loader = null;
 
@@ -74,35 +92,55 @@ Widget.prototype.attach = function (domNode) {
 
 			self.loader = loader;
 
+			function loadTests() {
+				var deferred = Q.defer();
+
+				console.log("Loading tests ...");
+
+				// TODO: Load from remote URL.
+				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
+
+					return TESTS_BUNDLE.main(self.API, function (err) {
+						if (err) {
+							console.error("Error running tests", err.stack);
+							return deferred.reject(err);
+						}
+						return deferred.resolve();
+					});
+
+				}, function (err) {
+					console.error("Error loading tests", err.stack);
+					deferred.reject(err);
+				});
+				return deferred.promise;
+			}
+
 			return self.loader.callApi("menu.add.button", {
 				lid: "load-tests",
 				label: "Load Tests",
 				command: function () {
-
-					console.log("Loading tests ...");
-
-					// TODO: Load from remote URL.
-					return require.sandbox("/tests.js", function(TESTS_BUNDLE) {
-
-						return TESTS_BUNDLE.main(self.API, function (err) {
-							if (err) {
-								console.error("Error running tests", err.stack);
-								return;
-							}
-							return;
-						});
-
-					}, function (err) {
-						console.error("Error loading tests", err.stack);
-					});
+					return loadTests();
 				}
+			}).then(function () {
+
+console.log("self.loader", self.loader);
+
+
+				return self.loader.registerApi("tests.load", function (args) {
+					return loadTests();
+				});
 			});
 		}).then(function () {
 
 			return RECEIVERS.init({
 				API: {
 					Q: Q
-				}
+				},
+				callApi: self.loader.callApi.bind(self.loader)
+			}).then(function (receiversApi) {
+
+				self.API.wildfire = receiversApi.wildfire;
+
 			});
 
 		}).then(function () {
