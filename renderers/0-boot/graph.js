@@ -1,8 +1,13 @@
 
+var HARVIEWER = require("harviewer");
+
+console.log("HARVIEWER", HARVIEWER);
+
 
 exports.init = function (context) {
 
 	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
 
 
 	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);

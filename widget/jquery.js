@@ -13,7 +13,6 @@
  */
 
 (function( global, factory ) {
-
 	if ( typeof module === "object" && typeof module.exports === "object" ) {
 		// For CommonJS and CommonJS-like environments where a proper `window`
 		// is present, execute the factory and get jQuery.
@@ -28,10 +27,10 @@
 				if ( !w.document ) {
 					throw new Error( "jQuery requires a window with a document" );
 				}
-				return factory( w );
+				return factory( w, true );
 			};
 	} else {
-		factory( global );
+		factory( global, true );
 	}
 
 // Pass this if window is not defined yet

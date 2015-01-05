@@ -3,6 +3,7 @@
 exports.init = function (context) {
 
 	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
 
 	var menuNode = $('<div class="' + context.cssPrefix + '-menu"></div>').appendTo(context.domNode);
 

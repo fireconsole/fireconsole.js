@@ -3,6 +3,7 @@
 exports.init = function (context) {
 
 	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
 
 	var sandboxNode = $('<div class="' + context.cssPrefix + '-sandbox"></div>').appendTo(context.domNode);
 

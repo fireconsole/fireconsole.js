@@ -5,6 +5,7 @@ var RENDERER = require("../renderer");
 exports.init = function (context) {
 
 	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
 
 	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);
 

@@ -43,6 +43,12 @@ return PINF.main(function(options, callback) {
 		}).on("error", next).pipe(res);
 	});
 
+	app.get(/^\/lib\/harviewer\/(.+)$/, function (req, res, next) {
+		return SEND(req, req.params[0], {
+			root: PATH.join(__dirname, "../../harviewer")
+		}).on("error", next).pipe(res);
+	});
+
 	app.get(/^\/lib\/pinf-loader-js\/(.+)$/, function (req, res, next) {
 		return SEND(req, req.params[0], {
 			root: PATH.join(__dirname, "node_modules/pinf-for-nodejs/node_modules/pinf-loader-js")

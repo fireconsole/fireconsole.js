@@ -4,9 +4,19 @@ var RENDERERS = require("renderers");
 var RECEIVERS = require("receivers");
 var INSIGHT_ENCODER = require("insight/encoder/default");
 
+var JQUERY = require("./jquery");
 
-// TODO: Load via PINF bundler.
-var $ = window.$;
+// @see http://stackoverflow.com/a/19525797
+(function ($) {
+  $.each(['show', 'hide'], function (i, ev) {
+    var el = $.fn[ev];
+    $.fn[ev] = function () {
+      this.trigger(ev);
+      el.apply(this, arguments);
+    };
+  });
+})(JQUERY);
+
 
 // TODO: Uncomment once bundler supports bundling css files
 //var WIDGET_CSS = require("./widget.css");
@@ -25,6 +35,7 @@ var Widget = exports.Widget = function () {
 
 	self.API = {
 		Q: Q,
+		JQUERY: JQUERY,
 		console: {
 			log: function () {
 				var args = Array.prototype.slice.call(arguments);
@@ -73,9 +84,9 @@ Widget.prototype.attach = function (domNode) {
 
 	var deferred = Q.defer();
 
-	$(window).ready(function () {
+	JQUERY(window).ready(function () {
 
-		var node = self.domNode = $('<div id="' + self.widgetId + '" class="fc-widget-console"></div>').appendTo(domNode);
+		var node = self.domNode = JQUERY('<div id="' + self.widgetId + '" class="fc-widget-console"></div>').appendTo(domNode);
 
 		// TODO: Inject CSS into DOM by taking source from WIDGET_CSS
 		if (typeof WIDGET_CSS !== "undefined") {
@@ -84,7 +95,8 @@ Widget.prototype.attach = function (domNode) {
 
 		return RENDERERS.bootIntoNode({
 			API: {
-				Q: Q
+				Q: Q,
+				JQUERY: JQUERY
 			},
 			widgetIndex: self.widgetIndex,
 			domNode: node

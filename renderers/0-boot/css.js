@@ -3,6 +3,7 @@
 exports.init = function (context) {
 
 	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
 
 	return context.registerApi("css.load", function (args) {
 

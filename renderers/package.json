@@ -6,6 +6,7 @@
 		"insight.renderers.default": "../../insight.renderers.default",
         "modules": "../../pinf-bridgelib-js",
         "insight": "../../insight-for-js",
-		"domplate": "../../domplate"
+		"domplate": "../../domplate",
+		"harviewer": "../../harviewer/webapp/scripts"
 	}
 }
