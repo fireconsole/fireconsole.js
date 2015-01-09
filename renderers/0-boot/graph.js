@@ -1,6 +1,4 @@
 
-var HARVIEWER = require("harviewer");
-
 
 exports.init = function (context) {
 
@@ -9,10 +7,7 @@ exports.init = function (context) {
 
 
 	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);
-	var graphNode = $('<div id="content" previewcols="url status size timeline" class="' + context.cssPrefix + '-graph">graph</div>').appendTo(context.domNode);
-
-
-	HARVIEWER.init(graphNode[0]);
+	var graphNode = $('<div class="' + context.cssPrefix + '-graph">graph</div>').appendTo(context.domNode);
 
 
 	function redraw() {

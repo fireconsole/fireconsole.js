@@ -12,6 +12,13 @@ return PINF.main(function(options, callback) {
 
 	var app = EXPRESS();
 
+	app.get(/^\/plugins\/harviewer\/(plugin.+)$/, PINF.hoist(PATH.join(__dirname, "../../harviewer/fireconsole/program.json"), options.$pinf.makeOptions({
+		debug: true,
+		verbose: true,
+		PINF_RUNTIME: "",
+        $pinf: options.$pinf
+    })));
+
 	app.get(/^\/renderers\/(.+)\/(.+)\.css$/, function (req, res, next) {
 
 		return SASS.render({
@@ -42,13 +49,13 @@ return PINF.main(function(options, callback) {
 			root: PATH.join(__dirname, "../widget")
 		}).on("error", next).pipe(res);
 	});
-
+/*
 	app.get(/^\/lib\/harviewer\/(.+)$/, function (req, res, next) {
 		return SEND(req, req.params[0], {
 			root: PATH.join(__dirname, "../../harviewer")
 		}).on("error", next).pipe(res);
 	});
-
+*/
 	app.get(/^\/lib\/pinf-loader-js\/(.+)$/, function (req, res, next) {
 		return SEND(req, req.params[0], {
 			root: PATH.join(__dirname, "node_modules/pinf-for-nodejs/node_modules/pinf-loader-js")

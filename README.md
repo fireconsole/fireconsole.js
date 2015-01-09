@@ -16,3 +16,7 @@ Usage
     npm start
     open http://localhost:8080/
 
+### Publish
+
+	npm run-script publish
+

@@ -9,7 +9,16 @@ exports.bootIntoNode = function (context) {
 			uri: "0-boot",
 			cssPrefix: context.cssPrefix
 		}).then(function () {
-			return loader;
+
+			return loader.load("1-insight/1-insight").then(function (context) {
+				return loader.callApi("css.load", {
+					uri: "1-insight",
+					cssPrefix: context.cssPrefix
+				}).then(function () {
+
+					return loader;
+				});
+			});
 		});
 	});
 }
@@ -55,6 +64,9 @@ Loader.prototype.load = function (id) {
 
 		if (id === "0-boot/0-boot") {
 			return require("./0-boot/0-boot");
+		} else
+		if (id === "1-insight/1-insight") {
+			return require("./1-insight/1-insight");
 		}
 
 		throw new Error("ACTION: Add condition for id '" + id + "'!");
