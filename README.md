@@ -18,5 +18,5 @@ Usage
 
 ### Publish
 
+	npm run-script build
 	npm run-script publish
-

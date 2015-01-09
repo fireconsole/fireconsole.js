@@ -9,6 +9,7 @@
   "scripts": {
     "install": "cd widget ; npm install ; cd .. ; cd server ; npm install ; cd ..",
     "start": "rm -Rf client/.rt tests/.rt ../harviewer/fireconsole/.rt ; cd server ; node server.js",
+	"build": "cd ./client ; ../server/node_modules/.bin/pinf bundle",
     "publish": "./node_modules/.bin/pinf-publish"
   }
 }
