@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style>
+    	HTML,
+    	BODY {
+    		margin: 0px;
+    		padding: 0px;
+    	}
+    </style>
+	<script src="client/bundles/loader.js"></script>
+</head>
+<body>
+ 	<script>
+		PINF.sandbox("client/bundles/plugin.js", function (sandbox) {
+			sandbox.main();
+		}, function (err) {
+			console.error("Error while loading bundle 'client/bundles/plugin.js':", err.stack);
+		});
+	</script>
+</body>
+</html>
