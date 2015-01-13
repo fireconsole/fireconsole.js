@@ -7,13 +7,17 @@ exports.bootIntoNode = function (context) {
 	return loader.load("0-boot/0-boot").then(function (context) {
 		return loader.callApi("css.load", {
 			uri: "0-boot",
-			cssPrefix: context.cssPrefix
+			cssPrefix: context.cssPrefix,
+			// TODO: Load this dynamically with the js source code.
+			source: require("./0-boot/0-boot.scss")
 		}).then(function () {
 
 			return loader.load("1-insight/1-insight").then(function (context) {
 				return loader.callApi("css.load", {
 					uri: "1-insight",
-					cssPrefix: context.cssPrefix
+					cssPrefix: context.cssPrefix,
+					// TODO: Load this dynamically with the js source code.
+					source: require("./1-insight/1-insight.scss")
 				}).then(function () {
 
 					return loader;
