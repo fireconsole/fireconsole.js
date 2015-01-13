@@ -11,9 +11,9 @@ exports.main = function () {
 
 		// TODO: Load jQuery via PINF bundler.
 		console1.attach(JQUERY("#console1")).then(function (context) {
-			return context.callApi("tests.load").then(function () {
+//			return context.callApi("tests.load").then(function () {
 
-			});
+//			});
 		});
 
 /*
