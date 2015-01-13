@@ -120,7 +120,7 @@ exports.main = function () {
 
 }
 , {"filename":"client.js"});
-// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1420864846,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
+// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js", 
 function(require, exports, module) {var __dirname = '../widget';
 
@@ -2238,7 +2238,7 @@ return Q;
 
 })
 , {"filename":"../widget/node_modules/q/q.js"});
-// @pinf-bundle-module: {"file":"../renderers/loader.js","mtime":1420867441,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/loader.js"}
+// @pinf-bundle-module: {"file":"../renderers/loader.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/loader.js"}
 require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/loader.js", 
 function(require, exports, module) {var __dirname = '../renderers';
 
@@ -2367,7 +2367,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../renderers/0-boot/0-boot.js"});
-// @pinf-bundle-module: {"file":"../renderers/0-boot/css.js","mtime":1420870292,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/css.js"}
+// @pinf-bundle-module: {"file":"../renderers/0-boot/css.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/css.js"}
 require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/css.js", 
 function(require, exports, module) {var __dirname = '../renderers/0-boot';
 
@@ -13590,7 +13590,7 @@ console.log("init insight renderer");
 
 }
 , {"filename":"../renderers/1-insight/renderer.js"});
-// @pinf-bundle-module: {"file":"../renderers/1-insight/harviewer.js","mtime":1420589093,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/harviewer.js"}
+// @pinf-bundle-module: {"file":"../renderers/1-insight/harviewer.js","mtime":1421188612,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/harviewer.js"}
 require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/harviewer.js", 
 function(require, exports, module) {var __dirname = '../renderers/1-insight';
 
@@ -13606,7 +13606,10 @@ exports.init = function (context) {
 	// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...
 
 	// Load and boot harviewer plugin.
-	require.sandbox("/plugins/harviewer/plugin.js", function (sandbox) {
+	//var uri = "http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js":
+	//uri = "/plugins/harviewer/plugin.js";
+	// TODO: Swap out module source based on mappings.
+	require.sandbox("http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js", function (sandbox) {
 		sandbox.main(node[0]);
 	}, function (err) {
 		console.error("Error loading plugin!", err.stack);
