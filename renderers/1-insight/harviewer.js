@@ -15,7 +15,11 @@ exports.init = function (context) {
 	//uri = "/plugins/harviewer/plugin.js";
 	// TODO: Swap out module source based on mappings.
 	require.sandbox("http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js", function (sandbox) {
-		sandbox.main(node[0]);
+		
+
+console.log("Render HAR viewer into node", node);
+
+		//sandbox.main(node[0]);
 	}, function (err) {
 		console.error("Error loading plugin!", err.stack);
 	});

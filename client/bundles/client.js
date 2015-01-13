@@ -77,7 +77,7 @@ function wrapAMD(callback) {
     callback(amdRequire, wrappedDefine);
     return exports;
 }
-// @pinf-bundle-module: {"file":"client.js","mtime":1421188733,"wrapper":"commonjs","format":"commonjs","id":"/client.js"}
+// @pinf-bundle-module: {"file":"client.js","mtime":1421188752,"wrapper":"commonjs","format":"commonjs","id":"/client.js"}
 require.memoize("/client.js", 
 function(require, exports, module) {var __dirname = '';
 
@@ -13590,7 +13590,7 @@ console.log("init insight renderer");
 
 }
 , {"filename":"../renderers/1-insight/renderer.js"});
-// @pinf-bundle-module: {"file":"../renderers/1-insight/harviewer.js","mtime":1421188663,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/harviewer.js"}
+// @pinf-bundle-module: {"file":"../renderers/1-insight/harviewer.js","mtime":1421188939,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/harviewer.js"}
 require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/harviewer.js", 
 function(require, exports, module) {var __dirname = '../renderers/1-insight';
 
@@ -13610,7 +13610,11 @@ exports.init = function (context) {
 	//uri = "/plugins/harviewer/plugin.js";
 	// TODO: Swap out module source based on mappings.
 	require.sandbox("http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js", function (sandbox) {
-		sandbox.main(node[0]);
+		
+
+console.log("Render HAR viewer into node", node);
+
+		//sandbox.main(node[0]);
 	}, function (err) {
 		console.error("Error loading plugin!", err.stack);
 	});
