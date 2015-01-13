@@ -9,7 +9,7 @@
             "descriptor": {
               "filename": "client.js",
               "filepath": "client.js",
-              "mtime": 1421188733,
+              "mtime": 1421188752,
               "code": "\nvar CONSOLE_WIDGET = require(\"widget\");\nvar JQUERY = require(\"widget/jquery\");\n\n\nexports.main = function () {\n\n\ttry {\n\n\t\tvar console1 = new CONSOLE_WIDGET.Widget();\n\n\t\t// TODO: Load jQuery via PINF bundler.\n\t\tconsole1.attach(JQUERY(\"#console1\")).then(function (context) {\n//\t\t\treturn context.callApi(\"tests.load\").then(function () {\n\n//\t\t\t});\n\t\t});\n\n/*\n\t\tvar console2 = new CONSOLE_WIDGET.Widget();\n\n\t\t// TODO: Load jQuery via PINF bundler.\n\t\tconsole2.attach($(\"#console2\")).then(function (context) {\n\n\t\t\treturn context.callApi(\"menu.close\").then(function () {\n\n\t\t\t\treturn context.callApi(\"view.show\", {\n\t\t\t\t\tname: \"graph\"\n\t\t\t\t});\n\t\t\t});\n\t\t});\n*/\n\t} catch (err) {\n\n\t\tconsole.error(err.stack);\n\t}\n}\n",
               "globals": {
                 "CONSOLE_WIDGET": {
@@ -3894,8 +3894,8 @@
             "descriptor": {
               "filename": "harviewer.js",
               "filepath": "../renderers/1-insight/harviewer.js",
-              "mtime": 1421188663,
-              "code": "\n\nexports.init = function (context) {\n\n\tvar Q = context.API.Q;\n\tvar $ = context.API.JQUERY;\n\n\n\tvar node = $('<div id=\"content\" previewcols=\"url status size timeline\" class=\"' + context.cssPrefix + '-harviewer\"></div>').appendTo(context.domNode);\n\n\t// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...\n\n\t// Load and boot harviewer plugin.\n\t//var uri = \"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\":\n\t//uri = \"/plugins/harviewer/plugin.js\";\n\t// TODO: Swap out module source based on mappings.\n\trequire.sandbox(\"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\", function (sandbox) {\n\t\tsandbox.main(node[0]);\n\t}, function (err) {\n\t\tconsole.error(\"Error loading plugin!\", err.stack);\n\t});\n\n\n\treturn Q.resolve();\n}\n\n",
+              "mtime": 1421188939,
+              "code": "\n\nexports.init = function (context) {\n\n\tvar Q = context.API.Q;\n\tvar $ = context.API.JQUERY;\n\n\n\tvar node = $('<div id=\"content\" previewcols=\"url status size timeline\" class=\"' + context.cssPrefix + '-harviewer\"></div>').appendTo(context.domNode);\n\n\t// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...\n\n\t// Load and boot harviewer plugin.\n\t//var uri = \"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\":\n\t//uri = \"/plugins/harviewer/plugin.js\";\n\t// TODO: Swap out module source based on mappings.\n\trequire.sandbox(\"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\", function (sandbox) {\n\t\t\n\nconsole.log(\"Render HAR viewer into node\", node);\n\n\t\t//sandbox.main(node[0]);\n\t}, function (err) {\n\t\tconsole.error(\"Error loading plugin!\", err.stack);\n\t});\n\n\n\treturn Q.resolve();\n}\n\n",
               "globals": {
                 "exports": {
                   "type": "reference"
@@ -3920,7 +3920,7 @@
             "wrapper": {
               "type": "commonjs",
               "top": "function(require, exports, module) {var __dirname = '../renderers/1-insight';",
-              "code": "function(require, exports, module) {var __dirname = '../renderers/1-insight';\n\n\nexports.init = function (context) {\n\n\tvar Q = context.API.Q;\n\tvar $ = context.API.JQUERY;\n\n\n\tvar node = $('<div id=\"content\" previewcols=\"url status size timeline\" class=\"' + context.cssPrefix + '-harviewer\"></div>').appendTo(context.domNode);\n\n\t// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...\n\n\t// Load and boot harviewer plugin.\n\t//var uri = \"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\":\n\t//uri = \"/plugins/harviewer/plugin.js\";\n\t// TODO: Swap out module source based on mappings.\n\trequire.sandbox(\"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\", function (sandbox) {\n\t\tsandbox.main(node[0]);\n\t}, function (err) {\n\t\tconsole.error(\"Error loading plugin!\", err.stack);\n\t});\n\n\n\treturn Q.resolve();\n}\n\n\n}",
+              "code": "function(require, exports, module) {var __dirname = '../renderers/1-insight';\n\n\nexports.init = function (context) {\n\n\tvar Q = context.API.Q;\n\tvar $ = context.API.JQUERY;\n\n\n\tvar node = $('<div id=\"content\" previewcols=\"url status size timeline\" class=\"' + context.cssPrefix + '-harviewer\"></div>').appendTo(context.domNode);\n\n\t// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...\n\n\t// Load and boot harviewer plugin.\n\t//var uri = \"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\":\n\t//uri = \"/plugins/harviewer/plugin.js\";\n\t// TODO: Swap out module source based on mappings.\n\trequire.sandbox(\"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\", function (sandbox) {\n\t\t\n\nconsole.log(\"Render HAR viewer into node\", node);\n\n\t\t//sandbox.main(node[0]);\n\t}, function (err) {\n\t\tconsole.error(\"Error loading plugin!\", err.stack);\n\t});\n\n\n\treturn Q.resolve();\n}\n\n\n}",
               "bottom": "}"
             },
             "dependencies": {
