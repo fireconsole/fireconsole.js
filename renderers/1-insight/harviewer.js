@@ -11,7 +11,10 @@ exports.init = function (context) {
 	// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...
 
 	// Load and boot harviewer plugin.
-	require.sandbox("/plugins/harviewer/plugin.js", function (sandbox) {
+	//var uri = "http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js":
+	//uri = "/plugins/harviewer/plugin.js";
+	// TODO: Swap out module source based on mappings.
+	require.sandbox("http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js", function (sandbox) {
 		sandbox.main(node[0]);
 	}, function (err) {
 		console.error("Error loading plugin!", err.stack);
