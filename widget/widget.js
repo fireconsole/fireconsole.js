@@ -3,9 +3,9 @@ var Q = require("q");
 var RENDERERS = require("renderers");
 var RECEIVERS = require("receivers");
 var INSIGHT_ENCODER = require("insight/encoder/default");
+var WIDGET_CSS = require("./widget.css");
 
 var JQUERY = require("./jquery");
-
 // @see http://stackoverflow.com/a/19525797
 (function ($) {
   $.each(['show', 'hide'], function (i, ev) {
@@ -88,9 +88,10 @@ Widget.prototype.attach = function (domNode) {
 
 		var node = self.domNode = JQUERY('<div id="' + self.widgetId + '" class="fc-widget-console"></div>').appendTo(domNode);
 
-		// TODO: Inject CSS into DOM by taking source from WIDGET_CSS
-		if (typeof WIDGET_CSS !== "undefined") {
-			throw new Error("TODO: Inject CSS into DOM by taking source from WIDGET_CSS");
+		// TODO: Use generic helper to declare and load css files.
+		if (JQUERY('STYLE[dynid="' + self.widgetId + '"]').length === 0) {
+            var styleNode = JQUERY('<style dynid="' + self.widgetId + '"></style>').appendTo("HEAD");
+            styleNode.html(WIDGET_CSS);
 		}
 
 		return RENDERERS.bootIntoNode({
