@@ -3894,7 +3894,7 @@
             "descriptor": {
               "filename": "harviewer.js",
               "filepath": "../renderers/1-insight/harviewer.js",
-              "mtime": 1421188939,
+              "mtime": 1421188958,
               "code": "\n\nexports.init = function (context) {\n\n\tvar Q = context.API.Q;\n\tvar $ = context.API.JQUERY;\n\n\n\tvar node = $('<div id=\"content\" previewcols=\"url status size timeline\" class=\"' + context.cssPrefix + '-harviewer\"></div>').appendTo(context.domNode);\n\n\t// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...\n\n\t// Load and boot harviewer plugin.\n\t//var uri = \"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\":\n\t//uri = \"/plugins/harviewer/plugin.js\";\n\t// TODO: Swap out module source based on mappings.\n\trequire.sandbox(\"http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js\", function (sandbox) {\n\t\t\n\nconsole.log(\"Render HAR viewer into node\", node);\n\n\t\t//sandbox.main(node[0]);\n\t}, function (err) {\n\t\tconsole.error(\"Error loading plugin!\", err.stack);\n\t});\n\n\n\treturn Q.resolve();\n}\n\n",
               "globals": {
                 "exports": {
