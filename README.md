@@ -26,3 +26,4 @@ Usage
 
 	npm run-script build
 	npm run-script publish
+	npm run-script clean
