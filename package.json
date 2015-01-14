@@ -4,12 +4,13 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "pinf-for-github-pages": "~0.0.1"
+    "pinf-for-github-pages": "~0.0.1",
+    "shelljs": "~0.3.0"
   },
   "scripts": {
     "install": "cd widget ; npm install ; cd .. ; cd server ; npm install ; cd ..",
-    "start": "rm -Rf client/.rt tests/.rt ../harviewer/fireconsole/.rt ; cd server ; node server.js",
-    "build": "rm -Rf client/.rt ; cd ./client ; ../server/node_modules/.bin/pinf bundle",
-    "publish": "./node_modules/.bin/pinf-publish"
+    "start": "node scripts/start.js",
+    "build": "node scripts/build.js",
+    "publish": "node scripts/publish.js"
   }
 }
