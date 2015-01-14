@@ -2,7 +2,7 @@
 	"config": {
 		"github.com/pinf-it/pinf-for-github-pages/0": {
 			"programs": {
-				"client": "./client/program.json"
+				"demo": "./demo/program.json"
 			}
 		}
 	}

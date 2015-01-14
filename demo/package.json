@@ -1,13 +1,13 @@
 {
-  "uid": "github.com/fireconsole/widget.console/client",
-  "main": "./client.js",
+  "uid": "github.com/fireconsole/widget.console/demo",
+  "main": "./demo.js",
   "mappings": {
     "q": "../widget/node_modules/q",
     "widget": "../widget"
   },
   "exports": {
     "bundles": {
-      "client.js": "./client.js"
+      "demo.js": "./demo.js"
     }
   }
 }

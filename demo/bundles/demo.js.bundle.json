@@ -1,15 +1,15 @@
 {
   ".": {
     "bundles": {
-      "/client.js": {
+      "/demo.js": {
         "modules": {
-          "/client.js": {
-            "requireId": "/client",
-            "memoizeId": "/client.js",
+          "/demo.js": {
+            "requireId": "/demo",
+            "memoizeId": "/demo.js",
             "descriptor": {
-              "filename": "client.js",
-              "filepath": "client.js",
-              "mtime": 1421214963,
+              "filename": "demo.js",
+              "filepath": "demo.js",
+              "mtime": 1421215592,
               "code": "\nvar CONSOLE_WIDGET = require(\"widget\");\nvar JQUERY = require(\"widget/jquery\");\nvar CSS = require(\"./style.css\");\n\n\nexports.main = function () {\n\n\ttry {\n\n\t\tJQUERY(\"<style></style>\").appendTo(\"HEAD\").html(CSS);\n\n\n\t\tvar console1 = new CONSOLE_WIDGET.Widget();\n\n\t\t// TODO: Load jQuery via PINF bundler.\n\t\tconsole1.attach(JQUERY(\"#console1\")).then(function (context) {\n//\t\t\treturn context.callApi(\"tests.load\").then(function () {\n\n//\t\t\t});\n\t\t});\n\n/*\n\t\tvar console2 = new CONSOLE_WIDGET.Widget();\n\n\t\t// TODO: Load jQuery via PINF bundler.\n\t\tconsole2.attach($(\"#console2\")).then(function (context) {\n\n\t\t\treturn context.callApi(\"menu.close\").then(function () {\n\n\t\t\t\treturn context.callApi(\"view.show\", {\n\t\t\t\t\tname: \"graph\"\n\t\t\t\t});\n\t\t\t});\n\t\t});\n*/\n\t} catch (err) {\n\n\t\tconsole.error(err.stack);\n\t}\n}\n",
               "globals": {
                 "CONSOLE_WIDGET": {
@@ -5253,7 +5253,7 @@
             "descriptor": {
               "filename": "style.css",
               "filepath": "style.css",
-              "mtime": 1421214847,
+              "mtime": 1421215081,
               "code": "HTML,\nBODY {\n  width: 100%;\n  height: 100%;\n  padding: 0px;\n  margin: 0px;\n  position: relative;\n}\n\n#console1 {\n  position: absolute;\n  top: 5%;\n  left: 2%;\n  width: 47%;\n  height: 89%;\n  border: 1px solid black;\n}\n\n#console2 {\n  position: absolute;\n  top: 5%;\n  left: 51%;\n  width: 47%;\n  height: 89%;\n  border: 1px solid black;\n}",
               "globals": {},
               "syntax": null,
@@ -5296,101 +5296,56 @@
               ],
               "raw": {
                 "package.json": {
-                  "uid": "github.com/fireconsole/widget.console/client",
-                  "main": "./client.js",
+                  "uid": "github.com/fireconsole/widget.console/demo",
+                  "main": "./demo.js",
                   "mappings": {
                     "q": "../widget/node_modules/q",
                     "widget": "../widget"
                   },
                   "exports": {
                     "bundles": {
-                      "client.js": "./client.js"
+                      "demo.js": "./demo.js"
                     }
                   }
                 }
               },
               "normalized": {
-                ".package.json": {
-                  "pm": {
-                    "install": "npm"
-                  },
-                  "layout": {
-                    "directories": {
-                      "dependency": "./node_modules"
-                    }
-                  },
-                  "dependencies": {
-                    "bundled": {
-                      "q": "./node_modules/q"
-                    }
-                  },
-                  "mappings": {
-                    "q": "289ab28d99ade60eb35e118aa9a775aee509f57c-q"
-                  }
-                },
+                ".package.json": {},
                 "package.json": {
-                  "uid": "github.com/fireconsole/widget.console/client",
+                  "uid": "github.com/fireconsole/widget.console/demo",
                   "dependencies": {
                     "required": {
                       "q": "../widget/node_modules/q",
                       "widget": "../widget"
-                    },
-                    "bundled": {
-                      "q": "./node_modules/q"
                     }
                   },
                   "exports": {
                     "bundles": {
-                      "client.js": "./client.js"
+                      "demo.js": "./demo.js"
                     },
-                    "main": "./client.js"
-                  },
-                  "pm": {
-                    "install": "npm"
-                  },
-                  "layout": {
-                    "directories": {
-                      "dependency": "./node_modules"
-                    }
-                  },
-                  "mappings": {
-                    "q": "289ab28d99ade60eb35e118aa9a775aee509f57c-q"
+                    "main": "./demo.js"
                   }
                 }
               },
               "combined": {
-                "uid": "github.com/fireconsole/widget.console/client",
+                "uid": "github.com/fireconsole/widget.console/demo",
                 "dependencies": {
                   "required": {
                     "q": "../widget/node_modules/q",
                     "widget": "../widget"
-                  },
-                  "bundled": {
-                    "q": "./node_modules/q"
                   }
                 },
                 "exports": {
                   "bundles": {
-                    "client.js": "./client.js"
+                    "demo.js": "./demo.js"
                   },
-                  "main": "./client.js"
-                },
-                "pm": {
-                  "install": "npm"
-                },
-                "layout": {
-                  "directories": {
-                    "dependency": "./node_modules"
-                  }
-                },
-                "mappings": {
-                  "q": "289ab28d99ade60eb35e118aa9a775aee509f57c-q"
+                  "main": "./demo.js"
                 }
               },
               "warnings": [],
               "errors": [],
               "memoized": {
-                "main": "/client.js",
+                "main": "/demo.js",
                 "mappings": {
                   "widget": "21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget"
                 },
@@ -7783,23 +7738,23 @@
         },
         "expectExistingModules": {},
         "bundle": {
-          "path": "/playground/2014-12-26-promise-actor/fireconsole.widget.console/client/bundles/client.js"
+          "path": "/playground/2014-12-26-promise-actor/fireconsole.widget.console/demo/bundles/demo.js"
         },
         "warnings": [],
         "errors": [],
-        "id": "/client.js"
+        "id": "/demo.js"
       }
     },
     "warnings": [],
     "errors": [],
     "exports": {
-      "main": "/client.js"
+      "main": "/demo.js"
     }
   },
   "#pinf": {
     "status": 200,
     "data": {
-      "rootBundlePath": "/playground/2014-12-26-promise-actor/fireconsole.widget.console/client/bundles/client.js"
+      "rootBundlePath": "/playground/2014-12-26-promise-actor/fireconsole.widget.console/demo/bundles/demo.js"
     }
   }
 }

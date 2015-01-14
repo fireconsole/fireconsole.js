@@ -6,7 +6,7 @@ cd(__dirname + '/..');
 
 
 rm('-Rf', [
-	'client/.rt',
+	'demo/.rt',
 	'tests/.rt',
 	'../harviewer/fireconsole/.rt'
 ]);

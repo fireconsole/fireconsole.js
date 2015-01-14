@@ -5,8 +5,8 @@ require('shelljs/global');
 cd(__dirname + '/..');
 
 
-rm('-Rf', 'client/.rt');
-cd('client');
+rm('-Rf', 'demo/.rt');
+cd('demo');
 if (exec('../server/node_modules/.bin/pinf bundle').code !== 0) {
 	echo('Error: command failed');
 	exit(1);
