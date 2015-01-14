@@ -77,17 +77,21 @@ function wrapAMD(callback) {
     callback(amdRequire, wrappedDefine);
     return exports;
 }
-// @pinf-bundle-module: {"file":"client.js","mtime":1421188752,"wrapper":"commonjs","format":"commonjs","id":"/client.js"}
+// @pinf-bundle-module: {"file":"client.js","mtime":1421214963,"wrapper":"commonjs","format":"commonjs","id":"/client.js"}
 require.memoize("/client.js", 
 function(require, exports, module) {var __dirname = '';
 
 var CONSOLE_WIDGET = require("widget");
 var JQUERY = require("widget/jquery");
+var CSS = require("./style.css");
 
 
 exports.main = function () {
 
 	try {
+
+		JQUERY("<style></style>").appendTo("HEAD").html(CSS);
+
 
 		var console1 = new CONSOLE_WIDGET.Widget();
 
@@ -120,7 +124,7 @@ exports.main = function () {
 
 }
 , {"filename":"client.js"});
-// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421214641,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
+// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421214725,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js", 
 function(require, exports, module) {var __dirname = '../widget';
 
@@ -25783,6 +25787,10 @@ require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boo
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.css", 
 'DIV.fc-widget-console%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%7D'
 , {"filename":"../widget/widget.css"});
+// @pinf-bundle-module: {"file":"style.css","mtime":1421214847,"wrapper":"url-encoded","format":"utf8","id":"/style.css"}
+require.memoize("/style.css", 
+'HTML%2C%0ABODY%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A%23console1%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%202%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D%0A%0A%23console2%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%2051%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D'
+, {"filename":"style.css"});
 // @pinf-bundle-ignore: 
 });
 // @pinf-bundle-report: {}
