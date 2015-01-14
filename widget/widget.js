@@ -111,7 +111,8 @@ Widget.prototype.attach = function (domNode) {
 				console.log("Loading tests ...");
 
 				// TODO: Load from remote URL.
-				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
+				require.sandbox("http://fireconsole.github.io/widget.console/tests/bundles/tests.js", function(TESTS_BUNDLE) {
+//				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
 
 					return TESTS_BUNDLE.main(self.API, function (err) {
 						if (err) {
