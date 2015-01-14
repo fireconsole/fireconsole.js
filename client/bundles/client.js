@@ -120,7 +120,7 @@ exports.main = function () {
 
 }
 , {"filename":"client.js"});
-// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
+// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421214641,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js", 
 function(require, exports, module) {var __dirname = '../widget';
 
@@ -236,7 +236,8 @@ Widget.prototype.attach = function (domNode) {
 				console.log("Loading tests ...");
 
 				// TODO: Load from remote URL.
-				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
+				require.sandbox("http://fireconsole.github.io/widget.console/tests/bundles/tests.js", function(TESTS_BUNDLE) {
+//				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
 
 					return TESTS_BUNDLE.main(self.API, function (err) {
 						if (err) {
