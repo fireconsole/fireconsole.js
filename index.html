@@ -9,7 +9,7 @@
     		padding: 0px;
     	}
     </style>
-	<script src="client/bundles/loader.js"></script>
+	<script src="demo/bundles/loader.js"></script>
 </head>
 <body>
 
@@ -20,10 +20,10 @@
     </div>
 
  	<script>
-		PINF.sandbox("client/bundles/client.js", function (sandbox) {
+		PINF.sandbox("demo/bundles/demo.js", function (sandbox) {
 			sandbox.main();
 		}, function (err) {
-			console.error("Error while loading bundle 'client/bundles/client.js':", err.stack);
+			console.error("Error while loading bundle 'demo/bundles/demo.js':", err.stack);
 		});
 	</script>
 </body>
