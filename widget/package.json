@@ -3,7 +3,7 @@
   "main": "./widget.js",
   "mappings": {
     "q": "./node_modules/q",
-    "renderers": "../renderers",
+    "loops": "../loops",
     "receivers": "../receivers",
     "insight": "../../insight-for-js"
   },

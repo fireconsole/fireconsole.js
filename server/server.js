@@ -62,7 +62,7 @@ return PINF.main(function(options, callback) {
 		}).on("error", next).pipe(res);
 	});
 
-	app.get(/^\/(client.+)$/, PINF.hoist(PATH.join(__dirname, "../client/program.json"), options.$pinf.makeOptions({
+	app.get(/^\/(demo.+)$/, PINF.hoist(PATH.join(__dirname, "../demo/program.json"), options.$pinf.makeOptions({
 		debug: true,
 		verbose: true,
 		PINF_RUNTIME: "",

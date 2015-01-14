@@ -1,6 +1,6 @@
 
 var Q = require("q");
-var RENDERERS = require("renderers");
+var LOOPS = require("loops");
 var RECEIVERS = require("receivers");
 var INSIGHT_ENCODER = require("insight/encoder/default");
 var WIDGET_CSS = require("./widget.css");
@@ -94,7 +94,7 @@ Widget.prototype.attach = function (domNode) {
             styleNode.html(WIDGET_CSS);
 		}
 
-		return RENDERERS.bootIntoNode({
+		return LOOPS.bootIntoNode({
 			API: {
 				Q: Q,
 				JQUERY: JQUERY

@@ -77,8 +77,8 @@ function wrapAMD(callback) {
     callback(amdRequire, wrappedDefine);
     return exports;
 }
-// @pinf-bundle-module: {"file":"client.js","mtime":1421214963,"wrapper":"commonjs","format":"commonjs","id":"/client.js"}
-require.memoize("/client.js", 
+// @pinf-bundle-module: {"file":"demo.js","mtime":1421215592,"wrapper":"commonjs","format":"commonjs","id":"/demo.js"}
+require.memoize("/demo.js", 
 function(require, exports, module) {var __dirname = '';
 
 var CONSOLE_WIDGET = require("widget");
@@ -123,13 +123,13 @@ exports.main = function () {
 }
 
 }
-, {"filename":"client.js"});
-// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421214725,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
+, {"filename":"demo.js"});
+// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421216240,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js", 
 function(require, exports, module) {var __dirname = '../widget';
 
 var Q = require("q");
-var RENDERERS = require("renderers");
+var LOOPS = require("loops");
 var RECEIVERS = require("receivers");
 var INSIGHT_ENCODER = require("insight/encoder/default");
 var WIDGET_CSS = require("./widget.css");
@@ -223,7 +223,7 @@ Widget.prototype.attach = function (domNode) {
             styleNode.html(WIDGET_CSS);
 		}
 
-		return RENDERERS.bootIntoNode({
+		return LOOPS.bootIntoNode({
 			API: {
 				Q: Q,
 				JQUERY: JQUERY
@@ -2348,6 +2348,14 @@ Loader.prototype.load = function (id) {
 
 }
 , {"filename":"../renderers/loader.js"});
+// @pinf-bundle-module: {"file":"../renderers/1-insight/1-insight.scss","mtime":1420588902,"wrapper":"url-encoded","format":"utf8","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/1-insight.scss"}
+require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/1-insight.scss", 
+''
+, {"filename":"../renderers/1-insight/1-insight.scss"});
+// @pinf-bundle-module: {"file":"../renderers/0-boot/0-boot.scss","mtime":1420321368,"wrapper":"url-encoded","format":"utf8","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boot.scss"}
+require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boot.scss", 
+'DIV.__CSS_PREFIX__-sandbox%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-menu%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%200px%3B%0A%20%20height%3A%2020px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-menu%20%3E%20BUTTON%20%7B%0A%20%20height%3A%20100%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%20%20border-collapse%3A%20collapse%3B%0A%20%20padding%3A%203px%3B%0A%20%20padding-left%3A%205px%3B%0A%20%20padding-right%3A%205px%3B%0A%20%20margin%3A%200px%3B%0A%20%20margin-right%3A%201px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-graph%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%2020px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%201px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%2020px%3B%0A%20%20overflow-x%3A%20hidden%3B%0A%20%20overflow-y%3A%20auto%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console-panel%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20padding%3A%202px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20overflow%3A%20none%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console-panel%20%3E%20DIV.message%20%7B%0A%20%20border%3A%200px%3B%0A%20%20background-color%3A%20%23ffffff%3B%0A%20%20font-family%3A%20Lucida%20Grande%2C%20Tahoma%2C%20sans-serif%3B%0A%20%20font-size%3A%2011px%3B%20%7D%0A'
+, {"filename":"../renderers/0-boot/0-boot.scss"});
 // @pinf-bundle-module: {"file":"../renderers/0-boot/0-boot.js","mtime":1420179494,"wrapper":"commonjs","format":"commonjs","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boot.js"}
 require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boot.js", 
 function(require, exports, module) {var __dirname = '../renderers/0-boot';
@@ -16438,6 +16446,10 @@ exports.getWildfireReceiver = function(context) {
 
 }
 , {"filename":"../receivers/wildfire/insight/console/random.js"});
+// @pinf-bundle-module: {"file":"../widget/widget.css","mtime":1420182617,"wrapper":"url-encoded","format":"utf8","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.css"}
+require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.css", 
+'DIV.fc-widget-console%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%7D'
+, {"filename":"../widget/widget.css"});
 // @pinf-bundle-module: {"file":"../widget/jquery.js","mtime":1420420863,"wrapper":"amd-ish","format":"amd-ish","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/jquery.js"}
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/jquery.js", 
 wrapAMD(function(require, define) {
@@ -25648,10 +25660,14 @@ return jQuery;
 
 })
 , {"filename":"../widget/jquery.js"});
+// @pinf-bundle-module: {"file":"style.css","mtime":1421215081,"wrapper":"url-encoded","format":"utf8","id":"/style.css"}
+require.memoize("/style.css", 
+'HTML%2C%0ABODY%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A%23console1%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%202%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D%0A%0A%23console2%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%2051%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D'
+, {"filename":"style.css"});
 // @pinf-bundle-module: {"file":null,"mtime":0,"wrapper":"json","format":"json","id":"/package.json"}
 require.memoize("/package.json", 
 {
-    "main": "/client.js",
+    "main": "/demo.js",
     "mappings": {
         "widget": "21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget"
     },
@@ -25664,7 +25680,7 @@ require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/package.json",
     "main": "21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js",
     "mappings": {
         "q": "d6e23a53a05b8a38dbc43a0fd68969f2b291c1dd-q",
-        "renderers": "9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers",
+        "loops": "49c08f97e9e0e549f75cf062802b7fe1426f8679-loops",
         "receivers": "bfbbc67b6690f91ab66716d6e0cec42b3a954a3b-receivers",
         "insight": "e21a2edc75d6a45b8180079e1437bfa808cf8b61-insight-for-js"
     },
@@ -25775,22 +25791,1617 @@ require.memoize("ebe2303b08e21e9e7396b0d00323a7bb7aa5e3f2-wildfire-for-js/packag
     "dirpath": "../../wildfire-for-js"
 }
 , {"filename":"../../wildfire-for-js/package.json"});
-// @pinf-bundle-module: {"file":"../renderers/1-insight/1-insight.scss","mtime":1420588902,"wrapper":"url-encoded","format":"utf8","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/1-insight.scss"}
-require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/1-insight/1-insight.scss", 
+// @pinf-bundle-module: {"file":"../loops/loader.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/loader.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/loader.js", 
+function(require, exports, module) {var __dirname = '../loops';
+
+
+exports.bootIntoNode = function (context) {
+
+	var loader = new Loader(context);
+
+	return loader.load("0-boot/0-boot").then(function (context) {
+		return loader.callApi("css.load", {
+			uri: "0-boot",
+			cssPrefix: context.cssPrefix,
+			// TODO: Load this dynamically with the js source code.
+			source: require("./0-boot/0-boot.scss")
+		}).then(function () {
+
+			return loader.load("1-insight/1-insight").then(function (context) {
+				return loader.callApi("css.load", {
+					uri: "1-insight",
+					cssPrefix: context.cssPrefix,
+					// TODO: Load this dynamically with the js source code.
+					source: require("./1-insight/1-insight.scss")
+				}).then(function () {
+
+					return loader;
+				});
+			});
+		});
+	});
+}
+
+
+var Loader = function(context) {
+	var self = this;
+
+	self.API = context.API;
+	self.domNode = context.domNode;
+	self.widgetIndex = context.widgetIndex;
+
+	self.api = {};
+}
+
+Loader.prototype.callApi = function (id, args) {
+	var self = this;
+	if (!self.api[id]) {
+		return self.API.Q.reject(new Error("API for id '" + id + "' not registered!"));
+	}
+	try {
+		return self.API.Q.when(self.api[id](args));
+	} catch (err) {
+		return self.API.Q.reject(err);
+	}
+}
+
+Loader.prototype.registerApi = function (id, handler) {
+	var self = this;
+	if (self.api[id]) {
+		return self.API.Q.reject(new Error("API for id '" + id + "' already registered!"));
+	}
+	self.api[id] = handler;
+	return self.API.Q.resolve();
+}
+
+Loader.prototype.load = function (id) {
+	var self = this;
+
+	// TODO: Load renderers dynamically.
+
+	return self.API.Q.resolve((function () {
+
+		if (id === "0-boot/0-boot") {
+			return require("./0-boot/0-boot");
+		} else
+		if (id === "1-insight/1-insight") {
+			return require("./1-insight/1-insight");
+		}
+
+		throw new Error("ACTION: Add condition for id '" + id + "'!");
+
+	})()).then(function (renderer) {
+		try {
+			var context = {
+				API: self.API,
+				domNode: self.domNode,
+				cssPrefix: "_fcw_" + id.split("/")[0].replace(/\//g, "_"),
+				registerApi: function (id, handler) {
+					return self.registerApi(id, handler);
+				},
+				callApi: function (id, args) {
+					return self.callApi(id, args);
+				}
+			};
+			return renderer.init(context).then(function () {
+				return context;
+			});
+		} catch (err) {
+			throw err;
+		}
+	});
+}
+
+
+}
+, {"filename":"../loops/loader.js"});
+// @pinf-bundle-module: {"file":"../loops/1-insight/1-insight.scss","mtime":1420588902,"wrapper":"url-encoded","format":"utf8","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.scss"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.scss", 
 ''
-, {"filename":"../renderers/1-insight/1-insight.scss"});
-// @pinf-bundle-module: {"file":"../renderers/0-boot/0-boot.scss","mtime":1420321368,"wrapper":"url-encoded","format":"utf8","id":"9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boot.scss"}
-require.memoize("9c7bbbe69b256697ed3ffb4de81bb12cc3880f4b-renderers/0-boot/0-boot.scss", 
+, {"filename":"../loops/1-insight/1-insight.scss"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/0-boot.scss","mtime":1420321368,"wrapper":"url-encoded","format":"utf8","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.scss"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.scss", 
 'DIV.__CSS_PREFIX__-sandbox%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-menu%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%200px%3B%0A%20%20height%3A%2020px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-menu%20%3E%20BUTTON%20%7B%0A%20%20height%3A%20100%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%20%20border-collapse%3A%20collapse%3B%0A%20%20padding%3A%203px%3B%0A%20%20padding-left%3A%205px%3B%0A%20%20padding-right%3A%205px%3B%0A%20%20margin%3A%200px%3B%0A%20%20margin-right%3A%201px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-graph%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%2020px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%201px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%2020px%3B%0A%20%20overflow-x%3A%20hidden%3B%0A%20%20overflow-y%3A%20auto%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console-panel%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20padding%3A%202px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20overflow%3A%20none%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console-panel%20%3E%20DIV.message%20%7B%0A%20%20border%3A%200px%3B%0A%20%20background-color%3A%20%23ffffff%3B%0A%20%20font-family%3A%20Lucida%20Grande%2C%20Tahoma%2C%20sans-serif%3B%0A%20%20font-size%3A%2011px%3B%20%7D%0A'
-, {"filename":"../renderers/0-boot/0-boot.scss"});
-// @pinf-bundle-module: {"file":"../widget/widget.css","mtime":1420182617,"wrapper":"url-encoded","format":"utf8","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.css"}
-require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.css", 
-'DIV.fc-widget-console%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%7D'
-, {"filename":"../widget/widget.css"});
-// @pinf-bundle-module: {"file":"style.css","mtime":1421214847,"wrapper":"url-encoded","format":"utf8","id":"/style.css"}
-require.memoize("/style.css", 
-'HTML%2C%0ABODY%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A%23console1%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%202%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D%0A%0A%23console2%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%2051%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D'
-, {"filename":"style.css"});
+, {"filename":"../loops/0-boot/0-boot.scss"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/0-boot.js","mtime":1420179494,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.js", 
+function(require, exports, module) {var __dirname = '../loops/0-boot';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+
+	var done = Q.resolve();
+	[
+		require("./css"),
+		require("./sandbox")
+	].forEach(function (renderer) {
+		done = Q.when(done, function () {
+			return renderer.init(context);
+		});
+	});
+	return done;
+}
+
+
+}
+, {"filename":"../loops/0-boot/0-boot.js"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/css.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/css.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/css.js", 
+function(require, exports, module) {var __dirname = '../loops/0-boot';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+	return context.registerApi("css.load", function (args) {
+
+		var id = args.uri + '/' + args.cssPrefix;
+
+		var source = args.source.replace(/__CSS_PREFIX__/g, args.cssPrefix);
+
+		var existingStylesheetNode = $('HEAD > STYLE[fcwid="' + id + '"]');
+
+		if (existingStylesheetNode.length === 0) {
+//			existingStylesheetNode = $('<link fcwid="' + id + '" rel="stylesheet" href="/renderers/' + id + '.css"/>').appendTo("HEAD");
+			existingStylesheetNode = $('<style fcwid="' + id + '"></style>').appendTo("HEAD");
+			existingStylesheetNode.html(source);
+		} else {
+			// TODO: Ensure CSS has not changed. If it has reload it.
+		}
+
+	});
+}
+
+
+}
+, {"filename":"../loops/0-boot/css.js"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/sandbox.js","mtime":1420421163,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/sandbox.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/sandbox.js", 
+function(require, exports, module) {var __dirname = '../loops/0-boot';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+	var sandboxNode = $('<div class="' + context.cssPrefix + '-sandbox"></div>').appendTo(context.domNode);
+
+
+	var ctx = {};
+	for (var name in context) {
+		ctx[name] = context[name];
+	}
+	ctx.domNode = sandboxNode;
+
+
+	var currentView = false;
+	function showView (name) {
+		if (currentView) {
+			$('DIV.' + context.cssPrefix + '-sandbox > DIV.' + context.cssPrefix + '-' + currentView, ctx.domNode.parent()).hide();
+		}
+		currentView = name;
+		$('DIV.' + context.cssPrefix + '-sandbox > DIV.' + context.cssPrefix + '-' + name, ctx.domNode.parent()).show();
+		return Q.resolve();
+	}
+	function addView (name, renderer) {
+		return renderer.init(ctx).then(function () {
+			$('DIV.' + context.cssPrefix + '-sandbox > DIV.' + context.cssPrefix + '-' + name, ctx.domNode.parent()).hide();
+			return context.callApi("menu.add.button", {
+				lid: "view-" + name,
+				label: "View: " + name,
+				command: function () {
+					return showView(name);
+				}
+			});
+		}).then(function () {
+			return showView("console");
+		});
+	}
+
+
+
+	var done = Q.resolve();
+	[
+		require("./menu")
+	].forEach(function (renderer) {
+		done = Q.when(done, function () {
+			return renderer.init(ctx);
+		});
+	});
+	return Q.when(done, function () {
+
+		return addView("graph", require("./graph")).then(function () {
+
+			return addView("console", require("./console"));
+
+		}).then(function () {
+
+			return context.registerApi("view.show", function (args) {
+				return showView(args.name);
+			});
+
+		}).then(function () {
+
+			return showView("console");
+		});
+	});
+}
+
+
+}
+, {"filename":"../loops/0-boot/sandbox.js"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/menu.js","mtime":1420421156,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/menu.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/menu.js", 
+function(require, exports, module) {var __dirname = '../loops/0-boot';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+	var menuNode = $('<div class="' + context.cssPrefix + '-menu"></div>').appendTo(context.domNode);
+
+	return context.registerApi("menu.add.button", function (args) {
+
+		var buttonNode = $('<button button="' + args.lid + '">' + args.label + '</button>').appendTo(menuNode);
+		buttonNode.click(function () {
+			args.command();
+		});
+
+		return Q.resolve();
+
+	}).then(function () {
+
+		return context.registerApi("menu.close", function (args) {
+			menuNode.hide();
+			return Q.resolve();
+		}).then(function () {
+			return context.registerApi("menu.show", function (args) {
+				menuNode.show();
+				return Q.resolve();
+			});
+		});
+
+	}).then(function () {
+
+		return context.callApi("menu.add.button", {
+			lid: "close-menu",
+			label: "Close Menu",
+			command: function () {
+				context.callApi("menu.close");
+			}
+		});
+	}).then(function () {
+
+		// Triple-click to open menu.
+		var timer,          // timer required to reset
+		    timeout = 200;  // timer reset in ms
+		context.domNode.on("dblclick", function (evt) {
+		    timer = setTimeout(function () {
+		        timer = null;
+		    }, timeout);
+		});
+		context.domNode.on("click", function (evt) {
+		    if (timer) {
+		        clearTimeout(timer);
+		        timer = null;
+
+		        context.callApi("menu.show");
+		    }
+		});
+	});
+}
+
+
+}
+, {"filename":"../loops/0-boot/menu.js"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/console.js","mtime":1420421121,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/console.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/console.js", 
+function(require, exports, module) {var __dirname = '../loops/0-boot';
+
+var RENDERER = require("../renderer");
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);
+
+	var viewportNode = $('<div class="' + context.cssPrefix + '-console"></div>').appendTo(context.domNode);
+	var panelNode = $('<div class="' + context.cssPrefix + '-console-panel"></div>').appendTo(viewportNode);
+
+
+	function redraw() {
+
+		// TODO: Ignore multiple render calls within x time.
+		// TODO: Wait a short while before issuing render.
+		// TODO: Cascade render event (for resize) down the tree.
+
+		var height = context.domNode.parent().height();
+
+		if (menuNode.is(":visible")) {
+			viewportNode.css("top", menuNode.css("height"));
+			height = height - menuNode.height() - 4;
+		} else {
+			viewportNode.css("top", "0px");
+		}
+
+		viewportNode.height(height);
+
+		return Q.resolve();
+	}
+
+
+	function logMessageToPanelNode (message) {
+		try {
+
+			RENDERER.appendMessageToNode(panelNode[0], message, {
+				supervisor: {
+// TODO: implement
+				},
+		        view: ["summary"],
+		        wrapper: {
+				    id: "github.com/insight/insight.renderers.default/",
+				    module: "insight/wrappers/console"
+				},
+		        on: {
+		            inspectMessage: function(message) {
+		            	console.log("inspectMessage", message);
+		            },
+		            inspectNode: function(message, args) {
+		            	console.log("inspectNode", message, args);
+		            },
+		            inspectFile: function(message, args) {
+		            	console.log("inspectFile", message, args);
+		            }
+		        },
+		        callback: function(domNode) {
+
+console.log("render done", domNode);
+/*
+		        	// TODO: Relocate all this into domNode.templateObject.postRender();
+					if(typeof message.meta["group.start"] != "undefined") {
+					    // get reference to body of last added console row
+					    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
+
+					    // insert further messages into group
+					    supervisor.groupStack.push(node);
+					    // expand group if requested
+					    if(typeof message.meta["group.expand"] && message.meta["group.expand"]==message.meta["group"] && node.parentNode) {
+					        node.parentNode.setAttribute("expanded", "true");
+					    }
+					}
+					if(typeof message.meta["group.end"] != "undefined") {
+					    var count = message.meta["group.end"];
+					    if(count===true) {
+					        count = 1;
+					    }
+					    for( var i=0 ; i<count ; i++ ) {
+					        var groupStartNode = supervisor.groupStack.pop();
+							if(groupStartNode.parentNode.templateObject) {
+								groupStartNode.parentNode.templateObject.setCount(groupStartNode.parentNode, groupStartNode.children.length);
+							}
+					    }
+					}
+					if(typeof message.meta["expand"] != "undefined" && message.meta["expand"]) {
+					    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
+					    if(node.parentNode && node.parentNode.templateObject) {
+					        node.parentNode.templateObject.expandForMasterRow(node.parentNode, node);
+					    }
+					    else
+					    	console.error("NYI - expand for message - in " + module.id);
+					}
+					if(typeof message.meta["actions"] != "undefined" && message.meta["actions"] == false) {
+					    var node = DOMPLATE_UTIL.getElementByClass(domNode, "actions");
+					    if (node)
+					    	node.style.display = "none";
+					}
+
+					try {
+						if (
+		                    domNode.children[0] &&
+		                    domNode.children[0].templateObject &&
+		                    domNode.children[0].templateObject.postRender
+		                ) {
+							domNode.children[0].templateObject.postRender(domNode.children[0]);
+		                }
+					} catch(e) {
+						console.warn("Error during template postRender", e, e.stack);
+					}
+
+					if (supervisor._appendMessageToNode__queue.length > 0)
+					{
+						doSynchronizedappendMessageToNode.apply(null, [supervisor].concat(supervisor._appendMessageToNode__queue.shift()));
+					}
+					else
+						supervisor._appendMessageToNode__queue = false;
+*/
+		        }
+		    });
+
+
+		} catch (err) {
+			console.error("Error rendering message to panel node: " + err, err.stack);
+		}
+	}
+
+	return context.registerApi("console.clear", function (args) {
+
+		panelNode.html("");
+
+		return Q.resolve();
+	}).then(function () {
+		return context.registerApi("console.log", function (args) {
+
+//			$('<div>' + JSON.stringify(args.args) + '</div>').appendTo(panelNode);
+
+			logMessageToPanelNode({
+				meta: {},
+				og: args.args
+			});
+
+			return Q.resolve();
+		});
+	}).then(function () {
+		return context.callApi("menu.add.button", {
+			lid: "clear",
+			label: "Clear",
+			command: function () {
+				return context.callApi("console.clear");
+			}
+		});
+	}).then(function () {
+
+		$(window).resize(function() {
+			return redraw();
+		});
+		$(window).ready(function () {
+			return setTimeout(function () {
+				return redraw();
+			}, 100);
+		});
+
+		viewportNode.on("show", function () {
+			return setTimeout(function () {
+				return redraw();
+			}, 100);
+		});
+		menuNode.on("show", function () {
+			return setTimeout(function () {
+				return redraw();
+			}, 100);
+		});
+		menuNode.on("hide", function () {
+			return setTimeout(function () {
+				return redraw();
+			}, 100);
+		});
+	});
+
+}
+
+
+
+}
+, {"filename":"../loops/0-boot/console.js"});
+// @pinf-bundle-module: {"file":"../loops/renderer.js","mtime":1420350915,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/renderer.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/renderer.js", 
+function(require, exports, module) {var __dirname = '../loops';
+
+var UTIL = require("modules/util"),
+    JSON = require("modules/json"),
+    DOM = require("./util/dom"),
+    ENCODER = require("insight/encoder/default"),
+    DECODER = require("insight/decoder/default"),
+    DOMPLATE_UTIL = exports.DOMPLATE_UTIL = require("domplate/util"),
+    Q = require("modules/q"),
+    RESOURCE = require("modules/resource");
+
+
+var INSIGHT_RENDERERS_DEFAULT = require("insight.renderers.default");
+
+
+var RELOADING = false;
+
+var LOADER = null;
+exports.setLoader = function(inst) { LOADER = inst; }
+
+var templatePacks = {
+	list: [],
+	byid: {}
+};
+
+var modules = {};
+
+var renderWrappers = {};
+
+
+// TODO: Keep this on a supervisor level in the future
+var injectedCss = {};
+
+
+
+var Supervisor = exports.Supervisor = function() {
+	this.groupStack = [];
+	this.messageWrapper = null;
+	this._appendMessageToNode__queue = false;
+	this.on = {};
+};
+Supervisor.prototype.ensureCssForDocument = function(document)
+{
+	for (var id in injectedCss)
+		DOM.importCssString(injectedCss[id], document, "devcomp-insight-css-" + id);
+}
+Supervisor.prototype.resetGroupStack = function()
+{
+	this.groupStack = [];
+}
+Supervisor.prototype.setMessageWrapper = function(wrapper)
+{
+    this.messageWrapper = wrapper;
+}
+Supervisor.prototype.appendMessageToNode = function(domNode, message)
+{
+	if (this._appendMessageToNode__queue === false)
+	{
+		this._appendMessageToNode__queue = [];
+		doSynchronizedappendMessageToNode(this, domNode, message);
+	}
+	else
+	if (this._appendMessageToNode__queue !== false)
+		this._appendMessageToNode__queue.push([domNode, message]);
+}
+
+function doSynchronizedappendMessageToNode(supervisor, domNode, message)
+{
+	if(supervisor.groupStack.length>0) {
+		domNode = supervisor.groupStack[supervisor.groupStack.length-1];
+	    if(!domNode) {
+	        throw new Error("domNode is null!");
+	    }
+	}
+
+	exports.appendMessageToNode(domNode, message, {
+		supervisor: supervisor,
+        view: ["summary"],
+        wrapper: supervisor.messageWrapper,
+        on: {
+            inspectMessage: function(message)
+            {
+            	if (typeof supervisor.on.inspectMessage !== "undefined")
+            		supervisor.on.inspectMessage(message);
+            },
+            inspectNode: function(message, args)
+            {
+            	if (typeof supervisor.on.inspectNode !== "undefined")
+            		supervisor.on.inspectNode(message, args);
+            },
+            inspectFile: function(message, args)
+            {
+            	if (typeof supervisor.on.inspectFile !== "undefined")
+            		supervisor.on.inspectFile(message, args);
+            }
+        },
+        callback: function(domNode)
+        {
+        	// TODO: Relocate all this into domNode.templateObject.postRender();
+			if(typeof message.meta["group.start"] != "undefined") {
+			    // get reference to body of last added console row
+			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
+
+			    // insert further messages into group
+			    supervisor.groupStack.push(node);
+			    // expand group if requested
+			    if(typeof message.meta["group.expand"] && message.meta["group.expand"]==message.meta["group"] && node.parentNode) {
+			        node.parentNode.setAttribute("expanded", "true");
+			    }
+			}
+			if(typeof message.meta["group.end"] != "undefined") {
+			    var count = message.meta["group.end"];
+			    if(count===true) {
+			        count = 1;
+			    }
+			    for( var i=0 ; i<count ; i++ ) {
+			        var groupStartNode = supervisor.groupStack.pop();
+					if(groupStartNode.parentNode.templateObject) {
+						groupStartNode.parentNode.templateObject.setCount(groupStartNode.parentNode, groupStartNode.children.length);
+					}
+			    }
+			}
+			if(typeof message.meta["expand"] != "undefined" && message.meta["expand"]) {
+			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
+			    if(node.parentNode && node.parentNode.templateObject) {
+			        node.parentNode.templateObject.expandForMasterRow(node.parentNode, node);
+			    }
+			    else
+			    	console.error("NYI - expand for message - in " + module.id);
+			}
+			if(typeof message.meta["actions"] != "undefined" && message.meta["actions"] == false) {
+			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "actions");
+			    if (node)
+			    	node.style.display = "none";
+			}
+
+			try {
+				if (
+                    domNode.children[0] &&
+                    domNode.children[0].templateObject &&
+                    domNode.children[0].templateObject.postRender
+                ) {
+					domNode.children[0].templateObject.postRender(domNode.children[0]);
+                }
+			} catch(e) {
+				console.warn("Error during template postRender", e, e.stack);
+			}
+
+			if (supervisor._appendMessageToNode__queue.length > 0)
+			{
+				doSynchronizedappendMessageToNode.apply(null, [supervisor].concat(supervisor._appendMessageToNode__queue.shift()));
+			}
+			else
+				supervisor._appendMessageToNode__queue = false;
+        }
+    });
+}
+
+
+function ensureTemplatePacks()
+{
+    var PACK;
+
+    PACK = require("insight.renderers.default/php/pack");
+    if (!templatePacks.byid["php"])
+    {
+    	templatePacks.byid["php"] = PACK;
+        templatePacks.list.push(PACK);
+    }
+
+    PACK = require("insight.renderers.default/insight/pack");
+    if (!templatePacks.byid["insight"])
+    {
+    	templatePacks.byid["insight"] = PACK;
+        templatePacks.list.push(PACK);
+    }
+}
+
+var commonHelpers = {
+	helpers: null,
+    // NOTE: This should only be called once or with an ID to replace existing
+    importCssString: function(id, css, document)
+    {
+    	injectedCss[id] = css;
+        DOM.importCssString(css, document, "devcomp-insight-css-" + id);
+    },
+    util: UTIL.copy(DOMPLATE_UTIL),
+    getTemplateForId: function(id)
+    {
+console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");    	
+        throw new Error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
+    },
+    getTemplateModuleForNode: function(node)
+    {
+//console.log("getTemplateModuleForNode", node);        
+    	try {
+	        ensureTemplatePacks();
+	        var found;
+
+	        var og = node.getObjectGraph(),
+	        	ogNode = og.origin,
+	        	meta = og.meta;
+
+	        // Match message-based renderers
+	        if (node === ogNode && meta && meta.renderer)
+	        {
+        		if (!node.meta) node.meta = {};
+	        	var pack = false;
+	        	var id = "http://registry.pinf.org/cadorn.org/renderers/packages/insight/0";
+	        	if (meta.renderer.substring(0, id.length+1) === id + ":")
+	        	{
+	        		if (node === node.getObjectGraph().getOrigin())
+	        			node.meta.renderer = meta.renderer.substring(id.length+1);
+	        		pack = "insight";
+	        	}
+	        	if (pack)
+	        		found = templatePacks.byid[pack].getTemplateForNode(node);
+	        	else
+	        		console.warn("Unknown renderer: " + meta.renderer);
+	        }
+
+	        // Match message-based language primitives
+	        if (!found && meta && meta["lang.id"])
+	        {
+	        	if (meta["lang.id"] == "registry.pinf.org/cadorn.org/github/renderers/packages/php/master")
+	        	{
+	        		found = templatePacks.byid["php"].getTemplateForNode(node);
+	        		if (!found)
+	        		{
+	        			// lookup in default language pack
+	            		found = templatePacks.byid["insight"].getTemplateForNode(node);
+	        		}
+	        	}
+	        	else
+	        		throw new Error("Unknown language ID: " + meta["lang.id"]);
+	        }
+	        else
+	    	if (!found)
+	        {
+		        for (var i=templatePacks.list.length-1 ; i>=0 ; i--)
+		        {
+		            if (typeof templatePacks.list[i].getTemplateForNode == "function" &&
+		                (found = templatePacks.list[i].getTemplateForNode(node)))
+		                break;
+		        }
+	        }
+	        if (!found)
+	        {
+	            console.error("ERROR: Template for node '" + node.type + "' not found! (in " + module.id + ")", node);
+	            return false;
+	        }
+	        return found;
+    	} catch (err) {
+    		console.error("Error getting template for node", err.stack, node);
+    	}
+    },
+    getTemplateForNode: function(node)
+    {
+        var template = commonHelpers.getTemplateModuleForNode(node);
+        if(!template)
+            return false;
+        try {
+        	return template.getTemplate(this.helpers);
+        } catch(e) {
+        	console.warn("Error getting template", e);
+        }
+    },
+    getResourceBaseUrl: function(module)
+    {
+
+//console.log("module.id", module.id);
+//console.log("MATCH",  module.id.replace(/^lib\/insight\//, "resources"));
+
+        return require.sandbox.id + "/" + module.id.split("/")[0] + "/resources/";
+/*
+    	var bravojs = getBravoJS();
+    	if (/^memory:\/\//.test(bravojs.url))
+    	{
+    		var pathId = module._id.split("@/")[0];		// TODO: Don't use _id here
+    		
+    		var m = pathId.match(/devcomp\/data\/packages\.jar!\/(.*)$/),
+    			url;
+    		if (m)
+    		{
+    			// we are bundled    		    
+    			url = "resource://" + LOADER.getAPI().ENV.platformOptions.jetpackID.replace("@", "-at-") + "-i-packages" + "/" + m[1] + "/resources/";
+    		} else
+    		if (pathId.charAt(0) === "/") {
+    			// we are in dev
+    			url = "file://" + pathId + "/resources/";
+    		} else
+    			throw new Error("Cannot get URL for: " + module.pkgId);
+    		return url;
+    	}
+    	else
+    	{
+            return RESOURCE.forPackage(module).getResourceBaseUrl();//bravojs.url.match(/^(\w*:\/)\//)[1] + pkgId + "@/resources/";
+    	}
+*/
+    },
+    logger: {
+        log: function()
+        {
+            console.log.apply(console, arguments);            
+        },
+        error: function()
+        {
+            console.error.apply(console, arguments);            
+        }
+    }
+};
+commonHelpers.util.merge = function(obj1, obj2)
+{
+    if(!obj1) return obj2;
+    if(!obj2) return obj1;
+    return UTIL.update(obj1, obj2);
+}
+
+
+exports.replaceMessageForNode = function(node, message, options)
+{
+	try {
+		return renderMessage(node, message, options, "replace");
+	} catch(e) {
+		console.error("Error rendering message", e);
+		throw e;
+	}
+}
+
+exports.appendMessageToNode = function(node, message, options)
+{
+	try {
+		return renderMessage(node, message, options, "append");
+	} catch(e) {
+		console.error("Error rendering message", e);
+		throw e;
+	}
+}
+
+exports.replaceNodeForNode = function(domNode, node, options)
+{
+	try {
+		return renderMessage(domNode, {
+			node: node
+		}, options, "replace");
+	} catch(e) {
+		console.error("Error rendering message", e);
+		throw e;
+	}
+}
+
+function renderMessage(domNode, message, options, mode)
+{
+    options = options || {};
+    options.view = options.view || ["summary"];
+    options.on = options.on || {};
+
+//console.log("renderMessage", domNode, message, options, mode);
+
+    var helpers = UTIL.copy(commonHelpers);
+    helpers.helpers = helpers;
+    helpers.document = domNode.ownerDocument;
+    helpers.dispatchEvent = function(name, args)
+    {
+        if (typeof options.on[name] != "undefined")
+            options.on[name](args[1].message, args[1].args);
+    };
+
+    message = UTIL.copy(message);
+
+    if (typeof message.meta == "string")
+        message.meta = JSON.decode(message.meta);
+
+    if (typeof message === "string")
+    {
+        if (mode == "append")
+        {
+            var div = domNode.ownerDocument.createElement("div");
+            div.setAttribute("class", "message");
+            div.innerHTML = message;
+            domNode.appendChild(div);
+        }
+        else
+        if (mode == "replace")
+        {
+        	domNode.innerHTML = message;
+        }
+        else
+            throw new Error("NYI");
+        return;
+    }
+
+    if (typeof message.og == "undefined" && typeof message.node == "undefined")
+    {
+        if (typeof message.data != "undefined")
+        {
+            // we have data set but no template. try and determine which template to use.
+            var encoder = ENCODER.Encoder();
+            message.og = encoder.encode(message.data, {}, {});
+        }
+        else
+            throw new Error("NYI");
+    }
+
+    if (typeof message.og == "string")
+    {
+    	message.originalOg = message.og;
+        message.og = DECODER.generateFromMessage({
+        	meta: message.meta,
+            data: message.og
+        }, DECODER.EXTENDED);
+        message.meta = message.og.getMeta();
+    }
+
+    if (typeof message.og == "object")
+    {
+    	message.og.setMeta(message.meta);
+    	message.og.message = message;
+    }
+
+    if (typeof message.ogPath !== "undefined")
+    {
+    	return renderMessage(domNode, {
+			node: message.og.nodeForPath(message.ogPath)
+		}, options, "replace");
+    }
+    
+    if (typeof message.template == "undefined")
+    {
+        if (typeof message.og == "object")
+        {
+            var template = helpers.getTemplateModuleForNode(message.og.getOrigin());
+            if (!template)
+                throw new Error("Unable to locate template for ObjectGraph!");
+            message.template = template.getTemplateLocator();
+        }
+        else
+        if (typeof message.node != "undefined")
+        {
+            var template = helpers.getTemplateModuleForNode(message.node);
+            if (!template)
+                throw new Error("Unable to locate template for node!");
+            message.template = template.getTemplateLocator();
+        }
+        else
+            throw new Error("NYI");
+    }
+
+    if (typeof message.template != "undefined")
+    {
+        // ASSUMPTION: module.mappings["templates"] resolves to 'github.com/insight/insight.renderers.default/' package
+        // TODO: Arbitrary template loading via authorization callback
+        if (typeof message.template.id != "undefined" && message.template.id != "github.com/insight/insight.renderers.default/")
+            throw new Error("Only templates from 'github.com/insight/insight.renderers.default/' are supported at this time!");
+
+        function render(template)
+        {
+            var div;
+
+            if (mode == "append")
+            {
+                div = domNode.ownerDocument.createElement("div");
+                div.setAttribute("class", "message");
+            }
+            else
+            if (mode == "replace")
+            {
+                div = domNode;
+                div.innerHTML = "";
+            }
+            else
+                throw new Error("NYI");
+
+            function renderWrapped(div, view)
+            {
+            	// Nothing to render for groups. Child nodes have already been inserted.
+            	// TODO: Maybe do not insert child nodes until expanding?
+            	if (message.meta && typeof message.meta["group.start"] !== "undefined" && message.meta["group.start"])
+            		return;
+
+            	options = UTIL.copy(options);
+                if (typeof view != "undefined")
+                    options.view = view;
+
+                if (typeof options.view != "array")
+                    options.view = [options.view];
+
+                if (typeof message.og != "undefined")
+                {
+                    if (typeof template.renderObjectGraphToNode == "undefined")
+                        throw new Error("Template module '" + message.template.module + "' from '" + message.template.id + "' does not export 'renderObjectGraphToNode'!");
+                    template.renderObjectGraphToNode(message.og.getOrigin(), div, options, helpers);
+                }
+
+/*
+                else
+                if (typeof message.data != "undefined")
+                {
+                    if (typeof template.renderDataToNode == "undefined")
+                        throw new Error("Template module '" + message.template.module + "' from '" + message.template.id + "' does not export 'renderDataToNode'!");
+                    template.renderDataToNode(message.data, div, options, helpers);
+                }
+*/
+                else
+                    throw new Error("NYI");
+            }
+
+            if (mode == "append")
+            {
+            	domNode.appendChild(div);
+            }
+            
+            if (typeof options.wrapper != "undefined")
+            {
+                if (options.wrapper.id != "github.com/insight/insight.renderers.default/")
+                    throw new Error("Only wrappers from 'github.com/insight/insight.renderers.default/' are supported at this time!");
+
+                function doRenderWrapped(id)
+                {
+                	message.render = renderWrapped;
+                	try {
+                		message.template = template.getTemplate(helpers);
+                	} catch (err) {
+                		console.warn("Error getting template", err.stack);
+                	}
+                	message.meta = message.meta || {};
+//console.log("ID", id);
+                	try {
+                		require("insight.renderers.default/lib/" + id).renderMessage(message, div, options, helpers);
+                	} catch (err) {
+                		console.warn("Error rendering message", err.stack);
+                	}
+
+                	if (typeof options.callback === "function")
+                    	options.callback(div);
+                }
+
+//console.log("load WRAPPER 1", "insight.renderers.default/lib/" + options.wrapper.module);
+//console.log("require", require);
+
+                doRenderWrapped(options.wrapper.module);
+/*
+                var wrapperId = require.id("insight.renderers.default/lib/" + options.wrapper.module);
+
+console.log("wrapperId", wrapperId);
+
+                if (renderWrappers[wrapperId] && Q.isPromise(renderWrappers[wrapperId])) {
+					Q.when(renderWrappers[wrapperId], doRenderWrapped);
+                }
+                else {
+//                else if (renderWrappers[wrapperId] || require.isMemoized(wrapperId)) {
+                	doRenderWrapped(wrapperId);
+            	}
+*/
+/*                
+                else {
+throw new Error("TODO: Implement dynamic loading of templates.");                    
+                	var result = Q.defer();           
+
+console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper.module);
+                    module.load("insight.renderers.default/lib/" + options.wrapper.module, function(id)
+                    {
+                    	doRenderWrapped(id);
+                    	renderWrappers[wrapperId] = true;
+                    	result.resolve(id);
+                    });
+                    renderWrappers[wrapperId] = result.promise;
+                }
+*/
+            }
+            else
+                renderWrapped(div);
+        }
+
+        if (typeof message.template.getTemplate == "function")
+        {
+            render(message.template.getTemplate());
+            return;
+        }
+
+        var tplId = message.template.id + "|" + message.template.module;
+        
+        if (modules[tplId] && RELOADING)
+        {
+            // TODO: This can probably move down to remove modules right after included as in "comm"
+            // remove all modules for this template from previous loads
+            modules[tplId][0].forEach(function(id)
+            {
+//                delete getBravoJS().pendingModuleDeclarations[id];
+//                delete getBravoJS().requireMemo[id];
+            });
+            delete modules[tplId];
+        }
+
+        if (!modules[tplId])
+        {
+//            modules[tplId] = [Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo))];
+//console.log("lod module dynamiclly!", message.template.module);
+
+//console.log("INSIGHT_RENDERERS_DEFAULT", INSIGHT_RENDERERS_DEFAULT);
+
+//console.log("LOAD MODULE ASYNC", "insight.renderers.default/" + message.template.module);
+
+            // TODO: Use `require.async` to load templates dynamically. For now they are already memoized by the pack helper by including them statically.
+            var template = require("insight.renderers.default/lib/" + message.template.module);
+//console.log("template", template);
+/*
+            moduleload("templates/" + message.template.module, function(id)
+            {
+            	var template = modules[tplId][1] = require(id);
+
+                if (typeof template.getTemplatePack == "function")
+                {
+                    var templatePack = template.getTemplatePack();
+                    if (templatePacks.list.indexOf(templatePack) === -1)
+                        templatePacks.list.push(templatePack);
+                }
+
+                render(template);
+
+                // compute all newly added modules
+                modules[tplId][0] = Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo)).filter(function(id)
+                {
+                    return (modules[tplId][0].indexOf(id) === -1);
+                });
+            });
+*/            
+
+            if (typeof template.getTemplatePack == "function") {
+                var templatePack = template.getTemplatePack();
+                if (templatePacks.list.indexOf(templatePack) === -1) {
+                    templatePacks.list.push(templatePack);
+                }
+            }
+
+            render(template);
+        }
+        else
+            render(modules[tplId][1]);
+    }
+    else
+        throw new Error("NYI");
+}
+
+}
+, {"filename":"../loops/renderer.js"});
+// @pinf-bundle-module: {"file":"../loops/util/dom.js","mtime":1420261646,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/util/dom.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/util/dom.js", 
+function(require, exports, module) {var __dirname = '../loops/util';
+/* vim:ts=4:sts=4:sw=4:
+ * ***** BEGIN LICENSE BLOCK *****
+ * Version: MPL 1.1/GPL 2.0/LGPL 2.1
+ *
+ * The contents of this file are subject to the Mozilla Public License Version
+ * 1.1 (the "License"); you may not use this file except in compliance with
+ * the License. You may obtain a copy of the License at
+ * http://www.mozilla.org/MPL/
+ *
+ * Software distributed under the License is distributed on an "AS IS" basis,
+ * WITHOUT WARRANTY OF ANY KIND, either express or implied. See the License
+ * for the specific language governing rights and limitations under the
+ * License.
+ *
+ * The Original Code is Ajax.org Code Editor (ACE).
+ *
+ * The Initial Developer of the Original Code is
+ * Ajax.org B.V.
+ * Portions created by the Initial Developer are Copyright (C) 2010
+ * the Initial Developer. All Rights Reserved.
+ *
+ * Contributor(s):
+ *      Fabian Jakobs <fabian AT ajax DOT org>
+ *      Mihai Sucan <mihai AT sucan AT gmail ODT com>
+ *
+ * Alternatively, the contents of this file may be used under the terms of
+ * either the GNU General Public License Version 2 or later (the "GPL"), or
+ * the GNU Lesser General Public License Version 2.1 or later (the "LGPL"),
+ * in which case the provisions of the GPL or the LGPL are applicable instead
+ * of those above. If you wish to allow use of your version of this file only
+ * under the terms of either the GPL or the LGPL, and not to allow others to
+ * use your version of this file under the terms of the MPL, indicate your
+ * decision by deleting the provisions above and replace them with the notice
+ * and other provisions required by the GPL or the LGPL. If you do not delete
+ * the provisions above, a recipient may use your version of this file under
+ * the terms of any one of the MPL, the GPL or the LGPL.
+ *
+ * ***** END LICENSE BLOCK ***** */
+
+
+var XHTML_NS = "http://www.w3.org/1999/xhtml";
+
+exports.createElement = function(tag, ns) {
+    return document.createElementNS ?
+           document.createElementNS(ns || XHTML_NS, tag) :
+           document.createElement(tag);
+};
+
+exports.setText = function(elem, text) {
+    if (elem.innerText !== undefined) {
+        elem.innerText = text;
+    }
+    if (elem.textContent !== undefined) {
+        elem.textContent = text;
+    }
+};
+
+if (typeof document === "undefined" || !document.documentElement.classList) {
+    exports.hasCssClass = function(el, name) {
+        var classes = el.className.split(/\s+/g);
+        return classes.indexOf(name) !== -1;
+    };
+
+    /**
+    * Add a CSS class to the list of classes on the given node
+    */
+    exports.addCssClass = function(el, name) {
+        if (!exports.hasCssClass(el, name)) {
+            el.className += " " + name;
+        }
+    };
+
+    /**
+    * Remove a CSS class from the list of classes on the given node
+    */
+    exports.removeCssClass = function(el, name) {
+        var classes = el.className.split(/\s+/g);
+        while (true) {
+            var index = classes.indexOf(name);
+            if (index == -1) {
+                break;
+            }
+            classes.splice(index, 1);
+        }
+        el.className = classes.join(" ");
+    };
+
+    exports.toggleCssClass = function(el, name) {
+        var classes = el.className.split(/\s+/g), add = true;
+        while (true) {
+            var index = classes.indexOf(name);
+            if (index == -1) {
+                break;
+            }
+            add = false;
+            classes.splice(index, 1);
+        }
+        if(add)
+            classes.push(name);
+
+        el.className = classes.join(" ");
+        return add;
+    };
+} else {
+    exports.hasCssClass = function(el, name) {
+        return el.classList.contains(name);
+    };
+
+    exports.addCssClass = function(el, name) {
+        el.classList.add(name);
+    };
+
+    exports.removeCssClass = function(el, name) {
+        el.classList.remove(name);
+    };
+
+    exports.toggleCssClass = function(el, name) {
+        return el.classList.toggle(name);
+    };
+}
+
+/**
+ * Add or remove a CSS class from the list of classes on the given node
+ * depending on the value of <tt>include</tt>
+ */
+exports.setCssClass = function(node, className, include) {
+    if (include) {
+        exports.addCssClass(node, className);
+    } else {
+        exports.removeCssClass(node, className);
+    }
+};
+
+exports.importCssString = function(cssText, doc, id) {
+    doc = doc || document;
+    
+    if (typeof id !== "undefined")
+    {
+    	if (doc.getElementById(id))
+    		return;
+    }
+
+    if (doc.createStyleSheet) {
+        var sheet = doc.createStyleSheet();
+        sheet.cssText = cssText;
+    }
+    else {
+        var style = doc.createElementNS ?
+                    doc.createElementNS(XHTML_NS, "style") :
+                    doc.createElement("style");
+        if (typeof id !== "undefined")
+        {
+        	style.setAttribute("id", id);
+        }
+        style.appendChild(doc.createTextNode(cssText));
+
+        var head = doc.getElementsByTagName("head")[0] || doc.documentElement;
+        head.appendChild(style);
+    }
+};
+
+exports.getInnerWidth = function(element) {
+    return (parseInt(exports.computedStyle(element, "paddingLeft"))
+            + parseInt(exports.computedStyle(element, "paddingRight")) + element.clientWidth);
+};
+
+exports.getInnerHeight = function(element) {
+    return (parseInt(exports.computedStyle(element, "paddingTop"))
+            + parseInt(exports.computedStyle(element, "paddingBottom")) + element.clientHeight);
+};
+
+if (typeof window !== "undefined" && window.pageYOffset !== undefined) {
+    exports.getPageScrollTop = function() {
+        return window.pageYOffset;
+    };
+
+    exports.getPageScrollLeft = function() {
+        return window.pageXOffset;
+    };
+}
+else {
+    exports.getPageScrollTop = function() {
+        return document.body.scrollTop;
+    };
+
+    exports.getPageScrollLeft = function() {
+        return document.body.scrollLeft;
+    };
+}
+
+exports.computedStyle = function(element, style) {
+    if (window.getComputedStyle) {
+        return (window.getComputedStyle(element, "") || {})[style] || "";
+    }
+    else {
+        return element.currentStyle[style];
+    }
+};
+
+exports.scrollbarWidth = function() {
+
+    var inner = exports.createElement("p");
+    inner.style.width = "100%";
+    inner.style.height = "200px";
+
+    var outer = exports.createElement("div");
+    var style = outer.style;
+
+    style.position = "absolute";
+    style.left = "-10000px";
+    style.overflow = "hidden";
+    style.width = "200px";
+    style.height = "150px";
+
+    outer.appendChild(inner);
+
+    var body = document.body || document.documentElement;
+    body.appendChild(outer);
+
+    var noScrollbar = inner.offsetWidth;
+
+    style.overflow = "scroll";
+    var withScrollbar = inner.offsetWidth;
+
+    if (noScrollbar == withScrollbar) {
+        withScrollbar = outer.clientWidth;
+    }
+
+    body.removeChild(outer);
+
+    return noScrollbar-withScrollbar;
+};
+
+/**
+ * Optimized set innerHTML. This is faster than plain innerHTML if the element
+ * already contains a lot of child elements.
+ *
+ * See http://blog.stevenlevithan.com/archives/faster-than-innerhtml for details
+ */
+exports.setInnerHtml = function(el, innerHtml) {
+    var element = el.cloneNode(false);//document.createElement("div");
+    element.innerHTML = innerHtml;
+    el.parentNode.replaceChild(element, el);
+    return element;
+};
+
+exports.setInnerText = function(el, innerText) {
+    if (document.body && "textContent" in document.body)
+        el.textContent = innerText;
+    else
+        el.innerText = innerText;
+
+};
+
+exports.getInnerText = function(el) {
+    if (document.body && "textContent" in document.body)
+        return el.textContent;
+    else
+         return el.innerText || el.textContent || "";
+};
+
+exports.getParentWindow = function(document) {
+    return document.defaultView || document.parentWindow;
+};
+
+exports.getSelectionStart = function(textarea) {
+    // TODO IE
+    var start;
+    try {
+        start = textarea.selectionStart || 0;
+    } catch (e) {
+        start = 0;
+    }
+    return start;
+};
+
+exports.setSelectionStart = function(textarea, start) {
+    // TODO IE
+    return textarea.selectionStart = start;
+};
+
+exports.getSelectionEnd = function(textarea) {
+    // TODO IE
+    var end;
+    try {
+        end = textarea.selectionEnd || 0;
+    } catch (e) {
+        end = 0;
+    }
+    return end;
+};
+
+exports.setSelectionEnd = function(textarea, end) {
+    // TODO IE
+    return textarea.selectionEnd = end;
+};
+
+}
+, {"filename":"../loops/util/dom.js"});
+// @pinf-bundle-module: {"file":"../loops/0-boot/graph.js","mtime":1420589236,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/graph.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/graph.js", 
+function(require, exports, module) {var __dirname = '../loops/0-boot';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+
+	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);
+	var graphNode = $('<div class="' + context.cssPrefix + '-graph">graph</div>').appendTo(context.domNode);
+
+
+	function redraw() {
+
+		// TODO: Ignore multiple render calls within x time.
+		// TODO: Wait a short while before issuing render.
+		// TODO: Cascade render event (for resize) down the tree.
+
+		var height = context.domNode.parent().height();
+
+		if (menuNode.is(":visible")) {
+			graphNode.css("top", menuNode.css("height"));
+			height = height - menuNode.height() - 4;
+		} else {
+			graphNode.css("top", "0px");
+		}
+
+		graphNode.height(height);
+
+		return Q.resolve();
+	}
+
+
+	$(window).resize(function() {
+		return redraw();
+	});
+	$(window).ready(function () {
+		return setTimeout(function () {
+			return redraw();
+		}, 100);
+	});
+
+	graphNode.on("show", function () {
+		return setTimeout(function () {
+			return redraw();
+		}, 100);
+	});
+	menuNode.on("show", function () {
+		return setTimeout(function () {
+			return redraw();
+		}, 100);
+	});
+	menuNode.on("hide", function () {
+		return setTimeout(function () {
+			return redraw();
+		}, 100);
+	});
+
+
+	return Q.resolve();
+}
+
+
+}
+, {"filename":"../loops/0-boot/graph.js"});
+// @pinf-bundle-module: {"file":"../loops/1-insight/1-insight.js","mtime":1420589373,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.js", 
+function(require, exports, module) {var __dirname = '../loops/1-insight';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+
+	var done = Q.resolve();
+	[
+		require("./renderer"),
+		require("./harviewer")
+	].forEach(function (renderer) {
+		done = Q.when(done, function () {
+			return renderer.init(context);
+		});
+	});
+	return done;
+}
+
+
+}
+, {"filename":"../loops/1-insight/1-insight.js"});
+// @pinf-bundle-module: {"file":"../loops/1-insight/renderer.js","mtime":1420589341,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/renderer.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/renderer.js", 
+function(require, exports, module) {var __dirname = '../loops/1-insight';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+console.log("init insight renderer");
+
+	return Q.resolve();
+}
+
+
+}
+, {"filename":"../loops/1-insight/renderer.js"});
+// @pinf-bundle-module: {"file":"../loops/1-insight/harviewer.js","mtime":1421188958,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/harviewer.js"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/harviewer.js", 
+function(require, exports, module) {var __dirname = '../loops/1-insight';
+
+
+exports.init = function (context) {
+
+	var Q = context.API.Q;
+	var $ = context.API.JQUERY;
+
+
+	var node = $('<div id="content" previewcols="url status size timeline" class="' + context.cssPrefix + '-harviewer"></div>').appendTo(context.domNode);
+
+	// TODO: Add layout management code to allow har viewer to be expanded, put into new window etc...
+
+	// Load and boot harviewer plugin.
+	//var uri = "http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js":
+	//uri = "/plugins/harviewer/plugin.js";
+	// TODO: Swap out module source based on mappings.
+	require.sandbox("http://fireconsole.github.io/harviewer/fireconsole/bundles/plugin.js", function (sandbox) {
+		
+
+console.log("Render HAR viewer into node", node);
+
+		//sandbox.main(node[0]);
+	}, function (err) {
+		console.error("Error loading plugin!", err.stack);
+	});
+
+
+	return Q.resolve();
+}
+
+
+}
+, {"filename":"../loops/1-insight/harviewer.js"});
+// @pinf-bundle-module: {"file":null,"mtime":0,"wrapper":"json","format":"json","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/package.json"}
+require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/package.json", 
+{
+    "main": "49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/loader.js",
+    "mappings": {
+        "modules": "3043f77d03cd8406b783eece4cbca15e89faae86-pinf-bridgelib-js",
+        "insight": "e21a2edc75d6a45b8180079e1437bfa808cf8b61-insight-for-js",
+        "domplate": "5ed24c94e4143800bdf9eb7a901c557360709fbd-domplate",
+        "insight.renderers.default": "decde9a96248dba89ddb66cda9fe35cb2d4426a9-insight.renderers.default"
+    },
+    "dirpath": "../loops"
+}
+, {"filename":"../loops/package.json"});
 // @pinf-bundle-ignore: 
 });
 // @pinf-bundle-report: {}

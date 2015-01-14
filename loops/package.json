@@ -1,5 +1,5 @@
 {
-	"uid": "github.com/fireconsole/widget.console/renderers",
+	"uid": "github.com/fireconsole/widget.console/loops",
 	"main": "./loader.js",
 	"mappings": {
 		"q": "../widget/node_modules/q",
