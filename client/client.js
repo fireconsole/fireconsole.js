@@ -1,11 +1,15 @@
 
 var CONSOLE_WIDGET = require("widget");
 var JQUERY = require("widget/jquery");
+var CSS = require("./style.css");
 
 
 exports.main = function () {
 
 	try {
+
+		JQUERY("<style></style>").appendTo("HEAD").html(CSS);
+
 
 		var console1 = new CONSOLE_WIDGET.Widget();
 
