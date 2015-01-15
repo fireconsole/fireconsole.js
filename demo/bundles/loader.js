@@ -309,8 +309,6 @@
 					return identifier[0].require(identifier[1]).exports;
 				};
 
-				module.require._module_ = module;
-
 				module.require.supports = [
 		            "ucjs-pinf-0"
 		        ];
