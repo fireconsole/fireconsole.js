@@ -77,7 +77,7 @@ function wrapAMD(callback) {
     callback(amdRequire, wrappedDefine);
     return exports;
 }
-// @pinf-bundle-module: {"file":"demo.js","mtime":1421215592,"wrapper":"commonjs","format":"commonjs","id":"/demo.js"}
+// @pinf-bundle-module: {"file":"demo.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"/demo.js"}
 require.memoize("/demo.js", 
 function(require, exports, module) {var __dirname = '';
 
@@ -124,7 +124,7 @@ exports.main = function () {
 
 }
 , {"filename":"demo.js"});
-// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421216240,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
+// @pinf-bundle-module: {"file":"../widget/widget.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js"}
 require.memoize("21722499c6c2ae46d0a8a6f4ec16b0de4041616a-widget/widget.js", 
 function(require, exports, module) {var __dirname = '../widget';
 
@@ -25660,7 +25660,7 @@ return jQuery;
 
 })
 , {"filename":"../widget/jquery.js"});
-// @pinf-bundle-module: {"file":"style.css","mtime":1421215081,"wrapper":"url-encoded","format":"utf8","id":"/style.css"}
+// @pinf-bundle-module: {"file":"style.css","mtime":1421217604,"wrapper":"url-encoded","format":"utf8","id":"/style.css"}
 require.memoize("/style.css", 
 'HTML%2C%0ABODY%20%7B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20position%3A%20relative%3B%0A%7D%0A%0A%23console1%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%202%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D%0A%0A%23console2%20%7B%0A%20%20position%3A%20absolute%3B%0A%20%20top%3A%205%25%3B%0A%20%20left%3A%2051%25%3B%0A%20%20width%3A%2047%25%3B%0A%20%20height%3A%2089%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%7D'
 , {"filename":"style.css"});
@@ -25791,7 +25791,7 @@ require.memoize("ebe2303b08e21e9e7396b0d00323a7bb7aa5e3f2-wildfire-for-js/packag
     "dirpath": "../../wildfire-for-js"
 }
 , {"filename":"../../wildfire-for-js/package.json"});
-// @pinf-bundle-module: {"file":"../loops/loader.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/loader.js"}
+// @pinf-bundle-module: {"file":"../loops/loader.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/loader.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/loader.js", 
 function(require, exports, module) {var __dirname = '../loops';
 
@@ -25896,15 +25896,15 @@ Loader.prototype.load = function (id) {
 
 }
 , {"filename":"../loops/loader.js"});
-// @pinf-bundle-module: {"file":"../loops/1-insight/1-insight.scss","mtime":1420588902,"wrapper":"url-encoded","format":"utf8","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.scss"}
+// @pinf-bundle-module: {"file":"../loops/1-insight/1-insight.scss","mtime":1421217604,"wrapper":"url-encoded","format":"utf8","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.scss"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.scss", 
 ''
 , {"filename":"../loops/1-insight/1-insight.scss"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/0-boot.scss","mtime":1420321368,"wrapper":"url-encoded","format":"utf8","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.scss"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/0-boot.scss","mtime":1421217604,"wrapper":"url-encoded","format":"utf8","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.scss"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.scss", 
 'DIV.__CSS_PREFIX__-sandbox%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20height%3A%20100%25%3B%0A%20%20position%3A%20relative%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-menu%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%200px%3B%0A%20%20height%3A%2020px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-menu%20%3E%20BUTTON%20%7B%0A%20%20height%3A%20100%25%3B%0A%20%20border%3A%201px%20solid%20black%3B%0A%20%20border-collapse%3A%20collapse%3B%0A%20%20padding%3A%203px%3B%0A%20%20padding-left%3A%205px%3B%0A%20%20padding-right%3A%205px%3B%0A%20%20margin%3A%200px%3B%0A%20%20margin-right%3A%201px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-graph%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%200px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%2020px%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20margin%3A%200px%3B%0A%20%20padding%3A%201px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20position%3A%20absolute%3B%0A%20%20left%3A%200px%3B%0A%20%20top%3A%2020px%3B%0A%20%20overflow-x%3A%20hidden%3B%0A%20%20overflow-y%3A%20auto%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console-panel%20%7B%0A%20%20box-sizing%3A%20border-box%3B%0A%20%20border%3A%200px%3B%0A%20%20padding%3A%202px%3B%0A%20%20width%3A%20100%25%3B%0A%20%20overflow%3A%20none%3B%20%7D%0A%0ADIV.__CSS_PREFIX__-console-panel%20%3E%20DIV.message%20%7B%0A%20%20border%3A%200px%3B%0A%20%20background-color%3A%20%23ffffff%3B%0A%20%20font-family%3A%20Lucida%20Grande%2C%20Tahoma%2C%20sans-serif%3B%0A%20%20font-size%3A%2011px%3B%20%7D%0A'
 , {"filename":"../loops/0-boot/0-boot.scss"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/0-boot.js","mtime":1420179494,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.js"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/0-boot.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/0-boot.js", 
 function(require, exports, module) {var __dirname = '../loops/0-boot';
 
@@ -25928,7 +25928,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../loops/0-boot/0-boot.js"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/css.js","mtime":1421188200,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/css.js"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/css.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/css.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/css.js", 
 function(require, exports, module) {var __dirname = '../loops/0-boot';
 
@@ -25960,7 +25960,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../loops/0-boot/css.js"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/sandbox.js","mtime":1420421163,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/sandbox.js"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/sandbox.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/sandbox.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/sandbox.js", 
 function(require, exports, module) {var __dirname = '../loops/0-boot';
 
@@ -26036,7 +26036,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../loops/0-boot/sandbox.js"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/menu.js","mtime":1420421156,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/menu.js"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/menu.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/menu.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/menu.js", 
 function(require, exports, module) {var __dirname = '../loops/0-boot';
 
@@ -26102,7 +26102,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../loops/0-boot/menu.js"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/console.js","mtime":1420421121,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/console.js"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/console.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/console.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/console.js", 
 function(require, exports, module) {var __dirname = '../loops/0-boot';
 
@@ -26293,7 +26293,7 @@ console.log("render done", domNode);
 
 }
 , {"filename":"../loops/0-boot/console.js"});
-// @pinf-bundle-module: {"file":"../loops/renderer.js","mtime":1420350915,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/renderer.js"}
+// @pinf-bundle-module: {"file":"../loops/renderer.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/renderer.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/renderer.js", 
 function(require, exports, module) {var __dirname = '../loops';
 
@@ -26941,7 +26941,7 @@ console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper
 
 }
 , {"filename":"../loops/renderer.js"});
-// @pinf-bundle-module: {"file":"../loops/util/dom.js","mtime":1420261646,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/util/dom.js"}
+// @pinf-bundle-module: {"file":"../loops/util/dom.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/util/dom.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/util/dom.js", 
 function(require, exports, module) {var __dirname = '../loops/util';
 /* vim:ts=4:sts=4:sw=4:
@@ -27243,7 +27243,7 @@ exports.setSelectionEnd = function(textarea, end) {
 
 }
 , {"filename":"../loops/util/dom.js"});
-// @pinf-bundle-module: {"file":"../loops/0-boot/graph.js","mtime":1420589236,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/graph.js"}
+// @pinf-bundle-module: {"file":"../loops/0-boot/graph.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/graph.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/0-boot/graph.js", 
 function(require, exports, module) {var __dirname = '../loops/0-boot';
 
@@ -27311,7 +27311,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../loops/0-boot/graph.js"});
-// @pinf-bundle-module: {"file":"../loops/1-insight/1-insight.js","mtime":1420589373,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.js"}
+// @pinf-bundle-module: {"file":"../loops/1-insight/1-insight.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/1-insight.js", 
 function(require, exports, module) {var __dirname = '../loops/1-insight';
 
@@ -27335,7 +27335,7 @@ exports.init = function (context) {
 
 }
 , {"filename":"../loops/1-insight/1-insight.js"});
-// @pinf-bundle-module: {"file":"../loops/1-insight/renderer.js","mtime":1420589341,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/renderer.js"}
+// @pinf-bundle-module: {"file":"../loops/1-insight/renderer.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/renderer.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/renderer.js", 
 function(require, exports, module) {var __dirname = '../loops/1-insight';
 
@@ -27353,7 +27353,7 @@ console.log("init insight renderer");
 
 }
 , {"filename":"../loops/1-insight/renderer.js"});
-// @pinf-bundle-module: {"file":"../loops/1-insight/harviewer.js","mtime":1421188958,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/harviewer.js"}
+// @pinf-bundle-module: {"file":"../loops/1-insight/harviewer.js","mtime":1421217604,"wrapper":"commonjs","format":"commonjs","id":"49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/harviewer.js"}
 require.memoize("49c08f97e9e0e549f75cf062802b7fe1426f8679-loops/1-insight/harviewer.js", 
 function(require, exports, module) {var __dirname = '../loops/1-insight';
 
