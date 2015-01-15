@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "pinf-for-github-pages": "~0.0.1",
+    "pinf-to-github-pages": "0.1.x",
     "shelljs": "~0.3.0"
   },
   "scripts": {
