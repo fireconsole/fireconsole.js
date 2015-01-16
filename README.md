@@ -15,7 +15,13 @@ Usage
 
 ### Install
 
-    npm install
+    bin/install.sh
+
+### Enter Workspace
+
+    source bin/activate.sh
+    # TODO: Document env (i.e. available commands, dependency versions etc...)
+    # TODO: Launch workspace editor
 
 ### Run
 
@@ -24,12 +30,12 @@ Usage
 
 ### Publish to [GiHub Pages](https://pages.github.com/)
 
-	npm run-script publish
+    npm run-script publish
 
 ### Other
 
-	npm run-script build
-	npm run-script clean
+    npm run-script build
+    npm run-script clean
 
 
 Directory Structure
@@ -44,6 +50,7 @@ Upon running the *demo server*, sources from the following directorie are automa
   * `/receivers` - Modules that deal with receiving data in various formats and forwarding it to the widget.
   * `/server` - Demo server for local development.
   * `/scripts` - Project toolchain scripting.
+  * `/bin` - Workspace commands.
 
 
 Legal

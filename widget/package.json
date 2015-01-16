@@ -5,7 +5,7 @@
     "q": "./node_modules/q",
     "loops": "../loops",
     "receivers": "../receivers",
-    "insight": "../../insight-for-js"
+    "insight": "../loops/node_modules/insight-for-js"
   },
   "dependencies": {
     "q": "~1.1.2"
