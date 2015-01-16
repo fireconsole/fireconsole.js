@@ -2,7 +2,10 @@
   "uid": "github.com/fireconsole/widget.console/receivers",
   "main": "./wildfire.js",
   "mappings": {
-      "wildfire": "../../wildfire-for-js",
-      "modules": "../../fp-modules-for-nodejs"
+      "wildfire": "./node_modules/wildfire-for-js",
+      "modules": "../loops/node_modules/fp-modules-for-nodejs"
+  },
+  "dependencies": {
+  	"wildfire-for-js": "0.1.x"
   }
 }

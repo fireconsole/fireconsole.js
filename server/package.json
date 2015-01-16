@@ -7,7 +7,7 @@
   "dependencies": {
     "express": "^4.7.2",
     "node-sass": "^2.0.0-beta",
-    "pinf-for-nodejs": "git://github.com/pinf/pinf-for-nodejs.git#3c0946265dee0876d0d7ed2a221db18419f789ae",
+    "pinf-for-nodejs": "0.1.x",
     "send": "^0.7.3"
   }
 }

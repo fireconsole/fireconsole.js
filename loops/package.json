@@ -3,9 +3,14 @@
 	"main": "./loader.js",
 	"mappings": {
 		"q": "../widget/node_modules/q",
-		"insight.renderers.default": "../../insight.renderers.default",
-        "modules": "../../fp-modules-for-nodejs",
-        "insight": "../../insight-for-js",
-		"domplate": "../../domplate"
+		"insight.renderers.default": "../lib/insight.renderers.default",
+        "modules": "./node_modules/fp-modules-for-nodejs",
+        "insight": "./node_modules/insight-for-js",
+		"domplate": "./node_modules/domplate"
+	},
+	"dependencies": {
+		"fp-modules-for-nodejs": "0.2.x",
+		"insight-for-js": "0.1.x",
+		"domplate": "0.2.x"
 	}
 }
