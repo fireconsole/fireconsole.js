@@ -32,7 +32,7 @@ npm install
 
 cd lib/insight.renderers.default
 npm install
-cd ..
+cd ../..
 
 cd loops
 npm install
