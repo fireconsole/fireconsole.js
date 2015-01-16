@@ -28,25 +28,31 @@ fi
 
 
 
+echo "INSTALL IN: `pwd`"
 npm install
 
 cd lib/insight.renderers.default
+echo "INSTALL IN: `pwd`"
 npm install
 cd ../..
 
 cd loops
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 
 cd receivers
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 
 cd server
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 
 cd widget
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 
