@@ -3,6 +3,6 @@
   "main": "./wildfire.js",
   "mappings": {
       "wildfire": "../../wildfire-for-js",
-      "modules": "../../pinf-bridgelib-js"
+      "modules": "../../fp-modules-for-nodejs"
   }
 }

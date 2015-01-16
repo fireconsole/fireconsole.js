@@ -4,7 +4,7 @@
 	"mappings": {
 		"q": "../widget/node_modules/q",
 		"insight.renderers.default": "../../insight.renderers.default",
-        "modules": "../../pinf-bridgelib-js",
+        "modules": "../../fp-modules-for-nodejs",
         "insight": "../../insight-for-js",
 		"domplate": "../../domplate"
 	}
