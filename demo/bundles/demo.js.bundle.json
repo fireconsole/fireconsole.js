@@ -6478,6 +6478,8 @@
               "raw": {
                 "package.json": {
                   "uid": "github.com/fireconsole/widget.console/loops",
+                  "name": "loops",
+                  "version": "0.0.0",
                   "main": "./loader.js",
                   "mappings": {
                     "q": "../widget/node_modules/q",
@@ -6522,6 +6524,8 @@
                 },
                 "package.json": {
                   "uid": "github.com/fireconsole/widget.console/loops",
+                  "name": "loops",
+                  "version": "0.0.0",
                   "dependencies": {
                     "required": {
                       "fp-modules-for-nodejs": "0.2.x",
@@ -6558,6 +6562,8 @@
               },
               "combined": {
                 "uid": "github.com/fireconsole/widget.console/loops",
+                "name": "loops",
+                "version": "0.0.0",
                 "dependencies": {
                   "required": {
                     "fp-modules-for-nodejs": "0.2.x",
@@ -6634,7 +6640,7 @@
                   "label": "Various NodeJS Modules",
                   "description": "Various NodeJS modules that will go cross-platform in future",
                   "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
-                  "version": "0.2.1",
+                  "version": "0.2.2",
                   "repositories": [
                     {
                       "type": "git",
@@ -6772,7 +6778,7 @@
                   "uid": "https://github.com/freedom-platform/fp-modules-for-nodejs/",
                   "name": "fp-modules-for-nodejs",
                   "description": "Various NodeJS modules that will go cross-platform in future",
-                  "version": "0.2.1",
+                  "version": "0.2.2",
                   "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
                   "repositories": [
                     {
@@ -6908,7 +6914,7 @@
                 "uid": "https://github.com/freedom-platform/fp-modules-for-nodejs/",
                 "name": "fp-modules-for-nodejs",
                 "description": "Various NodeJS modules that will go cross-platform in future",
-                "version": "0.2.1",
+                "version": "0.2.2",
                 "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
                 "repositories": [
                   {
@@ -7091,7 +7097,7 @@
                 "package.json": {
                   "uid": "https://github.com/insight/insight-for-js/",
                   "name": "insight-for-js",
-                  "version": "0.1.1",
+                  "version": "0.1.2",
                   "label": "Internal Intelligence Library",
                   "description": "Internal Intelligence Library for JavaScript",
                   "homepage": "https://github.com/insight/insight-for-js",
@@ -7099,7 +7105,7 @@
                     "lib": "./lib"
                   },
                   "dependencies": {
-                    "fp-modules-for-nodejs": "'0.2.x",
+                    "fp-modules-for-nodejs": "0.2.x",
                     "wildfire-for-js": "0.1.x",
                     "wildfire": "./node_modules/wildfire-for-js",
                     "modules": "./node_modules/fp-modules-for-nodejs"
@@ -7135,11 +7141,11 @@
                   "uid": "https://github.com/insight/insight-for-js/",
                   "name": "insight-for-js",
                   "description": "Internal Intelligence Library for JavaScript",
-                  "version": "0.1.1",
+                  "version": "0.1.2",
                   "homepage": "https://github.com/insight/insight-for-js",
                   "dependencies": {
                     "required": {
-                      "fp-modules-for-nodejs": "'0.2.x",
+                      "fp-modules-for-nodejs": "0.2.x",
                       "wildfire-for-js": "0.1.x",
                       "wildfire": "./node_modules/wildfire-for-js",
                       "modules": "./node_modules/fp-modules-for-nodejs"
@@ -7168,11 +7174,11 @@
                 "uid": "https://github.com/insight/insight-for-js/",
                 "name": "insight-for-js",
                 "description": "Internal Intelligence Library for JavaScript",
-                "version": "0.1.1",
+                "version": "0.1.2",
                 "homepage": "https://github.com/insight/insight-for-js",
                 "dependencies": {
                   "required": {
-                    "fp-modules-for-nodejs": "'0.2.x",
+                    "fp-modules-for-nodejs": "0.2.x",
                     "wildfire-for-js": "0.1.x",
                     "wildfire": "./node_modules/wildfire-for-js",
                     "modules": "./node_modules/fp-modules-for-nodejs"
@@ -7238,7 +7244,7 @@
                   "label": "Various NodeJS Modules",
                   "description": "Various NodeJS modules that will go cross-platform in future",
                   "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
-                  "version": "0.2.1",
+                  "version": "0.2.2",
                   "repositories": [
                     {
                       "type": "git",
@@ -7376,7 +7382,7 @@
                   "uid": "https://github.com/freedom-platform/fp-modules-for-nodejs/",
                   "name": "fp-modules-for-nodejs",
                   "description": "Various NodeJS modules that will go cross-platform in future",
-                  "version": "0.2.1",
+                  "version": "0.2.2",
                   "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
                   "repositories": [
                     {
@@ -7512,7 +7518,7 @@
                 "uid": "https://github.com/freedom-platform/fp-modules-for-nodejs/",
                 "name": "fp-modules-for-nodejs",
                 "description": "Various NodeJS modules that will go cross-platform in future",
-                "version": "0.2.1",
+                "version": "0.2.2",
                 "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
                 "repositories": [
                   {
@@ -8574,6 +8580,8 @@
               "raw": {
                 "package.json": {
                   "uid": "github.com/fireconsole/widget.console/receivers",
+                  "name": "receivers",
+                  "version": "0.0.0",
                   "main": "./wildfire.js",
                   "mappings": {
                     "wildfire": "./node_modules/wildfire-for-js",
@@ -8607,6 +8615,8 @@
                 },
                 "package.json": {
                   "uid": "github.com/fireconsole/widget.console/receivers",
+                  "name": "receivers",
+                  "version": "0.0.0",
                   "dependencies": {
                     "required": {
                       "wildfire-for-js": "0.1.x",
@@ -8635,6 +8645,8 @@
               },
               "combined": {
                 "uid": "github.com/fireconsole/widget.console/receivers",
+                "name": "receivers",
+                "version": "0.0.0",
                 "dependencies": {
                   "required": {
                     "wildfire-for-js": "0.1.x",
@@ -8691,7 +8703,7 @@
                 "package.json": {
                   "uid": "https://github.com/firenode/wildfire-for-js/",
                   "name": "wildfire-for-js",
-                  "version": "0.1.1",
+                  "version": "0.1.2",
                   "label": "Wildfire for JavaScript",
                   "description": "Wildfire Communication Library for JavaScript",
                   "homepage": "https://github.com/firenode/wildfire-for-js",
@@ -8713,7 +8725,7 @@
                     "lib": "./lib"
                   },
                   "dependencies": {
-                    "fp-modules-for-nodejs": "'0.2.x",
+                    "fp-modules-for-nodejs": "0.2.x",
                     "modules": "./node_modules/fp-modules-for-nodejs"
                   },
                   "mappings": {
@@ -8744,11 +8756,11 @@
                   "uid": "https://github.com/firenode/wildfire-for-js/",
                   "name": "wildfire-for-js",
                   "description": "Wildfire Communication Library for JavaScript",
-                  "version": "0.1.1",
+                  "version": "0.1.2",
                   "homepage": "https://github.com/firenode/wildfire-for-js",
                   "dependencies": {
                     "required": {
-                      "fp-modules-for-nodejs": "'0.2.x",
+                      "fp-modules-for-nodejs": "0.2.x",
                       "modules": "./node_modules/fp-modules-for-nodejs"
                     },
                     "bundled": {
@@ -8789,11 +8801,11 @@
                 "uid": "https://github.com/firenode/wildfire-for-js/",
                 "name": "wildfire-for-js",
                 "description": "Wildfire Communication Library for JavaScript",
-                "version": "0.1.1",
+                "version": "0.1.2",
                 "homepage": "https://github.com/firenode/wildfire-for-js",
                 "dependencies": {
                   "required": {
-                    "fp-modules-for-nodejs": "'0.2.x",
+                    "fp-modules-for-nodejs": "0.2.x",
                     "modules": "./node_modules/fp-modules-for-nodejs"
                   },
                   "bundled": {
@@ -8872,7 +8884,7 @@
                   "label": "Various NodeJS Modules",
                   "description": "Various NodeJS modules that will go cross-platform in future",
                   "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
-                  "version": "0.2.1",
+                  "version": "0.2.2",
                   "repositories": [
                     {
                       "type": "git",
@@ -9010,7 +9022,7 @@
                   "uid": "https://github.com/freedom-platform/fp-modules-for-nodejs/",
                   "name": "fp-modules-for-nodejs",
                   "description": "Various NodeJS modules that will go cross-platform in future",
-                  "version": "0.2.1",
+                  "version": "0.2.2",
                   "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
                   "repositories": [
                     {
@@ -9146,7 +9158,7 @@
                 "uid": "https://github.com/freedom-platform/fp-modules-for-nodejs/",
                 "name": "fp-modules-for-nodejs",
                 "description": "Various NodeJS modules that will go cross-platform in future",
-                "version": "0.2.1",
+                "version": "0.2.2",
                 "homepage": "https://github.com/freedom-platform/fp-modules-for-nodejs",
                 "repositories": [
                   {

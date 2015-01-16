@@ -28,25 +28,33 @@ fi
 
 
 
+echo "INSTALL IN: `pwd`"
 npm install
 
 cd lib/insight.renderers.default
+echo "INSTALL IN: `pwd`"
 npm install
-cd ..
+cd ../..
 
 cd loops
+echo "INSTALL IN: `pwd`"
 npm install
+# TODO: Remove this once pinf-it-bundler finds dependency up the tree.
+ln -s ../../fp-modules-for-nodejs node_modules/insight-for-js/node_modules/fp-modules-for-nodejs
 cd ..
 
 cd receivers
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 
 cd server
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 
 cd widget
+echo "INSTALL IN: `pwd`"
 npm install
 cd ..
 

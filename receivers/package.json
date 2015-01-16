@@ -1,5 +1,7 @@
 {
   "uid": "github.com/fireconsole/widget.console/receivers",
+  "name": "receivers",
+  "version": "0.0.0",
   "main": "./wildfire.js",
   "mappings": {
       "wildfire": "./node_modules/wildfire-for-js",

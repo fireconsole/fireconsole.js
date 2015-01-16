@@ -1,5 +1,7 @@
 {
 	"uid": "github.com/fireconsole/widget.console/loops",
+	"name": "loops",
+	"version": "0.0.0",
 	"main": "./loader.js",
 	"mappings": {
 		"q": "../widget/node_modules/q",
