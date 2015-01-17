@@ -12,5 +12,10 @@
     "build": "node scripts/build.js",
     "publish": "node scripts/publish.js",
     "clean": "node scripts/clean.js"
+  },
+  "config": {
+    "pio.deploy.converter": {
+      "name": "nodejs-server"
+    }
   }
 }
