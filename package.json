@@ -5,17 +5,23 @@
   "private": true,
   "dependencies": {
     "pinf-to-github-pages": "0.1.x",
-    "shelljs": "~0.3.0"
+    "shelljs": "~0.3.0",    
+    "smi.cli": "0.x"
   },
   "scripts": {
+    "install": "./node_modules/.bin/smi install",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "publish": "node scripts/publish.js",
     "clean": "node scripts/clean.js"
   },
   "config": {
+    "smi.cli": {
+        "packagesDirectory": "node_modules"
+    },
     "pio.deploy.converter": {
-      "name": "nodejs-server"
+      "name": "nodejs-server",
+      "main": "./scripts/start.js"
     }
   }
 }

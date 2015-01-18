@@ -1,15 +1,20 @@
 #!/bin/sh
 
 # @credit http://stackoverflow.com/a/246128/330439
-SOURCE="${BASH_SOURCE[0]:-$0}"
+if [ -n "$BASH_SOURCE" ]; then
+	SOURCE="${BASH_SOURCE[0]:-$0}"
+else
+	SOURCE=""
+fi
 while [ -h "$SOURCE" ]; do
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"
   [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE"
 done
 BASE_PATH="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
-
-BASE_PATH="$( dirname "$BASE_PATH" )"
+if [ -n "$BASH_SOURCE" ]; then
+	BASE_PATH="$( dirname "$BASE_PATH" )"
+fi
 cd $BASE_PATH
 
 
@@ -18,34 +23,24 @@ cd $BASE_PATH
 
 
 
-# Only initialize once in the beginning.
-if [ ! -d "node_modules" ]; then
-	echo "Init submodules ..."
-	git submodule update --init --recursive --rebase
-else
-	echo "Skip init submodules."
-fi
-
-
-
 echo "INSTALL IN: `pwd`"
 npm install
-
-cd lib/insight.renderers.default
-echo "INSTALL IN: `pwd`"
-npm install
-cd ../..
 
 cd loops
 echo "INSTALL IN: `pwd`"
 npm install
 # TODO: Remove this once pinf-it-bundler finds dependency up the tree.
-ln -s ../../fp-modules-for-nodejs node_modules/insight-for-js/node_modules/fp-modules-for-nodejs
+if [ ! -e "node_modules/insight-for-js/node_modules/fp-modules-for-nodejs" ]; then
+	ln -s ../../fp-modules-for-nodejs node_modules/insight-for-js/node_modules/fp-modules-for-nodejs
+fi
 cd ..
 
 cd receivers
 echo "INSTALL IN: `pwd`"
 npm install
+#if [ ! -e "node_modules/wildfire-for-js/node_modules/fp-modules-for-nodejs" ]; then
+#	ln -s ../../fp-modules-for-nodejs node_modules/wildfire-for-js/node_modules/fp-modules-for-nodejs
+#fi
 cd ..
 
 cd server

@@ -11,14 +11,14 @@ const PORT = process.env.PORT || 8080;
 return PINF.main(function(options, callback) {
 
 	var app = EXPRESS();
-
+/*
 	app.get(/^\/plugins\/harviewer\/(plugin.+)$/, PINF.hoist(PATH.join(__dirname, "../../harviewer/fireconsole/program.json"), options.$pinf.makeOptions({
 		debug: true,
 		verbose: true,
 		PINF_RUNTIME: "",
         $pinf: options.$pinf
     })));
-
+*/
 	app.get(/^\/renderers\/(.+)\/(.+)\.css$/, function (req, res, next) {
 
 		return SASS.render({

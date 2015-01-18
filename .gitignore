@@ -1,3 +1,4 @@
 node_modules/
 .rt/
 /npm-debug.log
+/.pio.cache/

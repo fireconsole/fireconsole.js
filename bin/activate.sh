@@ -2,7 +2,11 @@
 
 # TODO: Relocate into helper module.
 # @credit http://stackoverflow.com/a/246128/330439
-SOURCE="${BASH_SOURCE[0]:-$0}"
+if [ -n "$BASH_SOURCE" ]; then
+	SOURCE="${BASH_SOURCE[0]:-$0}"
+else
+	SOURCE=""
+fi
 while [ -h "$SOURCE" ]; do
   DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
   SOURCE="$(readlink "$SOURCE")"
@@ -20,11 +24,7 @@ echo "[pio] Switching environment ..."
 
 export PATH="$BASE_PATH:$PATH"
 
-ulimit -Sn 8192
-
-
-
-
+ulimit -n 8192
 
 
 
@@ -58,11 +58,12 @@ echo "npm: $(which npm) ($(npm -v))"
 
 # @see http://www.cyberciti.biz/tips/howto-linux-unix-bash-shell-setup-prompt.html
 # @see http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/x329.html
-function parse_git_branch {
+parse_git_branch () {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'
 }
-PS1="\[\033[1;34m\]\[\033[47m\](OS)\[\033[0m\] \[\033[1;35m\]$(basename "$(dirname "$BASE_PATH")")\[\033[0m\][$(parse_git_branch)] \[\033[33m\]\u\[\033[1;33m\]$\[\033[0m\] "
-
+if [ -d "$BASE_PATH/../.git" ]; then
+	PS1="\[\033[1;34m\]\[\033[47m\](OS)\[\033[0m\] \[\033[1;35m\]$(basename "$(dirname "$BASE_PATH")")\[\033[0m\][$(parse_git_branch)] \[\033[33m\]\u\[\033[1;33m\]$\[\033[0m\] "
+fi
 
 
 if [ ! -d "node_modules" ]; then
@@ -76,3 +77,4 @@ fi
 if [ -f "$BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh" ]; then
 	. $BASE_PATH/../../$(basename $(dirname $BASE_PATH)).activate.sh
 fi
+
