@@ -2,7 +2,7 @@
   "uid": "github.com/fireconsole/widget.console/tests",
   "main": "./tests.js",
   "mappings": {
-      "q": "../widget/node_modules/q"
+      "q": "../loops/node_modules/q"
   },
   "exports": {
     "bundles": {

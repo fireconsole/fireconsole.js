@@ -2,12 +2,9 @@
   "uid": "github.com/fireconsole/widget.console/widget",
   "main": "./widget.js",
   "mappings": {
-    "q": "./node_modules/q",
+    "q": "../loops/node_modules/q",
     "loops": "../loops",
     "receivers": "../receivers",
     "insight": "../loops/node_modules/insight-for-js"
-  },
-  "dependencies": {
-    "q": "~1.1.2"
   }
 }

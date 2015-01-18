@@ -28,7 +28,7 @@ npm install
 
 cd loops
 echo "INSTALL IN: `pwd`"
-npm install
+npm install --unsafe-perm
 # TODO: Remove this once pinf-it-bundler finds dependency up the tree.
 if [ ! -e "node_modules/insight-for-js/node_modules/fp-modules-for-nodejs" ]; then
 	ln -s ../../fp-modules-for-nodejs node_modules/insight-for-js/node_modules/fp-modules-for-nodejs
@@ -44,11 +44,6 @@ npm install
 cd ..
 
 cd server
-echo "INSTALL IN: `pwd`"
-npm install
-cd ..
-
-cd widget
 echo "INSTALL IN: `pwd`"
 npm install
 cd ..
