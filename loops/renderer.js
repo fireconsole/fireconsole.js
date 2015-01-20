@@ -173,6 +173,13 @@ function ensureTemplatePacks()
     	templatePacks.byid["insight"] = PACK;
         templatePacks.list.push(PACK);
     }
+
+    PACK = require("insight.renderers.default/apiexplore/pack");
+    if (!templatePacks.byid["apiexplore"])
+    {
+        templatePacks.byid["apiexplore"] = PACK;
+        templatePacks.list.push(PACK);
+    }
 }
 
 var commonHelpers = {
@@ -186,12 +193,12 @@ var commonHelpers = {
     util: UTIL.copy(DOMPLATE_UTIL),
     getTemplateForId: function(id)
     {
-console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");    	
+//console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");    	
         throw new Error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
     },
     getTemplateModuleForNode: function(node)
     {
-//console.log("getTemplateModuleForNode", node);        
+//console.log("getTemplateModuleForNode()", node);        
     	try {
 	        ensureTemplatePacks();
 	        var found;
@@ -203,6 +210,7 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
 	        // Match message-based renderers
 	        if (node === ogNode && meta && meta.renderer)
 	        {
+//console.log("getTemplateModuleForNode() - meta.renderer");        
         		if (!node.meta) node.meta = {};
 	        	var pack = false;
 	        	var id = "http://registry.pinf.org/cadorn.org/renderers/packages/insight/0";
@@ -221,6 +229,7 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
 	        // Match message-based language primitives
 	        if (!found && meta && meta["lang.id"])
 	        {
+//console.log("getTemplateModuleForNode() - meta['lang.id']");        
 	        	if (meta["lang.id"] == "registry.pinf.org/cadorn.org/github/renderers/packages/php/master")
 	        	{
 	        		found = templatePacks.byid["php"].getTemplateForNode(node);
@@ -236,6 +245,7 @@ console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
 	        else
 	    	if (!found)
 	        {
+//console.log("getTemplateModuleForNode() - !found");        
 		        for (var i=templatePacks.list.length-1 ; i>=0 ; i--)
 		        {
 		            if (typeof templatePacks.list[i].getTemplateForNode == "function" &&
@@ -321,7 +331,7 @@ exports.replaceMessageForNode = function(node, message, options)
 	try {
 		return renderMessage(node, message, options, "replace");
 	} catch(e) {
-		console.error("Error rendering message", e);
+		console.error("Error rendering message", e.stack);
 		throw e;
 	}
 }
@@ -331,7 +341,7 @@ exports.appendMessageToNode = function(node, message, options)
 	try {
 		return renderMessage(node, message, options, "append");
 	} catch(e) {
-		console.error("Error rendering message", e);
+		console.error("Error rendering message", e.stack);
 		throw e;
 	}
 }
@@ -343,7 +353,7 @@ exports.replaceNodeForNode = function(domNode, node, options)
 			node: node
 		}, options, "replace");
 	} catch(e) {
-		console.error("Error rendering message", e);
+		console.error("Error rendering message", e.stack);
 		throw e;
 	}
 }
@@ -423,6 +433,8 @@ function renderMessage(domNode, message, options, mode)
 			node: message.og.nodeForPath(message.ogPath)
 		}, options, "replace");
     }
+
+//console.log("message", message);
     
     if (typeof message.template == "undefined")
     {
@@ -431,6 +443,7 @@ function renderMessage(domNode, message, options, mode)
             var template = helpers.getTemplateModuleForNode(message.og.getOrigin());
             if (!template)
                 throw new Error("Unable to locate template for ObjectGraph!");
+//console.log("template based on message.og");
             message.template = template.getTemplateLocator();
         }
         else
@@ -439,6 +452,7 @@ function renderMessage(domNode, message, options, mode)
             var template = helpers.getTemplateModuleForNode(message.node);
             if (!template)
                 throw new Error("Unable to locate template for node!");
+//console.log("template based on message.node");
             message.template = template.getTemplateLocator();
         }
         else
@@ -472,6 +486,11 @@ function renderMessage(domNode, message, options, mode)
 
             function renderWrapped(div, view)
             {
+
+//console.log("renderWrapped()");
+//console.log("options.wrapper", options.wrapper);
+//console.log("message", message);
+
             	// Nothing to render for groups. Child nodes have already been inserted.
             	// TODO: Maybe do not insert child nodes until expanding?
             	if (message.meta && typeof message.meta["group.start"] !== "undefined" && message.meta["group.start"])
@@ -578,7 +597,10 @@ console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper
         }
 
         var tplId = message.template.id + "|" + message.template.module;
-        
+
+//console.log("message", message);        
+//console.log("tplId", tplId);
+
         if (modules[tplId] && RELOADING)
         {
             // TODO: This can probably move down to remove modules right after included as in "comm"
@@ -601,7 +623,7 @@ console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper
 //console.log("LOAD MODULE ASYNC", "insight.renderers.default/" + message.template.module);
 
             // TODO: Use `require.async` to load templates dynamically. For now they are already memoized by the pack helper by including them statically.
-            var template = require("insight.renderers.default/lib/" + message.template.module);
+            var template = require("insight.renderers.default/" + message.template.module);
 //console.log("template", template);
 /*
             moduleload("templates/" + message.template.module, function(id)

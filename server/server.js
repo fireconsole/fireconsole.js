@@ -19,6 +19,7 @@ return PINF.main(function(options, callback) {
         $pinf: options.$pinf
     })));
 */
+/*
 	app.get(/^\/renderers\/(.+)\/(.+)\.css$/, function (req, res, next) {
 
 		return SASS.render({
@@ -43,7 +44,7 @@ return PINF.main(function(options, callback) {
 		    ]
 		});
 	});
-
+*/
 	app.get(/^\/widget\/(.+)$/, function (req, res, next) {
 		return SEND(req, req.params[0], {
 			root: PATH.join(__dirname, "../widget")
