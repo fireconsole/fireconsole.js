@@ -44,7 +44,7 @@ exports.init = function (context) {
 		        view: ["summary"],
 		        wrapper: {
 				    id: "github.com/insight/insight.renderers.default/",
-				    module: "insight/wrappers/console"
+				    module: "apiexplore/wrappers/console"
 				},
 		        on: {
 		            inspectMessage: function(message) {
@@ -59,7 +59,7 @@ exports.init = function (context) {
 		        },
 		        callback: function(domNode) {
 
-console.log("render done", domNode);
+//console.log("render done", domNode);
 /*
 		        	// TODO: Relocate all this into domNode.templateObject.postRender();
 					if(typeof message.meta["group.start"] != "undefined") {

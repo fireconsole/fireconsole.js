@@ -623,7 +623,7 @@ console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper
 //console.log("LOAD MODULE ASYNC", "insight.renderers.default/" + message.template.module);
 
             // TODO: Use `require.async` to load templates dynamically. For now they are already memoized by the pack helper by including them statically.
-            var template = require("insight.renderers.default/" + message.template.module);
+            var template = require(("insight.renderers.default/lib/" + message.template.module).replace("/lib/lib/", "/lib/"));
 //console.log("template", template);
 /*
             moduleload("templates/" + message.template.module, function(id)

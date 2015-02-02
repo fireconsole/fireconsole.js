@@ -2,8 +2,9 @@
   "uid": "github.com/fireconsole/widget.console/demo",
   "main": "./demo.js",
   "mappings": {
-    "q": "../widget/node_modules/q",
-    "widget": "../widget"
+    "q": "../loops/node_modules/q",
+    "widget": "../widget",
+    "md5": "../receivers/node_modules/blueimp-md5"
   },
   "exports": {
     "bundles": {

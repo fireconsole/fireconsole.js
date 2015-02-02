@@ -1,25 +1,184 @@
 
+const Q = require("q");
+
+
 exports.run = function (API) {
 
-    var subData = {
-        name: "value"
-    };
 
-    var data = {
-        name: "value",
-        func: function testFunction(arg)
-        {
-            return {
-                key: "value"
-            };
-        },
-        subData: JSON.stringify(subData)
-    };
+    function testApiExplorer () {
 
-    var og = API.insight.encode(data, {}, {});
+        var api = API.wildfire.fireconsole.apiexplorer;
 
-	return API.wildfire.insight.console.random.send(og);
+        var meta1 = {
+            "label": "Init"
+        };
+        var data1 = {};
+        var context1 = null;
 
+
+        var meta2 = {
+            "label": "Authenticated"
+        };
+        var data2 = {};
+        var context2 = null;
+
+
+        data1 = {
+            sid: "fake-session-id"
+        };
+
+        return api.context(meta1, {
+            "login": {
+                label: "Login",
+                docsUrl: "https://github.com/fireconsole/widget.console",
+                shouldShow: function (snapshot) {
+                    return (!snapshot.uid);
+                },
+                command: function () {
+
+                    return context1.request({
+                        uri: "user/login",
+                        data: "user/login/data"
+                    }).then(function(requestId) {
+
+                        console.log("Login");
+
+                        data1.uid = "user-id";
+                        data1.data = {
+                            that: {
+                                id: {
+                                    deep: true
+                                }
+                            }
+                        };
+
+                        return context1.response(requestId, {
+                            data: {
+                                uid: data1.uid
+                            }
+                        }).then(function() {
+
+                            return context1.update(data1).then(function () {
+
+                                return context1.context(meta2, {
+                                    "user-data-get": {
+                                        label: "User Data Get",
+                                        command: function () {
+                                            console.log("User Data Get!");
+
+                                            return context2.request({
+                                                uri: "user/data/get/request",
+                                                data: {
+                                                    userId: "userId/value"
+                                                }
+                                            }).then(function(requestId) {
+
+                                                data2.userData = "user-data-" + Date.now();
+
+                                                return context2.response(requestId, {
+                                                    data: {
+                                                        userData: data2.userData
+                                                    }
+                                                }).then(function() {
+
+                                                    return context2.update(data2);
+                                                });
+                                            });
+                                        }
+                                    },
+                                    "failed-request": {
+                                        label: "Failed Request",
+                                        command: function () {
+                                            console.log("Failed Request!");
+
+                                            return context2.request({
+                                                uri: "failed/request",
+                                                data: {
+                                                    userId: "userId/value"
+                                                }
+                                            }).then(function(requestId) {
+
+                                                return context2.response(requestId, {
+                                                    error: 500,
+                                                    data: {
+                                                        error: "error/info"
+                                                    }
+                                                }).then(function() {
+
+                                                    return context2.update(data2);
+                                                });
+                                            });
+                                        }
+                                    }
+                                }, data2).then(function (context) {
+                                    context2 = context;
+                                });
+                            });
+                        });
+                    });
+                }
+            },
+            "logout": {
+                label: "Logout",
+                shouldShow: function (snapshot) {
+                    return (!!snapshot.uid);
+                },
+                command: function () {
+
+                    return context1.request({
+                        uri: "user/logout"
+                    }).then(function(requestId) {
+
+                        console.log("Logout");
+
+                        delete data1.uid;
+
+                        return context1.response(requestId).then(function() {
+
+                            return context1.update(data1).then(function () {
+
+                                return context2.destroy();
+
+                            });
+                        });
+                    });
+                }
+            }
+        }, data1).then(function (context) {
+            context1 = context;
+        });
+    }
+
+
+
+
+    function logSomeData () {
+
+        var subData = {
+            name: "value"
+        };
+
+        var data = {
+            name: "value",
+            func: function testFunction(arg)
+            {
+                return {
+                    key: "value"
+                };
+            },
+            subData: JSON.stringify(subData)
+        };
+
+        var og = API.insight.encode(data, {}, {});
+
+        return API.wildfire.fireconsole.apiexplore.send(og);
+    }
+
+
+//    return logSomeData().then(function () {
+
+        return testApiExplorer();
+//    });
 
 //	console.log("Running hello world main!");
 //	API.console.log("Hello World");

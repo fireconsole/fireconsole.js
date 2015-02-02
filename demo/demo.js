@@ -1,41 +1,68 @@
 
-var CONSOLE_WIDGET = require("widget");
-var JQUERY = require("widget/jquery");
-var CSS = require("./style.css");
+const CONSOLE_WIDGET = require("widget");
+const JQUERY = require("widget/jquery");
+const CSS = require("./style.css");
+const Q = require("q");
+const MD5 = require("md5");
 
 
-exports.main = function () {
+exports.main = function (domNodeId) {
 
 	try {
 
 		JQUERY("<style></style>").appendTo("HEAD").html(CSS);
 
+		if (domNodeId === null && typeof domNodeId !== "undefined") {
 
-		var console1 = new CONSOLE_WIDGET.Widget();
+			return Q.resolve({
+				API: {
+					JQUERY: JQUERY,
+					Q: Q,
+					MD5: MD5
+				},
+				FireConsoleWidget: CONSOLE_WIDGET.Widget
+			});
 
-		// TODO: Load jQuery via PINF bundler.
-		console1.attach(JQUERY("#console1")).then(function (context) {
-//			return context.callApi("tests.load").then(function () {
+		} else
+		if (domNodeId) {
 
-//			});
-		});
+			// We have a user that wants to do their own thing.
+			var consoleWidget = new CONSOLE_WIDGET.Widget();
+
+			return consoleWidget.attach(JQUERY("#" + domNodeId));
+
+		} else {
+			// We run the default demo.
+			var consoleWidget1 = new CONSOLE_WIDGET.Widget();
+
+			return consoleWidget1.attach(JQUERY("#console1")).then(function (context) {
+				return context.fireconsole.callApi("tests.load").then(function () {
+
+				});
+			}).then(function () {
+
+				var consoleWidget2 = new CONSOLE_WIDGET.Widget();
+
+				// TODO: Load jQuery via PINF bundler.
+				return consoleWidget2.attach(JQUERY("#console2")).then(function (context) {
+
+					return context.fireconsole.callApi("tests.load").then(function () {
+
+					});
 
 /*
-		var console2 = new CONSOLE_WIDGET.Widget();
-
-		// TODO: Load jQuery via PINF bundler.
-		console2.attach($("#console2")).then(function (context) {
-
-			return context.callApi("menu.close").then(function () {
-
-				return context.callApi("view.show", {
-					name: "graph"
+					return context.fireconsole.callApi("menu.close").then(function () {
+						return context.fireconsole.callApi("view.show", {
+							name: "graph"
+						});
+					});
+*/
 				});
 			});
-		});
-*/
+		}
+
 	} catch (err) {
 
-		console.error(err.stack);
+		console.log(err.stack);
 	}
 }

@@ -17,6 +17,10 @@ var JQUERY = require("./jquery");
   });
 })(JQUERY);
 
+exports.API = {
+	Q: Q,
+	JQUERY: JQUERY
+};
 
 // TODO: Uncomment once bundler supports bundling css files
 //var WIDGET_CSS = require("./widget.css");
@@ -31,6 +35,9 @@ var Widget = exports.Widget = function () {
 
 
     var insightEncoder = INSIGHT_ENCODER.Encoder();
+    insightEncoder.setOption("maxObjectDepth", 10);
+    insightEncoder.setOption("maxArrayDepth", 10);
+    insightEncoder.setOption("maxOverallDepth", 20);
 
 
 	self.API = {
@@ -111,8 +118,8 @@ Widget.prototype.attach = function (domNode) {
 				console.log("Loading tests ...");
 
 				// TODO: Load from remote URL.
-				require.sandbox("http://fireconsole.github.io/widget.console/tests/bundles/tests.js", function(TESTS_BUNDLE) {
-//				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
+//				require.sandbox("http://fireconsole.github.io/widget.console/tests/bundles/tests.js", function(TESTS_BUNDLE) {
+				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
 
 					return TESTS_BUNDLE.main(self.API, function (err) {
 						if (err) {
@@ -136,10 +143,6 @@ Widget.prototype.attach = function (domNode) {
 					return loadTests();
 				}
 			}).then(function () {
-
-console.log("self.loader", self.loader);
-
-
 				return self.loader.registerApi("tests.load", function (args) {
 					return loadTests();
 				});
@@ -148,7 +151,8 @@ console.log("self.loader", self.loader);
 
 			return RECEIVERS.init({
 				API: {
-					Q: Q
+					Q: Q,
+					insight: self.API.insight
 				},
 				callApi: self.loader.callApi.bind(self.loader)
 			}).then(function (receiversApi) {
@@ -158,7 +162,7 @@ console.log("self.loader", self.loader);
 			});
 
 		}).then(function () {
-			return deferred.resolve(self.loader);
+			return deferred.resolve(self.API);
 		}).fail(function (err) {
 			console.error(err.stack);
 			return deferred.reject(err);
