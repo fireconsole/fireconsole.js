@@ -134,16 +134,27 @@ exports.init = function (context) {
 		return Q.resolve();
 	}).then(function () {
 		return context.registerApi("console.log", function (args) {
-
+			var message = null;
+			var meta = {};
+			if (Array.isArray(args.args)) {
+				message = args.args[0];
+				meta = args.args[1] || {};
+			} else {
+				message = args.args;
+			}
 			if (/^\{"origin":\{/.test(args.args)) {
 
 				logMessageToPanelNode({
-					meta: {},
-					og: args.args
+					meta: meta,
+					og: message
 				});
 			} else {
 
-				$('<div>' + args.args + '</div>').appendTo(panelNode);
+				if (meta.prepend === true) {
+					$('<div>' + message + '</div>').prependTo(panelNode);
+				} else {
+					$('<div>' + message + '</div>').appendTo(panelNode);
+				}
 			}
 			return Q.resolve();
 		});
