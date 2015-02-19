@@ -135,13 +135,16 @@ exports.init = function (context) {
 	}).then(function () {
 		return context.registerApi("console.log", function (args) {
 
-//			$('<div>' + JSON.stringify(args.args) + '</div>').appendTo(panelNode);
+			if (/^\{"origin":\{/.test(args.args)) {
 
-			logMessageToPanelNode({
-				meta: {},
-				og: args.args
-			});
+				logMessageToPanelNode({
+					meta: {},
+					og: args.args
+				});
+			} else {
 
+				$('<div>' + args.args + '</div>').appendTo(panelNode);
+			}
 			return Q.resolve();
 		});
 	}).then(function () {
