@@ -40,6 +40,11 @@ var Widget = exports.Widget = function () {
     insightEncoder.setOption("maxOverallDepth", 20);
 
 
+	self.loader = null;
+
+	self.widgetIndex = (widgetIndex = widgetIndex + 1);
+	self.widgetId = "fcwid_" + self.widgetIndex;
+
 	self.API = {
 		Q: Q,
 		JQUERY: JQUERY,
@@ -66,11 +71,6 @@ var Widget = exports.Widget = function () {
 			encode: insightEncoder.encode.bind(insightEncoder)
 		}
     };
-
-	self.loader = null;
-
-	self.widgetIndex = (widgetIndex = widgetIndex + 1);
-	self.widgetId = "fcwid_" + self.widgetIndex;
 }
 
 Widget.prototype.logLine = function (source, context, args) {
@@ -151,6 +151,7 @@ Widget.prototype.attach = function (domNode) {
 
 			return RECEIVERS.init({
 				API: {
+					id: self.widgetId,
 					Q: Q,
 					insight: self.API.insight
 				},

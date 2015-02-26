@@ -180,6 +180,13 @@ function ensureTemplatePacks()
         templatePacks.byid["apiexplore"] = PACK;
         templatePacks.list.push(PACK);
     }
+
+    PACK = require("insight.renderers.default/columnexplore/pack");
+    if (!templatePacks.byid["columnexplore"])
+    {
+        templatePacks.byid["columnexplore"] = PACK;
+        templatePacks.list.push(PACK);
+    }
 }
 
 var commonHelpers = {

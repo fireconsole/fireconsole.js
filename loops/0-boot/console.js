@@ -9,7 +9,7 @@ exports.init = function (context) {
 
 	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);
 
-	var viewportNode = $('<div class="' + context.cssPrefix + '-console"></div>').appendTo(context.domNode);
+	var viewportNode = $('<div class="' + context.cssPrefix + '-console container-height"></div>').appendTo(context.domNode);
 	var panelNode = $('<div class="' + context.cssPrefix + '-console-panel"></div>').appendTo(viewportNode);
 
 
@@ -121,7 +121,6 @@ exports.init = function (context) {
 		        }
 		    });
 
-
 		} catch (err) {
 			console.error("Error rendering message to panel node: " + err, err.stack);
 		}
@@ -142,8 +141,9 @@ exports.init = function (context) {
 			} else {
 				message = args.args;
 			}
-			if (/^\{"origin":\{/.test(args.args)) {
-
+			// An insight encoded message.
+			// TODO: Find a more deterministic way to detect insight encoded messages.
+			if (/^\{"origin":\{/.test(message)) {
 				logMessageToPanelNode({
 					meta: meta,
 					og: message
