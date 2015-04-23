@@ -2,6 +2,11 @@
 var WILDFIRE = require("wildfire");
 
 
+// TODO: Relocate this into insight.node.apiexplorer where it will have a client encodingcomponent and a server decoding component as well as renderers.
+var APIEXPLORE = require("./wildfire/apiexplore");
+var COLUMNEXPLORE = require("./wildfire/columnexplore");
+
+
 exports.init = function (context) {
 
 
@@ -40,8 +45,7 @@ exports.init = function (context) {
 		};
     }
 
-
-    return context.API.Q.resolve({
+    var api = {
     	wildfire: {
     		fireconsole: {
 	    		send: makeSendForSenderId("wildfire/fireconsole")
@@ -54,5 +58,10 @@ exports.init = function (context) {
 		    	}
 	    	}
     	}
-    });
+    };
+
+    api.wildfire.fireconsole.apiexplorer = new APIEXPLORE(context, api);
+    api.wildfire.fireconsole.columnexplorer = new COLUMNEXPLORE(context, api);
+
+    return context.API.Q.resolve(api);
 }

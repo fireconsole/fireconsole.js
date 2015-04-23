@@ -12,6 +12,12 @@ function runTest (API, name) {
 		} else
 		if (name === "02-Wildfire-Insight-Console-Random") {
 			return callback(null, require("./02-Wildfire-Insight-Console-Random"));
+		} else
+		if (name === "03-Wildfire-Insight-ApiExplore") {
+			return callback(null, require("./03-Wildfire-Insight-ApiExplore"));
+		} else
+		if (name === "04-Wildfire-Insight-ColumnExplore") {
+			return callback(null, require("./04-Wildfire-Insight-ColumnExplore"));
 		} else {
 			return callback(new Error("Action: You need to add 'require(\"./" + name + "\")' to this module!"));
 		}
@@ -49,7 +55,9 @@ exports.main = function (API, callback) {
 
 	[
 		"01-Wildfire-FireConsole-Init",
-		"02-Wildfire-Insight-Console-Random"
+		"02-Wildfire-Insight-Console-Random",
+		"03-Wildfire-Insight-ApiExplore",
+		"04-Wildfire-Insight-ColumnExplore"
 	].forEach(function (name) {
 		return done = Q.when(done, function () {
 			return runTest(API, name);

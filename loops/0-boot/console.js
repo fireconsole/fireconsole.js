@@ -9,7 +9,7 @@ exports.init = function (context) {
 
 	var menuNode = $('.' + context.cssPrefix + '-menu', context.domNode);
 
-	var viewportNode = $('<div class="' + context.cssPrefix + '-console"></div>').appendTo(context.domNode);
+	var viewportNode = $('<div class="' + context.cssPrefix + '-console container-height"></div>').appendTo(context.domNode);
 	var panelNode = $('<div class="' + context.cssPrefix + '-console-panel"></div>').appendTo(viewportNode);
 
 
@@ -44,7 +44,7 @@ exports.init = function (context) {
 		        view: ["summary"],
 		        wrapper: {
 				    id: "github.com/insight/insight.renderers.default/",
-				    module: "insight/wrappers/console"
+				    module: "apiexplore/wrappers/console"
 				},
 		        on: {
 		            inspectMessage: function(message) {
@@ -59,7 +59,7 @@ exports.init = function (context) {
 		        },
 		        callback: function(domNode) {
 
-console.log("render done", domNode);
+//console.log("render done", domNode);
 /*
 		        	// TODO: Relocate all this into domNode.templateObject.postRender();
 					if(typeof message.meta["group.start"] != "undefined") {
@@ -121,7 +121,6 @@ console.log("render done", domNode);
 		        }
 		    });
 
-
 		} catch (err) {
 			console.error("Error rendering message to panel node: " + err, err.stack);
 		}
@@ -134,14 +133,29 @@ console.log("render done", domNode);
 		return Q.resolve();
 	}).then(function () {
 		return context.registerApi("console.log", function (args) {
+			var message = null;
+			var meta = {};
+			if (Array.isArray(args.args)) {
+				message = args.args[0];
+				meta = args.args[1] || {};
+			} else {
+				message = args.args;
+			}
+			// An insight encoded message.
+			// TODO: Find a more deterministic way to detect insight encoded messages.
+			if (/^\{"origin":\{/.test(message)) {
+				logMessageToPanelNode({
+					meta: meta,
+					og: message
+				});
+			} else {
 
-//			$('<div>' + JSON.stringify(args.args) + '</div>').appendTo(panelNode);
-
-			logMessageToPanelNode({
-				meta: {},
-				og: args.args
-			});
-
+				if (meta.prepend === true) {
+					$('<div>' + message + '</div>').prependTo(panelNode);
+				} else {
+					$('<div>' + message + '</div>').appendTo(panelNode);
+				}
+			}
 			return Q.resolve();
 		});
 	}).then(function () {

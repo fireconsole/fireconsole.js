@@ -33,7 +33,7 @@
 		"q": "~1.1.2"
 	},
     "scripts": {
-        "install": "ls -al node_modules ; echo 'run install...'; printenv ; ../node_modules/.bin/smi install -vd"
+        "install": "../node_modules/.bin/smi install"
     },
     "config": {
 	    "smi.cli": {

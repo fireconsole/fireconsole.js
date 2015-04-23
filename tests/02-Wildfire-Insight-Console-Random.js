@@ -1,26 +1,34 @@
 
+const Q = require("q");
+
+
 exports.run = function (API) {
 
-    var subData = {
-        name: "value"
-    };
+    function logSomeData () {
 
-    var data = {
-        name: "value",
-        func: function testFunction(arg)
-        {
-            return {
-                key: "value"
-            };
-        },
-        subData: JSON.stringify(subData)
-    };
+        var subData = {
+            name: "value"
+        };
 
-    var og = API.insight.encode(data, {}, {});
+        var data = {
+            name: "value",
+            func: function testFunction(arg)
+            {
+                return {
+                    key: "value"
+                };
+            },
+            subData: JSON.stringify(subData)
+        };
 
-	return API.wildfire.insight.console.random.send(og);
+        var og = API.insight.encode(data, {}, {});
+
+        return API.wildfire.insight.console.random.send(og);
+    }
 
 
-//	console.log("Running hello world main!");
-//	API.console.log("Hello World");
+    return logSomeData().then(function () {
+
+        API.console.log("Hello World");
+    });
 }

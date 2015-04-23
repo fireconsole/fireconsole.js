@@ -4,10 +4,12 @@
   "version": "0.0.0",
   "main": "./wildfire.js",
   "mappings": {
-      "wildfire": "./node_modules/wildfire-for-js",
-      "modules": "../loops/node_modules/fp-modules-for-nodejs"
+    "md5": "./node_modules/blueimp-md5",
+    "wildfire": "./node_modules/wildfire-for-js",
+    "modules": "../loops/node_modules/fp-modules-for-nodejs"
   },
   "dependencies": {
-  	"wildfire-for-js": "0.1.x"
+    "blueimp-md5": "^1.1.0",
+    "wildfire-for-js": "0.1.x"
   }
 }
