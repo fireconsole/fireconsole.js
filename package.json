@@ -10,7 +10,7 @@
     "smi.cli": "0.x"
   },
   "scripts": {
-    "install": "./node_modules/.bin/smi install",
+    "install": "install.sh",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "publish": "node scripts/publish.js",
