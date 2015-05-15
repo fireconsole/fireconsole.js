@@ -16,17 +16,17 @@ function init {
 #	popd > /dev/null
 
 
-	pushd "$__BO_DIR__/../loops" > /dev/null
+	pushd "$__BO_DIR__/loops" > /dev/null
 		BO_log "$VERBOSE" "Install using npm in: `pwd`"
 		npm install --unsafe-perm
 	popd > /dev/null
 
-	pushd "$__BO_DIR__/../receivers" > /dev/null
+	pushd "$__BO_DIR__/receivers" > /dev/null
 		BO_log "$VERBOSE" "Install using npm in: `pwd`"
 		npm install
 	popd > /dev/null
 
-	pushd "$__BO_DIR__/../server" > /dev/null
+	pushd "$__BO_DIR__/server" > /dev/null
 		BO_log "$VERBOSE" "Install using npm in: `pwd`"
 		npm install
 	popd > /dev/null
