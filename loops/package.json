@@ -23,7 +23,7 @@
         	"depends": [
         		"domplate"
         	],
-        	"location": "https://github.com/insight/insight.renderers.default/archive/v0.0.1.tar.gz"
+        	"location": "../.deps/github.com~insight~insight.renderers.default"
         }
 	},
 	"dependencies": {

@@ -6,8 +6,8 @@
   "main": "./server.js",
   "dependencies": {
     "express": "^4.7.2",
-    "node-sass": "^2.0.0-beta",
-    "pinf-for-nodejs": "0.1.x",
+    "node-sass": "^3.10.1",
+    "pinf-for-nodejs": "0.6.x",
     "send": "^0.7.3"
   }
 }

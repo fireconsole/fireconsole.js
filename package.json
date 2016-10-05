@@ -5,9 +5,8 @@
   "private": true,
   "dependencies": {
     "bash.origin": "0.1.x",
-    "pinf-to-github-pages": "0.1.x",
-    "shelljs": "~0.3.0",
-    "smi.cli": "0.x"
+    "shelljs": "~0.7.4",
+    "smi.cli": "0.35.1"
   },
   "scripts": {
     "install": "sh install.sh",

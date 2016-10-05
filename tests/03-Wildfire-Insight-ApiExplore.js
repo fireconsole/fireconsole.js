@@ -38,7 +38,7 @@ exports.run = function (API) {
 
                     return context1.request({
                         uri: "user/login",
-                        data: "user/login/data"
+                        data: "user/login/getData"
                     }).then(function(requestId) {
 
                         console.log("Login");
@@ -61,13 +61,13 @@ exports.run = function (API) {
                             return context1.update(data1).then(function () {
 
                                 return context1.context(meta2, {
-                                    "user-data-get": {
-                                        label: "User Data Get",
+                                    "get-user-data": {
+                                        label: "Get User Data",
                                         command: function () {
-                                            console.log("User Data Get!");
+                                            console.log("Get User Data!");
 
                                             return context2.request({
-                                                uri: "user/data/get/request",
+                                                uri: "get/user/data/request",
                                                 data: {
                                                     userId: "userId/value"
                                                 }

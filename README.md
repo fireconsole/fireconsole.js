@@ -1,13 +1,14 @@
-widget.console
+fireconsole.js
 ==============
 
-Initial implementation of a dynamic console widget leveraging the [PINF JavaScript Loader](https://github.com/pinf/pinf-loader-js) to load all program components.
+Initial implementation of a dynamic console widget leveraging the
+[PINF JavaScript Loader](https://github.com/pinf/pinf-loader-js) to load all program components.
 
 
 Demo
 ----
 
-[fireconsole.github.io/widget.console](http://fireconsole.github.io/widget.console/)
+[fireconsole.github.io/fireconsole.js](http://fireconsole.github.io/fireconsole.js/)
 
 
 Usage
@@ -15,13 +16,7 @@ Usage
 
 ### Install
 
-    bin/install.sh
-
-### Enter Workspace
-
-    source bin/activate.sh
-    # TODO: Document env (i.e. available commands, dependency versions etc...)
-    # TODO: Launch workspace editor
+    ./install.sh
 
 ### Run
 
@@ -41,7 +36,10 @@ Usage
 Directory Structure
 -------------------
 
-Upon running the *demo server*, sources from the following directorie are automatically assembled into bundles using the [pinf-it-bundler](https://github.com/pinf-it/pinf-it-bundler) build system. These bundles are then loaded and booted in the client by the [PINF JavaScript Loader](https://github.com/pinf/pinf-loader-js).
+Upon running the *demo server*, sources from the following directories are automatically
+assembled into bundles using the [pinf-it-bundler](https://github.com/pinf-it/pinf-it-bundler)
+build system. These bundles are then loaded and booted in the client by the
+[PINF JavaScript Loader](https://github.com/pinf/pinf-loader-js).
 
   * `/demo` - Full demo of the widget that loads the full test suite.
   * `/tests` - Full test suite of all officially supported features.
@@ -57,4 +55,3 @@ Legal
 =====
 
   * Code: [MIT License](http://opensource.org/licenses/mit-license.php)
-

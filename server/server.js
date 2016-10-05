@@ -59,7 +59,7 @@ return PINF.main(function(options, callback) {
 */
 	app.get(/^\/lib\/pinf-loader-js\/(.+)$/, function (req, res, next) {
 		return SEND(req, req.params[0], {
-			root: PATH.join(__dirname, "node_modules/pinf-for-nodejs/node_modules/pinf-loader-js")
+			root: PATH.dirname(require.resolve("pinf-loader-js/package.json"))
 		}).on("error", next).pipe(res);
 	});
 
@@ -78,7 +78,7 @@ return PINF.main(function(options, callback) {
     })));
 
 	app.get(/^(\/.*)$/, function (req, res, next) {
-		var path = req.params[0];		
+		var path = req.params[0];
 		if (path === "/") path = "/index.html";
 		return SEND(req, path, {
 			root: PATH.join(__dirname, "www")
@@ -93,4 +93,3 @@ return PINF.main(function(options, callback) {
 	}, 2 * 1000);
 
 }, module);
-
