@@ -73,6 +73,8 @@ function init {
 								ensureDep "git@github.com:pinf/pinf-for-nodejs.git" "github.com~pinf~pinf-for-nodejs" "pinf-for-nodejs"
 								ensureDep "git@github.com:pinf/pinf-loader-js.git" "github.com~pinf~pinf-loader-js" "pinf-loader-js"
 								ensureDep "git@github.com:insight/insight.renderers.default.git" "github.com~insight~insight.renderers.default" "insight.renderers.default"
+								ensureDep "git@github.com:insight/insight-for-js.git" "github.com~insight~insight-for-js" "insight-for-js"
+
 								BO_format "$VERBOSE" "FOOTER"
 						popd > /dev/null
 

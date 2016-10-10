@@ -5,6 +5,6 @@
     "q": "../loops/node_modules/q",
     "loops": "../loops",
     "receivers": "../receivers",
-    "insight": "../loops/node_modules/insight-for-js"
+    "insight": "../.deps/github.com~insight~insight-for-js"
   }
 }

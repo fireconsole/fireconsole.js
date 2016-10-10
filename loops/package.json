@@ -16,7 +16,7 @@
         	"depends": [
         		"insight-for-js"
         	],
-        	"location": "./node_modules/insight-for-js"
+        	"location": "../.deps/github.com~insight~insight-for-js"
         },
 		"domplate": "./node_modules/domplate",
 		"insight.renderers.default":  {

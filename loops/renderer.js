@@ -96,61 +96,62 @@ function doSynchronizedappendMessageToNode(supervisor, domNode, message)
         callback: function(domNode)
         {
         	// TODO: Relocate all this into domNode.templateObject.postRender();
-			if(typeof message.meta["group.start"] != "undefined") {
-			    // get reference to body of last added console row
-			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
+    			if(typeof message.meta["group.start"] != "undefined") {
+    			    // get reference to body of last added console row
+    			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
 
-			    // insert further messages into group
-			    supervisor.groupStack.push(node);
-			    // expand group if requested
-			    if(typeof message.meta["group.expand"] && message.meta["group.expand"]==message.meta["group"] && node.parentNode) {
-			        node.parentNode.setAttribute("expanded", "true");
-			    }
-			}
-			if(typeof message.meta["group.end"] != "undefined") {
-			    var count = message.meta["group.end"];
-			    if(count===true) {
-			        count = 1;
-			    }
-			    for( var i=0 ; i<count ; i++ ) {
-			        var groupStartNode = supervisor.groupStack.pop();
-					if(groupStartNode.parentNode.templateObject) {
-						groupStartNode.parentNode.templateObject.setCount(groupStartNode.parentNode, groupStartNode.children.length);
-					}
-			    }
-			}
-			if(typeof message.meta["expand"] != "undefined" && message.meta["expand"]) {
-			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
-			    if(node.parentNode && node.parentNode.templateObject) {
-			        node.parentNode.templateObject.expandForMasterRow(node.parentNode, node);
-			    }
-			    else
-			    	console.error("NYI - expand for message - in " + module.id);
-			}
-			if(typeof message.meta["actions"] != "undefined" && message.meta["actions"] == false) {
-			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "actions");
-			    if (node)
-			    	node.style.display = "none";
-			}
+    			    // insert further messages into group
+    			    supervisor.groupStack.push(node);
+    			    // expand group if requested
+    			    if(typeof message.meta["group.expand"] && message.meta["group.expand"]==message.meta["group"] && node.parentNode) {
+    			        node.parentNode.setAttribute("expanded", "true");
+    			    }
+    			}
+    			if(typeof message.meta["group.end"] != "undefined") {
+    			    var count = message.meta["group.end"];
+    			    if(count===true) {
+    			        count = 1;
+    			    }
+    			    for( var i=0 ; i<count ; i++ ) {
+  			        var groupStartNode = supervisor.groupStack.pop();
+      					if (groupStartNode.parentNode.templateObject) {
+                  
+  						      groupStartNode.parentNode.templateObject.setCount(groupStartNode.parentNode, groupStartNode.children.length);
+      					}
+    			    }
+    			}
+    			if(typeof message.meta["expand"] != "undefined" && message.meta["expand"]) {
+    			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "body");
+    			    if(node.parentNode && node.parentNode.templateObject) {
+    			        node.parentNode.templateObject.expandForMasterRow(node.parentNode, node);
+    			    }
+    			    else
+    			    	console.error("NYI - expand for message - in " + module.id);
+    			}
+    			if(typeof message.meta["actions"] != "undefined" && message.meta["actions"] == false) {
+    			    var node = DOMPLATE_UTIL.getElementByClass(domNode, "actions");
+    			    if (node)
+    			    	node.style.display = "none";
+    			}
 
-			try {
-				if (
-                    domNode.children[0] &&
-                    domNode.children[0].templateObject &&
-                    domNode.children[0].templateObject.postRender
-                ) {
-					domNode.children[0].templateObject.postRender(domNode.children[0]);
-                }
-			} catch(e) {
-				console.warn("Error during template postRender", e, e.stack);
-			}
+    			try {
+      				if (
+                  domNode.children[0] &&
+                  domNode.children[0].templateObject &&
+                  domNode.children[0].templateObject.postRender
+              ) {
+				         domNode.children[0].templateObject.postRender(domNode.children[0]);
+              }
+    			} catch(e) {
+  				    console.warn("Error during template postRender", e, e.stack);
+    			}
 
-			if (supervisor._appendMessageToNode__queue.length > 0)
-			{
-				doSynchronizedappendMessageToNode.apply(null, [supervisor].concat(supervisor._appendMessageToNode__queue.shift()));
-			}
-			else
-				supervisor._appendMessageToNode__queue = false;
+    			if (supervisor._appendMessageToNode__queue.length > 0) {
+				      doSynchronizedappendMessageToNode.apply(null, [supervisor].concat(supervisor._appendMessageToNode__queue.shift()));
+    			}
+    			else {
+		         supervisor._appendMessageToNode__queue = false;
+          }
         }
     });
 }
@@ -200,12 +201,12 @@ var commonHelpers = {
     util: UTIL.copy(DOMPLATE_UTIL),
     getTemplateForId: function(id)
     {
-//console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");    	
+//console.error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
         throw new Error("NYI - commonHelpers.getTemplateForid (in " + module.id + ")");
     },
     getTemplateModuleForNode: function(node)
     {
-//console.log("getTemplateModuleForNode()", node);        
+//console.log("getTemplateModuleForNode()", node);
     	try {
 	        ensureTemplatePacks();
 	        var found;
@@ -217,7 +218,7 @@ var commonHelpers = {
 	        // Match message-based renderers
 	        if (node === ogNode && meta && meta.renderer)
 	        {
-//console.log("getTemplateModuleForNode() - meta.renderer");        
+//console.log("getTemplateModuleForNode() - meta.renderer");
         		if (!node.meta) node.meta = {};
 	        	var pack = false;
 	        	var id = "http://registry.pinf.org/cadorn.org/renderers/packages/insight/0";
@@ -236,7 +237,7 @@ var commonHelpers = {
 	        // Match message-based language primitives
 	        if (!found && meta && meta["lang.id"])
 	        {
-//console.log("getTemplateModuleForNode() - meta['lang.id']");        
+//console.log("getTemplateModuleForNode() - meta['lang.id']");
 	        	if (meta["lang.id"] == "registry.pinf.org/cadorn.org/github/renderers/packages/php/master")
 	        	{
 	        		found = templatePacks.byid["php"].getTemplateForNode(node);
@@ -252,7 +253,7 @@ var commonHelpers = {
 	        else
 	    	if (!found)
 	        {
-//console.log("getTemplateModuleForNode() - !found");        
+//console.log("getTemplateModuleForNode() - !found");
 		        for (var i=templatePacks.list.length-1 ; i>=0 ; i--)
 		        {
 		            if (typeof templatePacks.list[i].getTemplateForNode == "function" &&
@@ -272,6 +273,10 @@ var commonHelpers = {
     },
     getTemplateForNode: function(node)
     {
+        if (!node) {
+            throw new Error("No node specified!");
+        }
+
         var template = commonHelpers.getTemplateModuleForNode(node);
         if(!template)
             return false;
@@ -293,12 +298,12 @@ var commonHelpers = {
     	if (/^memory:\/\//.test(bravojs.url))
     	{
     		var pathId = module._id.split("@/")[0];		// TODO: Don't use _id here
-    		
+
     		var m = pathId.match(/devcomp\/data\/packages\.jar!\/(.*)$/),
     			url;
     		if (m)
     		{
-    			// we are bundled    		    
+    			// we are bundled
     			url = "resource://" + LOADER.getAPI().ENV.platformOptions.jetpackID.replace("@", "-at-") + "-i-packages" + "/" + m[1] + "/resources/";
     		} else
     		if (pathId.charAt(0) === "/") {
@@ -317,11 +322,11 @@ var commonHelpers = {
     logger: {
         log: function()
         {
-            console.log.apply(console, arguments);            
+            console.log.apply(console, arguments);
         },
         error: function()
         {
-            console.error.apply(console, arguments);            
+            console.error.apply(console, arguments);
         }
     }
 };
@@ -367,305 +372,317 @@ exports.replaceNodeForNode = function(domNode, node, options)
 
 function renderMessage(domNode, message, options, mode)
 {
-    options = options || {};
-    options.view = options.view || ["summary"];
-    options.on = options.on || {};
+    try {
+        options = options || {};
+        options.view = options.view || ["summary"];
+        options.on = options.on || {};
 
-//console.log("renderMessage", domNode, message, options, mode);
+    //console.log("renderMessage", domNode, message, options, mode);
 
-    var helpers = UTIL.copy(commonHelpers);
-    helpers.helpers = helpers;
-    helpers.document = domNode.ownerDocument;
-    helpers.dispatchEvent = function(name, args)
-    {
-        if (typeof options.on[name] != "undefined")
-            options.on[name](args[1].message, args[1].args);
-    };
-
-    message = UTIL.copy(message);
-
-    if (typeof message.meta == "string")
-        message.meta = JSON.decode(message.meta);
-
-    if (typeof message === "string")
-    {
-        if (mode == "append")
+        var helpers = UTIL.copy(commonHelpers);
+        helpers.helpers = helpers;
+        helpers.document = domNode.ownerDocument;
+        helpers.dispatchEvent = function(name, args)
         {
-            var div = domNode.ownerDocument.createElement("div");
-            div.setAttribute("class", "message");
-            div.innerHTML = message;
-            domNode.appendChild(div);
-        }
-        else
-        if (mode == "replace")
+            if (typeof options.on[name] != "undefined")
+                options.on[name](args[1].message, args[1].args);
+        };
+
+        message = UTIL.copy(message);
+
+        if (typeof message.meta == "string")
+            message.meta = JSON.decode(message.meta);
+
+        if (typeof message === "string")
         {
-        	domNode.innerHTML = message;
-        }
-        else
-            throw new Error("NYI");
-        return;
-    }
-
-    if (typeof message.og == "undefined" && typeof message.node == "undefined")
-    {
-        if (typeof message.data != "undefined")
-        {
-            // we have data set but no template. try and determine which template to use.
-            var encoder = ENCODER.Encoder();
-            message.og = encoder.encode(message.data, {}, {});
-        }
-        else
-            throw new Error("NYI");
-    }
-
-    if (typeof message.og == "string")
-    {
-    	message.originalOg = message.og;
-        message.og = DECODER.generateFromMessage({
-        	meta: message.meta,
-            data: message.og
-        }, DECODER.EXTENDED);
-        message.meta = message.og.getMeta();
-    }
-
-    if (typeof message.og == "object")
-    {
-    	message.og.setMeta(message.meta);
-    	message.og.message = message;
-    }
-
-    if (typeof message.ogPath !== "undefined")
-    {
-    	return renderMessage(domNode, {
-			node: message.og.nodeForPath(message.ogPath)
-		}, options, "replace");
-    }
-
-//console.log("message", message);
-    
-    if (typeof message.template == "undefined")
-    {
-        if (typeof message.og == "object")
-        {
-            var template = helpers.getTemplateModuleForNode(message.og.getOrigin());
-            if (!template)
-                throw new Error("Unable to locate template for ObjectGraph!");
-//console.log("template based on message.og");
-            message.template = template.getTemplateLocator();
-        }
-        else
-        if (typeof message.node != "undefined")
-        {
-            var template = helpers.getTemplateModuleForNode(message.node);
-            if (!template)
-                throw new Error("Unable to locate template for node!");
-//console.log("template based on message.node");
-            message.template = template.getTemplateLocator();
-        }
-        else
-            throw new Error("NYI");
-    }
-
-    if (typeof message.template != "undefined")
-    {
-        // ASSUMPTION: module.mappings["templates"] resolves to 'github.com/insight/insight.renderers.default/' package
-        // TODO: Arbitrary template loading via authorization callback
-        if (typeof message.template.id != "undefined" && message.template.id != "github.com/insight/insight.renderers.default/")
-            throw new Error("Only templates from 'github.com/insight/insight.renderers.default/' are supported at this time!");
-
-        function render(template)
-        {
-            var div;
-
             if (mode == "append")
             {
-                div = domNode.ownerDocument.createElement("div");
+                var div = domNode.ownerDocument.createElement("div");
                 div.setAttribute("class", "message");
+                div.innerHTML = message;
+                domNode.appendChild(div);
             }
             else
             if (mode == "replace")
             {
-                div = domNode;
-                div.innerHTML = "";
+            	domNode.innerHTML = message;
             }
             else
                 throw new Error("NYI");
-
-            function renderWrapped(div, view)
-            {
-
-//console.log("renderWrapped()");
-//console.log("options.wrapper", options.wrapper);
-//console.log("message", message);
-
-            	// Nothing to render for groups. Child nodes have already been inserted.
-            	// TODO: Maybe do not insert child nodes until expanding?
-            	if (message.meta && typeof message.meta["group.start"] !== "undefined" && message.meta["group.start"])
-            		return;
-
-            	options = UTIL.copy(options);
-                if (typeof view != "undefined")
-                    options.view = view;
-
-                if (typeof options.view != "array")
-                    options.view = [options.view];
-
-                if (typeof message.og != "undefined")
-                {
-                    if (typeof template.renderObjectGraphToNode == "undefined")
-                        throw new Error("Template module '" + message.template.module + "' from '" + message.template.id + "' does not export 'renderObjectGraphToNode'!");
-                    template.renderObjectGraphToNode(message.og.getOrigin(), div, options, helpers);
-                }
-
-/*
-                else
-                if (typeof message.data != "undefined")
-                {
-                    if (typeof template.renderDataToNode == "undefined")
-                        throw new Error("Template module '" + message.template.module + "' from '" + message.template.id + "' does not export 'renderDataToNode'!");
-                    template.renderDataToNode(message.data, div, options, helpers);
-                }
-*/
-                else
-                    throw new Error("NYI");
-            }
-
-            if (mode == "append")
-            {
-            	domNode.appendChild(div);
-            }
-            
-            if (typeof options.wrapper != "undefined")
-            {
-                if (options.wrapper.id != "github.com/insight/insight.renderers.default/")
-                    throw new Error("Only wrappers from 'github.com/insight/insight.renderers.default/' are supported at this time!");
-
-                function doRenderWrapped(id)
-                {
-                	message.render = renderWrapped;
-                	try {
-                		message.template = template.getTemplate(helpers);
-                	} catch (err) {
-                		console.warn("Error getting template", err.stack);
-                	}
-                	message.meta = message.meta || {};
-//console.log("ID", id);
-                	try {
-                		require("insight.renderers.default/lib/" + id).renderMessage(message, div, options, helpers);
-                	} catch (err) {
-                		console.warn("Error rendering message", err.stack);
-                	}
-
-                	if (typeof options.callback === "function")
-                    	options.callback(div);
-                }
-
-//console.log("load WRAPPER 1", "insight.renderers.default/lib/" + options.wrapper.module);
-//console.log("require", require);
-
-                doRenderWrapped(options.wrapper.module);
-/*
-                var wrapperId = require.id("insight.renderers.default/lib/" + options.wrapper.module);
-
-console.log("wrapperId", wrapperId);
-
-                if (renderWrappers[wrapperId] && Q.isPromise(renderWrappers[wrapperId])) {
-					Q.when(renderWrappers[wrapperId], doRenderWrapped);
-                }
-                else {
-//                else if (renderWrappers[wrapperId] || require.isMemoized(wrapperId)) {
-                	doRenderWrapped(wrapperId);
-            	}
-*/
-/*                
-                else {
-throw new Error("TODO: Implement dynamic loading of templates.");                    
-                	var result = Q.defer();           
-
-console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper.module);
-                    module.load("insight.renderers.default/lib/" + options.wrapper.module, function(id)
-                    {
-                    	doRenderWrapped(id);
-                    	renderWrappers[wrapperId] = true;
-                    	result.resolve(id);
-                    });
-                    renderWrappers[wrapperId] = result.promise;
-                }
-*/
-            }
-            else
-                renderWrapped(div);
-        }
-
-        if (typeof message.template.getTemplate == "function")
-        {
-            render(message.template.getTemplate());
             return;
         }
 
-        var tplId = message.template.id + "|" + message.template.module;
-
-//console.log("message", message);        
-//console.log("tplId", tplId);
-
-        if (modules[tplId] && RELOADING)
+        if (typeof message.og == "undefined" && typeof message.node == "undefined")
         {
-            // TODO: This can probably move down to remove modules right after included as in "comm"
-            // remove all modules for this template from previous loads
-            modules[tplId][0].forEach(function(id)
+            if (typeof message.data != "undefined")
             {
-//                delete getBravoJS().pendingModuleDeclarations[id];
-//                delete getBravoJS().requireMemo[id];
-            });
-            delete modules[tplId];
+                // we have data set but no template. try and determine which template to use.
+                var encoder = ENCODER.Encoder();
+                message.og = encoder.encode(message.data, {}, {});
+            }
+            else
+                throw new Error("NYI");
         }
 
-        if (!modules[tplId])
+        if (typeof message.og == "string")
         {
-//            modules[tplId] = [Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo))];
-//console.log("lod module dynamiclly!", message.template.module);
+        	message.originalOg = message.og;
+            message.og = DECODER.generateFromMessage({
+            	meta: message.meta,
+                data: message.og
+            }, DECODER.EXTENDED);
+            message.meta = message.og.getMeta();
+        }
 
-//console.log("INSIGHT_RENDERERS_DEFAULT", INSIGHT_RENDERERS_DEFAULT);
+        if (typeof message.og == "object")
+        {
+        	message.og.setMeta(message.meta);
+        	message.og.message = message;
+        }
 
-//console.log("LOAD MODULE ASYNC", "insight.renderers.default/" + message.template.module);
+        if (typeof message.ogPath !== "undefined")
+        {
+        	return renderMessage(domNode, {
+    			node: message.og.nodeForPath(message.ogPath)
+    		}, options, "replace");
+        }
 
-            // TODO: Use `require.async` to load templates dynamically. For now they are already memoized by the pack helper by including them statically.
-            var template = require(("insight.renderers.default/lib/" + message.template.module).replace("/lib/lib/", "/lib/"));
-//console.log("template", template);
-/*
-            moduleload("templates/" + message.template.module, function(id)
+    //console.log("message", message);
+
+        if (typeof message.template == "undefined")
+        {
+            if (typeof message.og == "object")
             {
-            	var template = modules[tplId][1] = require(id);
+                var o = message.og.getOrigin();
+                if (!o) {
+                    console.log("MESSAGE", message, message.og);
+                    throw new Error("Origin is empty!");
+                }
+                var template = helpers.getTemplateModuleForNode(o);
+                if (!template)
+                    throw new Error("Unable to locate template for ObjectGraph!");
+    //console.log("template based on message.og");
+                message.template = template.getTemplateLocator();
+            }
+            else
+            if (typeof message.node != "undefined")
+            {
+                if (!message.node) {
+                    throw new Error("message.node is empty!");
+                }
+                var template = helpers.getTemplateModuleForNode(message.node);
+                if (!template)
+                    throw new Error("Unable to locate template for node!");
+    //console.log("template based on message.node");
+                message.template = template.getTemplateLocator();
+            }
+            else
+                throw new Error("NYI");
+        }
 
-                if (typeof template.getTemplatePack == "function")
+        if (typeof message.template != "undefined")
+        {
+            // ASSUMPTION: module.mappings["templates"] resolves to 'github.com/insight/insight.renderers.default/' package
+            // TODO: Arbitrary template loading via authorization callback
+            if (typeof message.template.id != "undefined" && message.template.id != "github.com/insight/insight.renderers.default/")
+                throw new Error("Only templates from 'github.com/insight/insight.renderers.default/' are supported at this time!");
+
+            function render(template)
+            {
+                var div;
+
+                if (mode == "append")
                 {
+                    div = domNode.ownerDocument.createElement("div");
+                    div.setAttribute("class", "message");
+                }
+                else
+                if (mode == "replace")
+                {
+                    div = domNode;
+                    div.innerHTML = "";
+                }
+                else
+                    throw new Error("NYI");
+
+                function renderWrapped(div, view)
+                {
+
+    //console.log("renderWrapped()");
+    //console.log("options.wrapper", options.wrapper);
+    //console.log("message", message);
+
+                	// Nothing to render for groups. Child nodes have already been inserted.
+                	// TODO: Maybe do not insert child nodes until expanding?
+                	if (message.meta && typeof message.meta["group.start"] !== "undefined" && message.meta["group.start"])
+                		return;
+
+                	options = UTIL.copy(options);
+                    if (typeof view != "undefined")
+                        options.view = view;
+
+                    if (typeof options.view != "array")
+                        options.view = [options.view];
+
+                    if (typeof message.og != "undefined")
+                    {
+                        if (typeof template.renderObjectGraphToNode == "undefined")
+                            throw new Error("Template module '" + message.template.module + "' from '" + message.template.id + "' does not export 'renderObjectGraphToNode'!");
+                        template.renderObjectGraphToNode(message.og.getOrigin(), div, options, helpers);
+                    }
+
+    /*
+                    else
+                    if (typeof message.data != "undefined")
+                    {
+                        if (typeof template.renderDataToNode == "undefined")
+                            throw new Error("Template module '" + message.template.module + "' from '" + message.template.id + "' does not export 'renderDataToNode'!");
+                        template.renderDataToNode(message.data, div, options, helpers);
+                    }
+    */
+                    else
+                        throw new Error("NYI");
+                }
+
+                if (mode == "append")
+                {
+                	domNode.appendChild(div);
+                }
+
+                if (typeof options.wrapper != "undefined")
+                {
+                    if (options.wrapper.id != "github.com/insight/insight.renderers.default/")
+                        throw new Error("Only wrappers from 'github.com/insight/insight.renderers.default/' are supported at this time!");
+
+                    function doRenderWrapped(id)
+                    {
+                    	message.render = renderWrapped;
+                    	try {
+                    		message.template = template.getTemplate(helpers);
+                    	} catch (err) {
+                    		console.warn("Error getting template", err.stack);
+                    	}
+                    	message.meta = message.meta || {};
+    //console.log("ID", id);
+                    	try {
+                    		require("insight.renderers.default/lib/" + id).renderMessage(message, div, options, helpers);
+                    	} catch (err) {
+                    		console.warn("Error rendering message", err.stack);
+                    	}
+
+                    	if (typeof options.callback === "function")
+                        	options.callback(div);
+                    }
+
+    //console.log("load WRAPPER 1", "insight.renderers.default/lib/" + options.wrapper.module);
+    //console.log("require", require);
+
+                    doRenderWrapped(options.wrapper.module);
+    /*
+                    var wrapperId = require.id("insight.renderers.default/lib/" + options.wrapper.module);
+
+    console.log("wrapperId", wrapperId);
+
+                    if (renderWrappers[wrapperId] && Q.isPromise(renderWrappers[wrapperId])) {
+    					Q.when(renderWrappers[wrapperId], doRenderWrapped);
+                    }
+                    else {
+    //                else if (renderWrappers[wrapperId] || require.isMemoized(wrapperId)) {
+                    	doRenderWrapped(wrapperId);
+                	}
+    */
+    /*
+                    else {
+    throw new Error("TODO: Implement dynamic loading of templates.");
+                    	var result = Q.defer();
+
+    console.log("load WRAPPER 2", "insight.renderers.default/lib/" + options.wrapper.module);
+                        module.load("insight.renderers.default/lib/" + options.wrapper.module, function(id)
+                        {
+                        	doRenderWrapped(id);
+                        	renderWrappers[wrapperId] = true;
+                        	result.resolve(id);
+                        });
+                        renderWrappers[wrapperId] = result.promise;
+                    }
+    */
+                }
+                else
+                    renderWrapped(div);
+            }
+
+            if (typeof message.template.getTemplate == "function")
+            {
+                render(message.template.getTemplate());
+                return;
+            }
+
+            var tplId = message.template.id + "|" + message.template.module;
+
+    //console.log("message", message);
+    //console.log("tplId", tplId);
+
+            if (modules[tplId] && RELOADING)
+            {
+                // TODO: This can probably move down to remove modules right after included as in "comm"
+                // remove all modules for this template from previous loads
+                modules[tplId][0].forEach(function(id)
+                {
+    //                delete getBravoJS().pendingModuleDeclarations[id];
+    //                delete getBravoJS().requireMemo[id];
+                });
+                delete modules[tplId];
+            }
+
+            if (!modules[tplId])
+            {
+    //            modules[tplId] = [Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo))];
+    //console.log("lod module dynamiclly!", message.template.module);
+
+    //console.log("INSIGHT_RENDERERS_DEFAULT", INSIGHT_RENDERERS_DEFAULT);
+
+    //console.log("LOAD MODULE ASYNC", "insight.renderers.default/" + message.template.module);
+
+                // TODO: Use `require.async` to load templates dynamically. For now they are already memoized by the pack helper by including them statically.
+                var template = require(("insight.renderers.default/lib/" + message.template.module).replace("/lib/lib/", "/lib/"));
+    //console.log("template", template);
+    /*
+                moduleload("templates/" + message.template.module, function(id)
+                {
+                	var template = modules[tplId][1] = require(id);
+
+                    if (typeof template.getTemplatePack == "function")
+                    {
+                        var templatePack = template.getTemplatePack();
+                        if (templatePacks.list.indexOf(templatePack) === -1)
+                            templatePacks.list.push(templatePack);
+                    }
+
+                    render(template);
+
+                    // compute all newly added modules
+                    modules[tplId][0] = Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo)).filter(function(id)
+                    {
+                        return (modules[tplId][0].indexOf(id) === -1);
+                    });
+                });
+    */
+
+                if (typeof template.getTemplatePack == "function") {
                     var templatePack = template.getTemplatePack();
-                    if (templatePacks.list.indexOf(templatePack) === -1)
+                    if (templatePacks.list.indexOf(templatePack) === -1) {
                         templatePacks.list.push(templatePack);
+                    }
                 }
 
                 render(template);
-
-                // compute all newly added modules
-                modules[tplId][0] = Object.keys(getBravoJS().pendingModuleDeclarations).concat(Object.keys(getBravoJS().requireMemo)).filter(function(id)
-                {
-                    return (modules[tplId][0].indexOf(id) === -1);
-                });
-            });
-*/            
-
-            if (typeof template.getTemplatePack == "function") {
-                var templatePack = template.getTemplatePack();
-                if (templatePacks.list.indexOf(templatePack) === -1) {
-                    templatePacks.list.push(templatePack);
-                }
             }
-
-            render(template);
+            else
+                render(modules[tplId][1]);
         }
         else
-            render(modules[tplId][1]);
+            throw new Error("NYI");
+    } catch (err) {
+        console.error("error rendering message", err);
     }
-    else
-        throw new Error("NYI");
 }
