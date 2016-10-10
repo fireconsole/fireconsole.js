@@ -132,7 +132,20 @@ exports.init = function (context) {
 
 		return Q.resolve();
 	}).then(function () {
+
+		return context.registerApi("console.log.firephp", function (message) {
+
+console.log("LOG FirePHP MESSAGE!!!", message);
+
+				logMessageToPanelNode(message);
+
+		});
+
+
+	}).then(function () {
+
 		return context.registerApi("console.log", function (args) {
+
 			var message = null;
 			var meta = {};
 			if (Array.isArray(args.args)) {
@@ -195,5 +208,3 @@ exports.init = function (context) {
 	});
 
 }
-
-

@@ -32,9 +32,6 @@
 		"domplate": "0.2.x",
 		"q": "~1.1.2"
 	},
-    "scripts": {
-        "install": "../node_modules/.bin/smi install"
-    },
     "config": {
 	    "smi.cli": {
 	        "packagesDirectory": "node_modules"

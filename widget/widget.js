@@ -119,7 +119,8 @@ Widget.prototype.attach = function (domNode) {
 
 				// TODO: Load from remote URL.
 //				require.sandbox("http://fireconsole.github.io/widget.console/tests/bundles/tests.js", function(TESTS_BUNDLE) {
-				require.sandbox("/tests.js", function(TESTS_BUNDLE) {
+
+        require.sandbox("http://localhost:8081/fireconsole/tests.js", function(TESTS_BUNDLE) {
 
 					return TESTS_BUNDLE.main(self.API, function (err) {
 						if (err) {
@@ -133,6 +134,7 @@ Widget.prototype.attach = function (domNode) {
 					console.error("Error loading tests", err.stack);
 					deferred.reject(err);
 				});
+
 				return deferred.promise;
 			}
 
@@ -172,4 +174,3 @@ Widget.prototype.attach = function (domNode) {
 
 	return deferred.promise;
 }
-
