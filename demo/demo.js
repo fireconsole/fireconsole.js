@@ -40,7 +40,7 @@ exports.main = function (domNodeId) {
 
 				});
 			}).then(function () {
-
+/*
 				var consoleWidget2 = new CONSOLE_WIDGET.Widget();
 
 				// TODO: Load jQuery via PINF bundler.
@@ -49,7 +49,7 @@ exports.main = function (domNodeId) {
 					return context.fireconsole.callApi("tests.load").then(function () {
 
 					});
-
+*/
 /*
 					return context.fireconsole.callApi("menu.close").then(function () {
 						return context.fireconsole.callApi("view.show", {
@@ -57,7 +57,9 @@ exports.main = function (domNodeId) {
 						});
 					});
 */
-				});
+//				});
+
+				return null;
 			});
 		}
 

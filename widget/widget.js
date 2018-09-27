@@ -120,7 +120,7 @@ Widget.prototype.attach = function (domNode) {
 				// TODO: Load from remote URL.
 //				require.sandbox("http://fireconsole.github.io/widget.console/tests/bundles/tests.js", function(TESTS_BUNDLE) {
 
-        require.sandbox("http://localhost:8081/fireconsole/tests.js", function(TESTS_BUNDLE) {
+        require.sandbox("http://localhost:8080/tests.js", function(TESTS_BUNDLE) {
 
 					return TESTS_BUNDLE.main(self.API, function (err) {
 						if (err) {

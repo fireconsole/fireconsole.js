@@ -55,9 +55,9 @@ exports.main = function (API, callback) {
 
 	[
 		"01-Wildfire-FireConsole-Init",
-		"02-Wildfire-Insight-Console-Random",
-//		"03-Wildfire-Insight-ApiExplore",
-//		"04-Wildfire-Insight-ColumnExplore"
+//		"02-Wildfire-Insight-Console-Random",
+		"03-Wildfire-Insight-ApiExplore",
+		"04-Wildfire-Insight-ColumnExplore"
 	].forEach(function (name) {
 		return done = Q.when(done, function () {
 			return runTest(API, name);

@@ -4,12 +4,12 @@
   "version": "0.0.0",
   "private": true,
   "dependencies": {
-    "bash.origin": "0.1.x",
+    "bash.origin": "^0.1.45",
     "shelljs": "~0.7.4",
     "smi.cli": "0.35.1"
   },
   "scripts": {
-    "install": "sh install.sh",
+    "install": "./install.sh",
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
     "publish": "node scripts/publish.js",

@@ -21,7 +21,8 @@ BODY {
 	position: absolute;
 	top: 5%;
 	left: 2%;
-	width: 47%;
+/*	width: 47%;*/
+	width: 96%;
 	height: 89%;
 	border: 1px solid black;
 }
